@@ -130,8 +130,11 @@ class HeartRateRunnerView extends Ui.DataField {
     function drawValues(dc) {
         var width = dc.getWidth();
     	var height = dc.getHeight();
+        var paceKMl = getMinutesPerKmOrMile(computeAverageSpeed());
+        var avgPaceKMl = getMinutesPerKmOrMile(avgSpeed);
         
-        //time
+        
+        /*//time
         var clockTime = System.getClockTime();
         var time, ampm;
         if (is24Hour) {
@@ -140,7 +143,7 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             time = Lang.format("$1$:$2$", [computeHour(clockTime.hour), clockTime.min.format("%.2d")]);
             ampm = (clockTime.hour < 12) ? "am" : "pm";
-        }
+        }*/
         
         /*//pace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
@@ -155,7 +158,8 @@ class HeartRateRunnerView extends Ui.DataField {
         
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 140, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
+        dc.drawText(60, 140, VALUE_FONT, paceKMl, CENTER);
+        dc.drawText(109, 140, VALUE_FONT, ".", CENTER);
         
         //distance
         var distStr;
@@ -237,7 +241,7 @@ class HeartRateRunnerView extends Ui.DataField {
 
 		// headers:
         dc.setColor(headerColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 60, HEADER_FONT, paceStr, CENTER);
+        dc.drawText(60, 60, HEADER_FONT, hrStr, CENTER);
         dc.drawText(70, 172, HEADER_FONT, avgPaceStr, CENTER);
         dc.drawText(167, 60, HEADER_FONT, distanceStr, CENTER);
         dc.drawText(155, 172, HEADER_FONT, durationStr, CENTER);

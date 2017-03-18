@@ -43,8 +43,12 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var elapsedTime = 0;
     hidden var zoneId = 0;
     hidden var secondsInZone = [0, 0, 0, 0, 0, 0];
-    hidden var maxHr = Application.getApp().getProperty("maxHr");
-	hidden var zoneLowerBound = [Application.getApp().getProperty("zone1"), Application.getApp().getProperty("zone2"), Application.getApp().getProperty("zone3"), Application.getApp().getProperty("zone4"), Application.getApp().getProperty("zone5")];
+    
+    /* TODO return to profile reading when debugging done */
+    //hidden var maxHr = Application.getApp().getProperty("maxHr");
+    hidden var maxHr = 200;
+	//hidden var zoneLowerBound = [Application.getApp().getProperty("zone1"), Application.getApp().getProperty("zone2"), Application.getApp().getProperty("zone3"), Application.getApp().getProperty("zone4"), Application.getApp().getProperty("zone5")];
+    hidden var zoneLowerBound = [113, 139, 155, 165, 174];
     
     
     hidden var hasBackgroundColorOption = false;
@@ -138,9 +142,16 @@ class HeartRateRunnerView extends Ui.DataField {
             ampm = (clockTime.hour < 12) ? "am" : "pm";
         }
         
-        //pace
+        /*//pace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(60, 85, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER);
+        */
+
+        //hr
+        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(60, 85, VALUE_FONT, hr.format("%d"), CENTER);
+
+        
         
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
@@ -182,15 +193,12 @@ class HeartRateRunnerView extends Ui.DataField {
         } 
         dc.drawText(155, 140, VALUE_FONT, duration, CENTER);
         
-        //signs background
+        /*//signs background
         dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(0,180,width,38);
+        dc.fillRectangle(0,180,width,38);*/
         
-        //hr
-		dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(109, 197, Graphics.FONT_LARGE, hr.format("%d"), CENTER);
         
-        // time
+        /*// time
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(width/2, height/2 - 7, Graphics.FONT_NUMBER_MILD, time, CENTER);
         
@@ -199,7 +207,8 @@ class HeartRateRunnerView extends Ui.DataField {
         dc.setPenWidth(1);
         dc.drawLine(0, height/2 + 7, width, height/2 + 7);
         dc.drawLine(0, 180, width, 180);
-        
+        */
+
         //Arcs
 		var zone = drawZoneBarsArcs(dc, (height/2)+1, width/2, height/2, hr); //radius, center x, center y
 		

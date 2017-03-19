@@ -19,6 +19,7 @@ class HeartRateRunner extends App.AppBase {
 class HeartRateRunnerView extends Ui.DataField {
 
     hidden const CENTER = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
+    hidden const LEFT = Graphics.TEXT_JUSTIFY_LEFT;
     hidden const HEADER_FONT = Graphics.FONT_XTINY;
     hidden const VALUE_FONT = Graphics.FONT_NUMBER_MEDIUM;
     hidden const ZERO_TIME = "0:00";
@@ -130,8 +131,8 @@ class HeartRateRunnerView extends Ui.DataField {
     function drawValues(dc) {
         var width = dc.getWidth();
     	var height = dc.getHeight();
-        var paceKMl = getMinutesPerKmOrMile(computeAverageSpeed());
-        var avgPaceKMl = getMinutesPerKmOrMile(avgSpeed);
+        //var pc = getMinutesPerKmOrMile(computeAverageSpeed());
+        //var apc = getMinutesPerKmOrMile(avgSpeed);
         
         
         /*//time
@@ -158,8 +159,17 @@ class HeartRateRunnerView extends Ui.DataField {
         
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 140, VALUE_FONT, paceKMl, CENTER);
-        dc.drawText(109, 140, VALUE_FONT, ".", CENTER);
+        dc.drawText(60, 140, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
+        var diff = avgSpeed-computeAverageSpeed();
+        //var threshold = 1/(15*1000); 
+        if(diff>0){
+            diff = "+";
+        } else if(diff<0){
+            diff = "-";
+        } else {
+            diff = "";
+        }
+        dc.drawText(100, 140, Graphics.FONT_MEDIUM, diff.toString(), CENTER);
         
         //distance
         var distStr;

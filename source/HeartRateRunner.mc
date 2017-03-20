@@ -39,11 +39,13 @@ class HeartRateRunnerView extends Ui.DataField {
     
     hidden var paceData = new DataQueue(10);
     hidden var avgSpeed= 0;
+    hidden var currentSpeed = 0;
     hidden var hr = 0;
     hidden var distance = 0;
     hidden var elapsedTime = 0;
     hidden var zoneId = 0;
     hidden var secondsInZone = [0, 0, 0, 0, 0, 0];
+    hidden var debug = 2; // debug
     
     /* TODO return to profile reading when debugging done */
     //hidden var maxHr = Application.getApp().getProperty("maxHr");
@@ -67,6 +69,7 @@ class HeartRateRunnerView extends Ui.DataField {
         }
         
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
+        currentSpeed = info.currentSpeed != null ? info.currentSpeed : 0;
         elapsedTime = info.elapsedTime != null ? info.elapsedTime : 0;        
         hr = info.currentHeartRate != null ? info.currentHeartRate : 0;
         distance = info.elapsedDistance != null ? info.elapsedDistance : 0;
@@ -76,6 +79,13 @@ class HeartRateRunnerView extends Ui.DataField {
 				secondsInZone[zoneId] += 1;
 			}
 		}
+
+        // force debug
+        debug+=.1;
+        if(debug>4){debug = 2;}
+        avgSpeed = 3;
+        currentSpeed = debug;
+
 	}
 	
 	function getZoneIdForHr(hr) {
@@ -130,10 +140,7 @@ class HeartRateRunnerView extends Ui.DataField {
         
     function drawValues(dc) {
         var width = dc.getWidth();
-    	var height = dc.getHeight();
-        //var pc = getMinutesPerKmOrMile(computeAverageSpeed());
-        //var apc = getMinutesPerKmOrMile(avgSpeed);
-        
+    	var height = dc.getHeight();       
         
         /*//time
         var clockTime = System.getClockTime();
@@ -153,23 +160,29 @@ class HeartRateRunnerView extends Ui.DataField {
 
         //hr
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 85, VALUE_FONT, hr.format("%d"), CENTER);
-
-        
+        dc.drawText(60, 85, VALUE_FONT, getMinutesPerKmOrMile(currentSpeed)/*hr.format("%d")*/, CENTER);
+                
         
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(60, 140, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
-        var diff = avgSpeed-computeAverageSpeed();
-        //var threshold = 1/(15*1000); 
-        if(diff>0){
-            diff = "+";
-        } else if(diff<0){
-            diff = "-";
-        } else {
-            diff = "";
-        }
-        dc.drawText(100, 140, Graphics.FONT_MEDIUM, diff.toString(), CENTER);
+        //var diff = avgSpeed-computeAverageSpeed();
+        
+
+        /*if(currentSpeed-avgSpeed>0){
+            var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0;
+            var avg = avgSpeed>0 ? kmOrMileInMeters/avgSpeed : 0;
+            var diff = ((current-avg)/15).toNumber(); // how many times do we differ by 15 from the average pace? 
+            dc.drawText(110, 130, Graphics.FONT_MEDIUM, diff.toString(), CENTER);
+            /*if(diff>0){
+                diff = "+";
+            } else if(diff<0){
+                diff = "-";
+            } 
+        }*/
+
+        drawPaceDiff(dc);
+        
         
         //distance
         var distStr;
@@ -259,6 +272,46 @@ class HeartRateRunnerView extends Ui.DataField {
         	dc.drawText(109, 25, HEADER_FONT, hrStr + " " + zone, CENTER);
         }
     }
+
+    function drawPaceDiff(dc){
+        if((currentSpeed-avgSpeed).abs()>0 ){
+            var x = 90; var y = 125; // coordinates of the diff indicator
+            var pitch = 8; 
+
+            var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0;
+            var avg = avgSpeed>0 ? kmOrMileInMeters/avgSpeed : 0;
+            // how many times do we differ by 15 s from the average pace? 
+            var diff = ((current-avg)/15).toNumber();
+            var step = 1;
+            
+            if(diff>0){ // faster = avg pace > pace
+                y += 35;
+                step = -step;
+                pitch = -pitch;
+            }
+
+            var i = diff.abs();
+            if(i>3){i=3;}
+            
+            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+            while(i>=0){    
+                //dc.fillRectangle(x, y, 5, 4);
+                dc.fillPolygon([[x,y],[x+6, y],[x+3,y+6*step]]);
+                y+=pitch;
+                i--;
+            }
+        }
+    }
+
+/*    function drawDiffSymbol(x, y){
+
+
+
+        //var triangle = [[x, y], [x+pitch, y], [x+pitch/2, y+w]];
+    
+        //if (diff<0){ triangle[2, 1] = y-w;}
+
+    }*/
     
     function computeAverageSpeed() {
         var size = 0;

@@ -183,7 +183,7 @@ class HeartRateRunnerView extends Ui.DataField {
 
         drawPaceDiff(dc);
         
-        
+        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
         //distance
         var distStr;
         if (distance > 0) {
@@ -275,8 +275,8 @@ class HeartRateRunnerView extends Ui.DataField {
 
     function drawPaceDiff(dc){
         if((currentSpeed-avgSpeed).abs()>0 ){
-            var x = 90; var y = 125; // coordinates of the diff indicator
-            var pitch = 8; 
+            var x = 95; var y = 125; // coordinates of the diff indicator
+            var pitch = 10; 
 
             var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0;
             var avg = avgSpeed>0 ? kmOrMileInMeters/avgSpeed : 0;
@@ -284,19 +284,22 @@ class HeartRateRunnerView extends Ui.DataField {
             var diff = ((current-avg)/15).toNumber();
             var step = 1;
             
+            dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
+
             if(diff>0){ // faster = avg pace > pace
-                y += 35;
+                y += 40;
                 step = -step;
                 pitch = -pitch;
+                dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
             }
 
             var i = diff.abs();
-            if(i>3){i=3;}
+            if(i>2){i=2;}
             
-            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+            
             while(i>=0){    
                 //dc.fillRectangle(x, y, 5, 4);
-                dc.fillPolygon([[x,y],[x+6, y],[x+3,y+6*step]]);
+                dc.fillPolygon([[x,y],[x+8, y],[x+4,y+8*step]]);
                 y+=pitch;
                 i--;
             }

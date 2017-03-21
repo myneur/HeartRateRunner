@@ -38,14 +38,17 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
     
     hidden var paceData = new DataQueue(10);
-    hidden var avgSpeed= 0;
+    hidden var hrData = new DataQueue(60);
+    //hidden var hrLastData = new DataQue(15);
+    //hidden var hrInterval = 10;
+    //hidden var hrPosition = 0;
+    hidden var avgSpeed = 0;
     hidden var currentSpeed = 0;
     hidden var hr = 0;
     hidden var distance = 0;
     hidden var elapsedTime = 0;
     hidden var zoneId = 0;
     hidden var secondsInZone = [0, 0, 0, 0, 0, 0];
-    hidden var debug = 2; // debug
     
     /* TODO return to profile reading when debugging done */
     //hidden var maxHr = Application.getApp().getProperty("maxHr");
@@ -67,6 +70,8 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             paceData.reset();
         }
+        //hrLastData.add(info.currentHeartRate);
+        hrData.add(info.currentHeartRate);
         
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
         currentSpeed = info.currentSpeed != null ? info.currentSpeed : 0;
@@ -79,13 +84,6 @@ class HeartRateRunnerView extends Ui.DataField {
 				secondsInZone[zoneId] += 1;
 			}
 		}
-
-        // force debug
-        debug+=.1;
-        if(debug>4){debug = 2;}
-        avgSpeed = 3;
-        currentSpeed = debug;
-
 	}
 	
 	function getZoneIdForHr(hr) {
@@ -141,49 +139,19 @@ class HeartRateRunnerView extends Ui.DataField {
     function drawValues(dc) {
         var width = dc.getWidth();
     	var height = dc.getHeight();       
-        
-        /*//time
-        var clockTime = System.getClockTime();
-        var time, ampm;
-        if (is24Hour) {
-            time = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%.2d")]);
-            ampm = "";
-        } else {
-            time = Lang.format("$1$:$2$", [computeHour(clockTime.hour), clockTime.min.format("%.2d")]);
-            ampm = (clockTime.hour < 12) ? "am" : "pm";
-        }*/
-        
-        /*//pace
-        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 85, VALUE_FONT, getMinutesPerKmOrMile(computeAverageSpeed()), CENTER);
-        */
 
         //hr
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 85, VALUE_FONT, getMinutesPerKmOrMile(currentSpeed)/*hr.format("%d")*/, CENTER);
+        dc.drawText(155, 85, VALUE_FONT, hr.format("%d"), CENTER); // debug
+        drawHrChart(dc);
                 
-        
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(60, 140, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
-        //var diff = avgSpeed-computeAverageSpeed();
-        
-
-        /*if(currentSpeed-avgSpeed>0){
-            var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0;
-            var avg = avgSpeed>0 ? kmOrMileInMeters/avgSpeed : 0;
-            var diff = ((current-avg)/15).toNumber(); // how many times do we differ by 15 from the average pace? 
-            dc.drawText(110, 130, Graphics.FONT_MEDIUM, diff.toString(), CENTER);
-            /*if(diff>0){
-                diff = "+";
-            } else if(diff<0){
-                diff = "-";
-            } 
-        }*/
-
         drawPaceDiff(dc);
         
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
+        
         //distance
         var distStr;
         if (distance > 0) {
@@ -196,7 +164,8 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             distStr = ZERO_DISTANCE;
         }
-        dc.drawText(155 , 85, VALUE_FONT, distStr, CENTER);
+        //dc.drawText(155 , 85, VALUE_FONT, distStr, CENTER);
+        dc.drawText(109 , 30, VALUE_FONT, distStr, CENTER);
         
         //duration
         var duration;
@@ -220,58 +189,23 @@ class HeartRateRunnerView extends Ui.DataField {
         } 
         dc.drawText(155, 140, VALUE_FONT, duration, CENTER);
         
-        /*//signs background
-        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
-        dc.fillRectangle(0,180,width,38);*/
-        
-        
-        /*// time
-        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width/2, height/2 - 7, Graphics.FONT_NUMBER_MILD, time, CENTER);
-        
-        //grid 
-        dc.setColor(lineColor, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(1);
-        dc.drawLine(0, height/2 + 7, width, height/2 + 7);
-        dc.drawLine(0, 180, width, 180);
-        */
+
 
         //Arcs
 		var zone = drawZoneBarsArcs(dc, (height/2)+1, width/2, height/2, hr); //radius, center x, center y
-		
-		//time in zone
-		var timeInZone;
-		if (zoneId >= 0 && secondsInZone[zoneId] != null && secondsInZone[zoneId] > 0) {
-            var hours = null;
-            var minutes = secondsInZone[zoneId]/ 60;
-            var seconds = secondsInZone[zoneId] - (60 * minutes);
-            
-            if (minutes >= 60) {
-                hours = minutes / 60;
-                minutes = minutes % 60;
-            }
-            
-            if (hours == null) {
-                timeInZone = minutes.format("%d") + ":" + seconds.format("%02d");
-            } else {
-                timeInZone = hours.format("%d") + ":" + minutes.format("%02d") + ":" + seconds.format("%02d");
-            }
-            dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        	dc.drawText(109, 43, Graphics.FONT_MEDIUM, timeInZone, CENTER);
-        } else {
-            timeInZone = ZERO_TIME;
-        }
 
 		// headers:
         dc.setColor(headerColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 60, HEADER_FONT, hrStr, CENTER);
+        //dc.drawText(60, 60, HEADER_FONT, hrStr, CENTER);
         dc.drawText(70, 172, HEADER_FONT, avgPaceStr, CENTER);
-        dc.drawText(167, 60, HEADER_FONT, distanceStr, CENTER);
+        //dc.drawText(167, 60, HEADER_FONT, distanceStr, CENTER);
         dc.drawText(155, 172, HEADER_FONT, durationStr, CENTER);
-        if(zone != 0){
+        /*if(zone != 0){
         	dc.drawText(109, 25, HEADER_FONT, hrStr + " " + zone, CENTER);
-        }
+        }*/
     }
+
+
 
     function drawPaceDiff(dc){
         if((currentSpeed-avgSpeed).abs()>0 ){
@@ -284,13 +218,13 @@ class HeartRateRunnerView extends Ui.DataField {
             var diff = ((current-avg)/15).toNumber();
             var step = 1;
             
-            dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
-
+            
+            dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
             if(diff>0){ // faster = avg pace > pace
                 y += 40;
                 step = -step;
                 pitch = -pitch;
-                dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
+                dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
             }
 
             var i = diff.abs();
@@ -298,23 +232,12 @@ class HeartRateRunnerView extends Ui.DataField {
             
             
             while(i>=0){    
-                //dc.fillRectangle(x, y, 5, 4);
                 dc.fillPolygon([[x,y],[x+8, y],[x+4,y+8*step]]);
                 y+=pitch;
                 i--;
             }
         }
     }
-
-/*    function drawDiffSymbol(x, y){
-
-
-
-        //var triangle = [[x, y], [x+pitch, y], [x+pitch/2, y+w]];
-    
-        //if (diff<0){ triangle[2, 1] = y-w;}
-
-    }*/
     
     function computeAverageSpeed() {
         var size = 0;
@@ -330,6 +253,31 @@ class HeartRateRunnerView extends Ui.DataField {
             return sumOfData / size;
         }
         return 0.0;
+    }
+
+    function drawHrChart(dc){
+        var data = hrData.getData();
+        var position = hrData.lastPosition();
+        var max = data.size();
+        var x = 10; var y = 120;
+        var h;
+        dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(2);
+        var offset = hr-30;
+        if(offset<0){offset = 0;}
+
+        for(var i = max-1; i>=0; i--){
+            h = data[position];
+            if(h != null){
+                if(h>=offset){
+                    dc.drawPoint(x+i*2, y-h+offset);
+                }
+            }
+            position--;
+            if(position<0){
+                position = max-1;
+            }
+        }
     }
     
     function computeHour(hour) {
@@ -475,4 +423,10 @@ class DataQueue {
     function getData() {
         return data;
     }
+
+    function lastPosition(){
+        var i = pos-1;
+        return i<0 ? maxSize-1 : i;
+    }
+
 }

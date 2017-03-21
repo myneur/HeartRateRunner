@@ -10,344 +10,354 @@
 <entry filename="source/HeartRateRunner.mc" lineNum="65" pc="268435530" symbol="compute"/>
 <entry filename="source/HeartRateRunner.mc" lineNum="66" pc="268435543" symbol="compute"/>
 <entry filename="source/HeartRateRunner.mc" lineNum="68" pc="268435572" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="71" pc="268435590" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="72" pc="268435627" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="73" pc="268435664" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="74" pc="268435701" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="75" pc="268435738" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="76" pc="268435775" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="77" pc="268435788" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="78" pc="268435821" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="79" pc="268435838" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="84" pc="268435872" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="85" pc="268435891" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="85" pc="268435908" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="86" pc="268435924" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="87" pc="268435937" symbol="compute"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="91" pc="268435954" symbol="getZoneIdForHr"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="92" pc="268435958" symbol="getZoneIdForHr"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="93" pc="268435958" symbol="getZoneIdForHr"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="94" pc="268436021" symbol="getZoneIdForHr"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="97" pc="268436025" symbol="onLayout"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="98" pc="268436029" symbol="onLayout"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="99" pc="268436041" symbol="onLayout"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="102" pc="268436056" symbol="onUpdate"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="103" pc="268436060" symbol="onUpdate"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="104" pc="268436072" symbol="onUpdate"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="105" pc="268436085" symbol="onUpdate"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="106" pc="268436098" symbol="onUpdate"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="107" pc="268436126" symbol="onUpdate"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="109" pc="268436152" symbol="onUpdate"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="112" pc="268436167" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="113" pc="268436171" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="115" pc="268436187" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="116" pc="268436216" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="117" pc="268436240" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="119" pc="268436256" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="121" pc="268436269" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="123" pc="268436298" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="124" pc="268436341" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="125" pc="268436384" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="126" pc="268436427" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="127" pc="268436470" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="130" pc="268436514" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="131" pc="268436518" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="132" pc="268436529" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="133" pc="268436548" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="134" pc="268436607" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="135" pc="268436666" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="136" pc="268436725" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="137" pc="268436784" symbol="setColors"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="141" pc="268436847" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="142" pc="268436851" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="143" pc="268436864" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="162" pc="268436877" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="163" pc="268436909" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="167" pc="268436966" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="168" pc="268436998" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="184" pc="268437055" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="186" pc="268437069" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="188" pc="268437105" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="189" pc="268437105" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="190" pc="268437122" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="191" pc="268437141" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="192" pc="268437152" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="194" pc="268437173" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="197" pc="268437194" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="199" pc="268437204" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="202" pc="268437244" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="203" pc="268437244" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="204" pc="268437277" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="205" pc="268437280" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="206" pc="268437302" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="208" pc="268437324" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="209" pc="268437335" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="210" pc="268437345" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="213" pc="268437358" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="214" pc="268437365" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="216" pc="268437409" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="219" pc="268437476" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="221" pc="268437486" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="240" pc="268437526" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="243" pc="268437579" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="244" pc="268437579" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="245" pc="268437650" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="246" pc="268437653" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="247" pc="268437678" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="249" pc="268437706" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="250" pc="268437717" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="251" pc="268437727" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="254" pc="268437740" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="255" pc="268437747" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="257" pc="268437791" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="259" pc="268437855" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="260" pc="268437887" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="262" pc="268437934" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="266" pc="268437944" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="267" pc="268437976" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="268" pc="268438022" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="269" pc="268438068" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="270" pc="268438114" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="271" pc="268438160" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="272" pc="268438171" symbol="drawValues"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="276" pc="268438230" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="277" pc="268438234" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="278" pc="268438269" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="278" pc="268438276" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="279" pc="268438283" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="281" pc="268438290" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="282" pc="268438334" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="284" pc="268438378" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="285" pc="268438400" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="287" pc="268438407" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="289" pc="268438443" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="290" pc="268438454" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="291" pc="268438464" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="292" pc="268438474" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="293" pc="268438484" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="296" pc="268438523" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="297" pc="268438536" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="297" pc="268438547" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="300" pc="268438557" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="302" pc="268438568" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="303" pc="268438709" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="304" pc="268438716" symbol="drawPaceDiff"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="319" pc="268438733" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="320" pc="268438737" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="321" pc="268438744" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="322" pc="268438763" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="323" pc="268438770" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="324" pc="268438794" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="325" pc="268438804" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="326" pc="268438814" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="329" pc="268438840" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="330" pc="268438851" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="332" pc="268438860" symbol="computeAverageSpeed"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="335" pc="268438867" symbol="computeHour"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="336" pc="268438871" symbol="computeHour"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="337" pc="268438882" symbol="computeHour"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="339" pc="268438894" symbol="computeHour"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="340" pc="268438905" symbol="computeHour"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="342" pc="268438917" symbol="computeHour"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="345" pc="268438921" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="346" pc="268438925" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="347" pc="268438946" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="348" pc="268438956" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="349" pc="268438969" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="350" pc="268438982" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="351" pc="268438995" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="353" pc="268439038" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="358" pc="268439048" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="360" pc="268439052" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="362" pc="268439138" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="363" pc="268439138" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="364" pc="268439201" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="365" pc="268439212" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="368" pc="268439225" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="371" pc="268439262" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="372" pc="268439298" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="373" pc="268439318" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="375" pc="268439366" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="376" pc="268439402" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="377" pc="268439422" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="379" pc="268439470" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="380" pc="268439506" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="381" pc="268439526" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="383" pc="268439574" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="384" pc="268439610" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="385" pc="268439630" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="387" pc="268439678" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="388" pc="268439714" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="389" pc="268439734" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="391" pc="268439782" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="392" pc="268439825" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="393" pc="268439880" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="394" pc="268439916" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="395" pc="268439933" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="396" pc="268439990" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="397" pc="268440026" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="398" pc="268440043" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="400" pc="268440140" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="401" pc="268440195" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="402" pc="268440231" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="403" pc="268440248" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="404" pc="268440305" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="405" pc="268440341" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="406" pc="268440358" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="408" pc="268440455" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="409" pc="268440510" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="410" pc="268440546" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="411" pc="268440563" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="412" pc="268440620" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="413" pc="268440656" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="414" pc="268440673" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="416" pc="268440770" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="417" pc="268440825" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="418" pc="268440861" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="419" pc="268440878" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="420" pc="268440935" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="421" pc="268440971" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="422" pc="268440988" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="424" pc="268441079" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="425" pc="268441122" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="426" pc="268441158" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="427" pc="268441175" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="428" pc="268441192" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="430" pc="268441252" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="432" pc="268441309" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="433" pc="268441345" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="434" pc="268441362" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="435" pc="268441379" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="437" pc="268441433" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="441" pc="268441487" symbol="drawZoneBarsArcs"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="455" pc="268441491" symbol="initialize"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="456" pc="268441495" symbol="initialize"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="457" pc="268441506" symbol="initialize"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="461" pc="268441517" symbol="add"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="462" pc="268441521" symbol="add"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="463" pc="268441540" symbol="add"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="467" pc="268441572" symbol="reset"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="468" pc="268441576" symbol="reset"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="469" pc="268441606" symbol="reset"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="471" pc="268441631" symbol="reset"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="475" pc="268441645" symbol="getData"/>
-<entry filename="source/HeartRateRunner.mc" lineNum="476" pc="268441649" symbol="getData"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="70" pc="268435590" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="72" pc="268435616" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="73" pc="268435653" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="74" pc="268435690" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="75" pc="268435727" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="76" pc="268435764" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="77" pc="268435801" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="78" pc="268435814" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="79" pc="268435847" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="80" pc="268435864" symbol="compute"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="85" pc="268435899" symbol="getZoneIdForHr"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="86" pc="268435903" symbol="getZoneIdForHr"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="87" pc="268435903" symbol="getZoneIdForHr"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="88" pc="268435966" symbol="getZoneIdForHr"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="91" pc="268435970" symbol="onLayout"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="92" pc="268435974" symbol="onLayout"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="93" pc="268435986" symbol="onLayout"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="96" pc="268436001" symbol="onUpdate"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="97" pc="268436005" symbol="onUpdate"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="98" pc="268436017" symbol="onUpdate"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="99" pc="268436030" symbol="onUpdate"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="100" pc="268436043" symbol="onUpdate"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="101" pc="268436071" symbol="onUpdate"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="103" pc="268436097" symbol="onUpdate"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="106" pc="268436112" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="107" pc="268436116" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="109" pc="268436132" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="110" pc="268436161" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="111" pc="268436185" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="113" pc="268436201" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="115" pc="268436214" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="117" pc="268436243" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="118" pc="268436286" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="119" pc="268436329" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="120" pc="268436372" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="121" pc="268436415" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="124" pc="268436459" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="125" pc="268436463" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="126" pc="268436474" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="127" pc="268436493" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="128" pc="268436552" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="129" pc="268436611" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="130" pc="268436670" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="131" pc="268436729" symbol="setColors"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="135" pc="268436792" symbol="drawOldValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="194" pc="268436796" symbol="drawOldValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="198" pc="268436803" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="199" pc="268436807" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="200" pc="268436820" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="203" pc="268436833" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="204" pc="268436865" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="205" pc="268436925" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="208" pc="268436939" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="209" pc="268436971" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="210" pc="268437028" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="212" pc="268437042" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="215" pc="268437074" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="216" pc="268437074" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="217" pc="268437091" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="218" pc="268437110" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="219" pc="268437121" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="221" pc="268437142" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="224" pc="268437163" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="227" pc="268437173" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="230" pc="268437213" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="231" pc="268437213" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="232" pc="268437246" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="233" pc="268437249" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="234" pc="268437271" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="236" pc="268437293" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="237" pc="268437304" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="238" pc="268437314" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="241" pc="268437327" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="242" pc="268437334" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="244" pc="268437378" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="247" pc="268437445" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="249" pc="268437455" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="254" pc="268437495" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="257" pc="268437548" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="259" pc="268437580" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="261" pc="268437626" symbol="drawValues"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="269" pc="268437673" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="270" pc="268437677" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="271" pc="268437712" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="271" pc="268437719" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="272" pc="268437726" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="274" pc="268437733" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="275" pc="268437777" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="277" pc="268437821" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="278" pc="268437843" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="281" pc="268437850" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="282" pc="268437886" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="283" pc="268437897" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="284" pc="268437907" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="285" pc="268437917" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="286" pc="268437927" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="289" pc="268437966" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="290" pc="268437979" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="290" pc="268437990" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="293" pc="268438000" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="294" pc="268438011" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="295" pc="268438152" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="296" pc="268438159" symbol="drawPaceDiff"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="301" pc="268438176" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="302" pc="268438180" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="303" pc="268438187" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="304" pc="268438206" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="305" pc="268438213" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="306" pc="268438237" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="307" pc="268438247" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="308" pc="268438257" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="311" pc="268438283" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="312" pc="268438294" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="314" pc="268438303" symbol="computeAverageSpeed"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="317" pc="268438310" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="318" pc="268438314" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="319" pc="268438333" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="320" pc="268438352" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="321" pc="268438365" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="321" pc="268438372" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="322" pc="268438379" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="323" pc="268438379" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="324" pc="268438415" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="325" pc="268438432" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="327" pc="268438448" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="328" pc="268438466" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="329" pc="268438473" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="330" pc="268438480" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="331" pc="268438488" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="334" pc="268438519" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="335" pc="268438529" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="336" pc="268438540" symbol="drawHrChart"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="341" pc="268438567" symbol="computeHour"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="342" pc="268438571" symbol="computeHour"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="343" pc="268438582" symbol="computeHour"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="345" pc="268438594" symbol="computeHour"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="346" pc="268438605" symbol="computeHour"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="348" pc="268438617" symbol="computeHour"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="351" pc="268438621" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="352" pc="268438625" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="353" pc="268438646" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="354" pc="268438656" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="355" pc="268438669" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="356" pc="268438682" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="357" pc="268438695" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="359" pc="268438738" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="364" pc="268438748" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="366" pc="268438752" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="368" pc="268438838" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="369" pc="268438838" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="370" pc="268438901" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="371" pc="268438912" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="374" pc="268438925" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="377" pc="268438962" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="378" pc="268438998" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="379" pc="268439018" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="381" pc="268439066" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="382" pc="268439102" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="383" pc="268439122" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="385" pc="268439170" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="386" pc="268439206" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="387" pc="268439226" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="389" pc="268439274" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="390" pc="268439310" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="391" pc="268439330" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="393" pc="268439378" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="394" pc="268439414" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="395" pc="268439434" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="397" pc="268439482" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="398" pc="268439525" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="399" pc="268439580" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="400" pc="268439616" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="401" pc="268439633" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="402" pc="268439690" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="403" pc="268439726" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="404" pc="268439743" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="406" pc="268439840" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="407" pc="268439895" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="408" pc="268439931" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="409" pc="268439948" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="410" pc="268440005" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="411" pc="268440041" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="412" pc="268440058" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="414" pc="268440155" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="415" pc="268440210" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="416" pc="268440246" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="417" pc="268440263" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="418" pc="268440320" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="419" pc="268440356" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="420" pc="268440373" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="422" pc="268440470" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="423" pc="268440525" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="424" pc="268440561" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="425" pc="268440578" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="426" pc="268440635" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="427" pc="268440671" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="428" pc="268440688" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="430" pc="268440779" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="431" pc="268440822" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="432" pc="268440858" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="433" pc="268440875" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="434" pc="268440892" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="436" pc="268440952" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="438" pc="268441009" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="439" pc="268441045" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="440" pc="268441062" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="441" pc="268441079" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="443" pc="268441133" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="447" pc="268441187" symbol="drawZoneBarsArcs"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="461" pc="268441191" symbol="initialize"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="462" pc="268441195" symbol="initialize"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="463" pc="268441206" symbol="initialize"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="467" pc="268441217" symbol="add"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="468" pc="268441221" symbol="add"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="469" pc="268441240" symbol="add"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="473" pc="268441272" symbol="reset"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="474" pc="268441276" symbol="reset"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="475" pc="268441306" symbol="reset"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="477" pc="268441331" symbol="reset"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="481" pc="268441345" symbol="getData"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="482" pc="268441349" symbol="getData"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="485" pc="268441359" symbol="lastPosition"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="486" pc="268441363" symbol="lastPosition"/>
+<entry filename="source/HeartRateRunner.mc" lineNum="487" pc="268441379" symbol="lastPosition"/>
 </pcToLineNum>
 <symbolTable>
-<entry id="57" method="true" symbol="computeHour"/>
+<entry id="61" method="true" symbol="computeHour"/>
 <entry id="8388644" symbol="System"/>
-<entry id="8389793" symbol="debug"/>
 <entry id="14" method="true" symbol="getData"/>
 <entry id="8389124" method="true" symbol="onUpdate"/>
-<entry id="58" method="true" symbol="getMinutesPerKmOrMile"/>
-<entry id="51" method="true" symbol="getZoneIdForHr"/>
+<entry id="62" method="true" symbol="getMinutesPerKmOrMile"/>
+<entry id="53" method="true" symbol="getZoneIdForHr"/>
 <entry id="9" object="true" symbol="HeartRateRunnerView"/>
-<entry field="true" id="24" symbol="avgpace"/>
-<entry field="true" id="21" symbol="pace"/>
+<entry field="true" id="25" symbol="avgpace"/>
+<entry field="true" id="22" symbol="pace"/>
 <entry field="true" id="8388611" symbol="Toybox"/>
-<entry id="41" symbol="avgPaceStr"/>
+<entry id="42" symbol="avgPaceStr"/>
 <entry id="8" object="true" symbol="HeartRateRunner"/>
-<entry id="39" symbol="headerColor"/>
+<entry id="40" symbol="headerColor"/>
 <entry id="8388770" module="true" symbol="Strings"/>
-<entry id="53" method="true" symbol="setColors"/>
+<entry id="55" method="true" symbol="setColors"/>
 <entry id="8389280" method="true" symbol="getInitialView"/>
-<entry id="55" method="true" symbol="drawPaceDiff"/>
+<entry id="58" method="true" symbol="drawPaceDiff"/>
 <entry id="8388639" symbol="Graphics"/>
-<entry id="35" symbol="textColor"/>
+<entry id="36" symbol="textColor"/>
 <entry id="8389401" symbol="is24Hour"/>
 <entry id="8388769" module="true" symbol="Rez"/>
 <entry id="8389627" symbol="getBackgroundColor"/>
-<entry id="28" symbol="CENTER"/>
-<entry id="31" symbol="VALUE_FONT"/>
-<entry id="40" symbol="paceStr"/>
-<entry id="43" symbol="distanceStr"/>
-<entry id="47" symbol="zoneId"/>
-<entry id="50" symbol="hasBackgroundColorOption"/>
+<entry id="29" symbol="CENTER"/>
+<entry id="15" method="true" symbol="lastPosition"/>
+<entry id="32" symbol="VALUE_FONT"/>
+<entry id="41" symbol="paceStr"/>
+<entry id="44" symbol="distanceStr"/>
+<entry id="49" symbol="zoneId"/>
+<entry id="52" symbol="hasBackgroundColorOption"/>
 <entry id="8389807" symbol="data"/>
 <entry id="8388702" method="true" symbol="initialize"/>
-<entry id="59" method="true" symbol="drawZoneBarsArcs"/>
-<entry field="true" id="27" symbol="AppName"/>
-<entry id="44" symbol="durationStr"/>
+<entry id="63" method="true" symbol="drawZoneBarsArcs"/>
+<entry field="true" id="28" symbol="AppName"/>
+<entry id="45" symbol="durationStr"/>
 <entry field="true" id="8388935" symbol="duration"/>
-<entry id="29" symbol="LEFT"/>
-<entry field="true" id="17" symbol="LauncherIcon"/>
+<entry id="30" symbol="LEFT"/>
+<entry field="true" id="18" symbol="LauncherIcon"/>
 <entry id="10" object="true" symbol="DataQueue"/>
-<entry field="true" id="18" symbol="zone5"/>
-<entry field="true" id="19" symbol="zone4"/>
-<entry field="true" id="23" symbol="zone3"/>
-<entry field="true" id="25" symbol="zone2"/>
-<entry field="true" id="26" symbol="zone1"/>
+<entry field="true" id="19" symbol="zone5"/>
+<entry field="true" id="20" symbol="zone4"/>
+<entry field="true" id="24" symbol="zone3"/>
+<entry field="true" id="26" symbol="zone2"/>
+<entry field="true" id="27" symbol="zone1"/>
 <entry id="8388771" module="true" symbol="Drawables"/>
 <entry id="8389137" method="true" symbol="compute"/>
 <entry id="11" symbol="maxSize"/>
 <entry id="8389122" method="true" symbol="onLayout"/>
 <entry id="8388732" symbol="elapsedTime"/>
-<entry id="30" symbol="HEADER_FONT"/>
-<entry id="37" symbol="inverseBackgroundColor"/>
+<entry id="31" symbol="HEADER_FONT"/>
+<entry id="38" symbol="inverseBackgroundColor"/>
 <entry id="8388942" method="true" symbol="add"/>
-<entry id="56" method="true" symbol="computeAverageSpeed"/>
-<entry id="36" symbol="inverseTextColor"/>
+<entry id="59" method="true" symbol="computeAverageSpeed"/>
+<entry id="37" symbol="inverseTextColor"/>
 <entry id="8388738" symbol="currentSpeed"/>
 <entry id="8389743" symbol="backgroundColor"/>
-<entry id="49" symbol="zoneLowerBound"/>
-<entry id="33" symbol="ZERO_DISTANCE"/>
-<entry id="32" symbol="ZERO_TIME"/>
-<entry id="42" symbol="hrStr"/>
-<entry id="45" symbol="paceData"/>
+<entry id="51" symbol="zoneLowerBound"/>
+<entry id="34" symbol="ZERO_DISTANCE"/>
+<entry id="33" symbol="ZERO_TIME"/>
+<entry id="43" symbol="hrStr"/>
+<entry id="46" symbol="paceData"/>
 <entry id="13" method="true" symbol="reset"/>
 <entry field="true" id="8388911" symbol="distance"/>
-<entry id="16" module="true" symbol="Layouts"/>
+<entry id="17" module="true" symbol="Layouts"/>
 <entry id="8389402" symbol="distanceUnits"/>
 <entry id="12" symbol="pos"/>
-<entry id="46" symbol="avgSpeed"/>
-<entry id="38" symbol="lineColor"/>
-<entry field="true" id="20" symbol="maxHr"/>
-<entry id="52" method="true" symbol="setDeviceSettingsDependentVariables"/>
-<entry id="54" method="true" symbol="drawValues"/>
-<entry id="15" module="true" symbol="Menus"/>
-<entry field="true" id="22" symbol="hr"/>
-<entry id="48" symbol="secondsInZone"/>
+<entry id="48" symbol="avgSpeed"/>
+<entry id="39" symbol="lineColor"/>
+<entry id="60" method="true" symbol="drawHrChart"/>
+<entry field="true" id="21" symbol="maxHr"/>
+<entry id="54" method="true" symbol="setDeviceSettingsDependentVariables"/>
+<entry id="57" method="true" symbol="drawValues"/>
+<entry id="16" module="true" symbol="Menus"/>
+<entry field="true" id="23" symbol="hr"/>
+<entry id="50" symbol="secondsInZone"/>
 <entry id="8388772" module="true" symbol="Fonts"/>
-<entry id="34" symbol="kmOrMileInMeters"/>
+<entry id="35" symbol="kmOrMileInMeters"/>
+<entry id="56" method="true" symbol="drawOldValues"/>
+<entry id="47" symbol="hrData"/>
 </symbolTable>
 <localVars>
 <entry endPc="268435501" name="view" stackId="1" startPc="268435460"/>
-<entry endPc="268436024" name="i" stackId="2" startPc="268435958"/>
-<entry endPc="268436166" name="height" stackId="3" startPc="268436060"/>
-<entry endPc="268436166" name="width" stackId="2" startPc="268436060"/>
-<entry endPc="268437191" name="distanceKmOrMiles" stackId="5" startPc="268437122"/>
-<entry endPc="268437473" name="hours" stackId="7" startPc="268437277"/>
-<entry endPc="268437473" name="minutes" stackId="8" startPc="268437277"/>
-<entry endPc="268437473" name="seconds" stackId="9" startPc="268437277"/>
-<entry endPc="268437931" name="hours" stackId="12" startPc="268437650"/>
-<entry endPc="268437931" name="minutes" stackId="13" startPc="268437650"/>
-<entry endPc="268437931" name="seconds" stackId="14" startPc="268437650"/>
-<entry endPc="268438229" name="height" stackId="3" startPc="268436851"/>
-<entry endPc="268438229" name="zone" stackId="10" startPc="268436851"/>
-<entry endPc="268438229" name="width" stackId="2" startPc="268436851"/>
-<entry endPc="268438229" name="timeInZone" stackId="11" startPc="268436851"/>
-<entry endPc="268438229" name="duration" stackId="6" startPc="268436851"/>
-<entry endPc="268438229" name="distStr" stackId="4" startPc="268436851"/>
-<entry endPc="268438729" name="x" stackId="2" startPc="268438269"/>
-<entry endPc="268438729" name="i" stackId="9" startPc="268438269"/>
-<entry endPc="268438729" name="step" stackId="8" startPc="268438269"/>
-<entry endPc="268438729" name="diff" stackId="7" startPc="268438269"/>
-<entry endPc="268438729" name="avg" stackId="6" startPc="268438269"/>
-<entry endPc="268438729" name="current" stackId="5" startPc="268438269"/>
-<entry endPc="268438729" name="pitch" stackId="4" startPc="268438269"/>
-<entry endPc="268438729" name="y" stackId="3" startPc="268438269"/>
-<entry endPc="268438840" name="i" stackId="4" startPc="268438794"/>
-<entry endPc="268438866" name="size" stackId="1" startPc="268438737"/>
-<entry endPc="268438866" name="data" stackId="2" startPc="268438737"/>
-<entry endPc="268438866" name="sumOfData" stackId="3" startPc="268438737"/>
-<entry endPc="268439035" name="minutesPerKmOrMilesFloor" stackId="4" startPc="268438946"/>
-<entry endPc="268439035" name="metersPerMinute" stackId="2" startPc="268438946"/>
-<entry endPc="268439035" name="seconds" stackId="5" startPc="268438946"/>
-<entry endPc="268439035" name="minutesPerKmOrMilesDecimal" stackId="3" startPc="268438946"/>
-<entry endPc="268441490" name="zonedegree" stackId="8" startPc="268439052"/>
-<entry endPc="268441490" name="i" stackId="7" startPc="268439052"/>
-<entry endPc="268441490" name="zoneCircleWidth" stackId="6" startPc="268439052"/>
-<entry endPc="268441631" name="i" stackId="1" startPc="268441606"/>
+<entry endPc="268435969" name="i" stackId="2" startPc="268435903"/>
+<entry endPc="268436111" name="height" stackId="3" startPc="268436005"/>
+<entry endPc="268436111" name="width" stackId="2" startPc="268436005"/>
+<entry endPc="268437160" name="distanceKmOrMiles" stackId="5" startPc="268437091"/>
+<entry endPc="268437442" name="hours" stackId="7" startPc="268437246"/>
+<entry endPc="268437442" name="minutes" stackId="8" startPc="268437246"/>
+<entry endPc="268437442" name="seconds" stackId="9" startPc="268437246"/>
+<entry endPc="268437672" name="height" stackId="3" startPc="268436807"/>
+<entry endPc="268437672" name="zone" stackId="10" startPc="268436807"/>
+<entry endPc="268437672" name="width" stackId="2" startPc="268436807"/>
+<entry endPc="268437672" name="duration" stackId="6" startPc="268436807"/>
+<entry endPc="268437672" name="distStr" stackId="4" startPc="268436807"/>
+<entry endPc="268438172" name="x" stackId="2" startPc="268437712"/>
+<entry endPc="268438172" name="i" stackId="9" startPc="268437712"/>
+<entry endPc="268438172" name="step" stackId="8" startPc="268437712"/>
+<entry endPc="268438172" name="diff" stackId="7" startPc="268437712"/>
+<entry endPc="268438172" name="avg" stackId="6" startPc="268437712"/>
+<entry endPc="268438172" name="current" stackId="5" startPc="268437712"/>
+<entry endPc="268438172" name="pitch" stackId="4" startPc="268437712"/>
+<entry endPc="268438172" name="y" stackId="3" startPc="268437712"/>
+<entry endPc="268438283" name="i" stackId="4" startPc="268438237"/>
+<entry endPc="268438309" name="size" stackId="1" startPc="268438180"/>
+<entry endPc="268438309" name="data" stackId="2" startPc="268438180"/>
+<entry endPc="268438309" name="sumOfData" stackId="3" startPc="268438180"/>
+<entry endPc="268438566" name="i" stackId="9" startPc="268438466"/>
+<entry endPc="268438566" name="x" stackId="5" startPc="268438314"/>
+<entry endPc="268438566" name="max" stackId="4" startPc="268438314"/>
+<entry endPc="268438566" name="position" stackId="3" startPc="268438314"/>
+<entry endPc="268438566" name="h" stackId="7" startPc="268438314"/>
+<entry endPc="268438566" name="data" stackId="2" startPc="268438314"/>
+<entry endPc="268438566" name="offset" stackId="8" startPc="268438314"/>
+<entry endPc="268438566" name="y" stackId="6" startPc="268438314"/>
+<entry endPc="268438735" name="minutesPerKmOrMilesFloor" stackId="4" startPc="268438646"/>
+<entry endPc="268438735" name="metersPerMinute" stackId="2" startPc="268438646"/>
+<entry endPc="268438735" name="seconds" stackId="5" startPc="268438646"/>
+<entry endPc="268438735" name="minutesPerKmOrMilesDecimal" stackId="3" startPc="268438646"/>
+<entry endPc="268441190" name="zonedegree" stackId="8" startPc="268438752"/>
+<entry endPc="268441190" name="i" stackId="7" startPc="268438752"/>
+<entry endPc="268441190" name="zoneCircleWidth" stackId="6" startPc="268438752"/>
+<entry endPc="268441331" name="i" stackId="1" startPc="268441306"/>
+<entry endPc="268441410" name="i" stackId="1" startPc="268441363"/>
 </localVars>
 <annotations/>
 <functions>
@@ -379,6 +389,12 @@
 <functionEntry name="setColors" parent="HeartRateRunnerView">
 <documentation/>
 </functionEntry>
+<functionEntry name="drawOldValues" parent="HeartRateRunnerView">
+<param id="dc"/>
+<param id="width"/>
+<param id="height"/>
+<documentation/>
+</functionEntry>
 <functionEntry name="drawValues" parent="HeartRateRunnerView">
 <param id="dc"/>
 <documentation/>
@@ -388,6 +404,10 @@
 <documentation/>
 </functionEntry>
 <functionEntry name="computeAverageSpeed" parent="HeartRateRunnerView">
+<documentation/>
+</functionEntry>
+<functionEntry name="drawHrChart" parent="HeartRateRunnerView">
+<param id="dc"/>
 <documentation/>
 </functionEntry>
 <functionEntry name="computeHour" parent="HeartRateRunnerView">
@@ -419,6 +439,9 @@
 </functionEntry>
 <functionEntry name="getData" parent="DataQueue">
 <documentation><![CDATA[<div class="description"> Get the underlying data array.<br/></div>]]></documentation>
+</functionEntry>
+<functionEntry name="lastPosition" parent="DataQueue">
+<documentation/>
 </functionEntry>
 </functions>
 </debugInfo>

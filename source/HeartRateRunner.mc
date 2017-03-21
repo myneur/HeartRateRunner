@@ -38,7 +38,8 @@ class HeartRateRunnerView extends Ui.DataField {
         
     hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
     
-    hidden var paceData = new DataQueue(10);
+    hidden var paceData = new DataQueue(5);
+    //hidden var lastLapPace = new DataQueue(60);
     hidden var hrData = new DataQueue(60);
     hidden var hrLastData = new DataQueue(15);
     hidden var hrInterval = 10;
@@ -241,7 +242,7 @@ class HeartRateRunnerView extends Ui.DataField {
         }
     }
     
-    function computeAverageSpeed() {
+/*    function computeAverageSpeed() {
         var size = 0;
         var data = paceData.getData();
         var sumOfData = 0.0;
@@ -255,7 +256,7 @@ class HeartRateRunnerView extends Ui.DataField {
             return sumOfData / size;
         }
         return 0.0;
-    }
+    }*/
 
     function drawHrChart(dc){
         var data = hrData.getData();
@@ -266,14 +267,23 @@ class HeartRateRunnerView extends Ui.DataField {
         dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(2);
         var offset = hr-30;
+        var last = null;
+
         if(offset<0){offset = 0;}
 
         for(var i = max-1; i>=0; i--){
             h = data[position];
             if(h != null){
                 if(h>=offset){
-                    dc.drawPoint(x+i*2, y-h+offset);
+                    if(last == null){
+                        dc.drawPoint(x+i*2, y-h+offset);
+                    } else {
+                        dc.drawLine(x+i*2, y-h+offset, x+i*2+2, y-last+offset);
+                    }
+                    last = h;
                 }
+            } else {
+                last = null;
             }
             position--;
             if(position<0){

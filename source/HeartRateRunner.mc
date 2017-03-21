@@ -4,7 +4,7 @@ using Toybox.Graphics as Graphics;
 using Toybox.System as System;
 using Toybox.Math as Math;
 
-//! @author Roelof Koelewijn - Many thanks to Konrad Paumann for the code for the dataFields check out his awsome runningfields Datafield
+//! @author Indrik myneur -  Many thanks to Konrad Paumann and Roelof Koelewijn for the code for the dataFields: check out their Datafields as well 
 class HeartRateRunner extends App.AppBase {
 
     function getInitialView() {
@@ -13,10 +13,8 @@ class HeartRateRunner extends App.AppBase {
     }
 }
 
-//! DataFields that shows some infos by @author Konrad Paumann
-//!
-//! HeartRateZones
-//! @author Roelof Koelewijn
+//! skeleton by @author Konrad Paumann, HeartRateZones by @author Roelof Koelewijn
+//! charts and layout by Indrik myneur
 class HeartRateRunnerView extends Ui.DataField {
 
     hidden const CENTER = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
@@ -39,11 +37,12 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
     
     hidden var paceData = new DataQueue(5);
-    //hidden var lastLapPace = new DataQueue(60);
+    hidden var lastLapPace = new DataQueue(60);
     hidden var hrData = new DataQueue(60);
     hidden var hrLastData = new DataQueue(15);
     hidden var hrInterval = 10;
     hidden var avgSpeed = 0;
+    hidden var maxSpeed = 0;
     hidden var currentSpeed = 0;
     hidden var hr = 0;
     hidden var distance = 0;
@@ -66,17 +65,17 @@ class HeartRateRunnerView extends Ui.DataField {
 
     //! The given info object contains all the current workout
     function compute(info) {
-        if (info.currentSpeed != null) {
-            paceData.add(info.currentSpeed);
-        } else {
-            paceData.reset();
+
+        if(lastLapPace.add(info.currentSpeed)==0){
+            paceData.add(lastLapPace.average());
+
         }
         if(hrLastData.add(info.currentHeartRate)==0){
             hrData.add(hrLastData.average());
         }
         
-        
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
+        maxSpeed = info.maxSpeed != null ? info.maxSpeed : 0;
         currentSpeed = info.currentSpeed != null ? info.currentSpeed : 0;
         elapsedTime = info.elapsedTime != null ? info.elapsedTime : 0;        
         hr = info.currentHeartRate != null ? info.currentHeartRate : 0;
@@ -142,16 +141,17 @@ class HeartRateRunnerView extends Ui.DataField {
     function drawValues(dc) {
         var width = dc.getWidth();
     	var height = dc.getHeight();       
-
-        //hr
-        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(155, 85, VALUE_FONT, hr.format("%d"), CENTER); // debug
-        drawHrChart(dc);
                 
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(60, 140, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
+        dc.drawText(155, 130, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
         drawPaceDiff(dc);
+        drawPaceChart(dc);
+
+        //hr
+        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(155, 80, VALUE_FONT, hr.format("%d"), CENTER); 
+        drawHrChart(dc);
         
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         
@@ -190,29 +190,18 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             duration = ZERO_TIME;
         } 
-        dc.drawText(155, 140, VALUE_FONT, duration, CENTER);
+        dc.drawText(109, 185, VALUE_FONT, duration, CENTER);
         
 
 
         //Arcs
 		var zone = drawZoneBarsArcs(dc, (height/2)+1, width/2, height/2, hr); //radius, center x, center y
 
-		// headers:
-        dc.setColor(headerColor, Graphics.COLOR_TRANSPARENT);
-        //dc.drawText(60, 60, HEADER_FONT, hrStr, CENTER);
-        dc.drawText(70, 172, HEADER_FONT, avgPaceStr, CENTER);
-        //dc.drawText(167, 60, HEADER_FONT, distanceStr, CENTER);
-        dc.drawText(155, 172, HEADER_FONT, durationStr, CENTER);
-        /*if(zone != 0){
-        	dc.drawText(109, 25, HEADER_FONT, hrStr + " " + zone, CENTER);
-        }*/
     }
-
-
 
     function drawPaceDiff(dc){
         if((currentSpeed-avgSpeed).abs()>0 ){
-            var x = 95; var y = 125; // coordinates of the diff indicator
+            var x = 110; var y = 115; // coordinates of the diff indicator
             var pitch = 10; 
 
             var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0;
@@ -241,37 +230,21 @@ class HeartRateRunnerView extends Ui.DataField {
             }
         }
     }
-    
-/*    function computeAverageSpeed() {
-        var size = 0;
-        var data = paceData.getData();
-        var sumOfData = 0.0;
-        for (var i = 0; i < data.size(); i++) {
-            if (data[i] != null) {
-                sumOfData = sumOfData + data[i];
-                size++;
-            }
-        }
-        if (sumOfData > 0) {
-            return sumOfData / size;
-        }
-        return 0.0;
-    }*/
 
     function drawHrChart(dc){
         var data = hrData.getData();
-        var position = hrData.lastPosition();
-        var max = data.size();
-        var x = 10; var y = 120;
-        var h;
-        dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(2);
+        var position = hrData.lastPosition(); var size = data.size();
+        var x = 10; var y = 109; var h;
+        
+
         var offset = hr-30;
         var last = null;
 
         if(offset<0){offset = 0;}
 
-        for(var i = max-1; i>=0; i--){
+        dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(2);
+        for(var i = size-1; i>=0; i--){
             h = data[position];
             if(h != null){
                 if(h>=offset){
@@ -287,7 +260,40 @@ class HeartRateRunnerView extends Ui.DataField {
             }
             position--;
             if(position<0){
-                position = max-1;
+                position = size-1;
+            }
+        }
+    }
+
+    function drawPaceChart(dc){
+        var data = paceData.getData();
+        var position = paceData.lastPosition(); var max = data.size();
+        var x = 15; var y = 155; var h; var i;
+
+        // chart y limit
+        var maxPace = getPace(paceData.nzmin()); // non-zero minimum speed is max pace
+        var currentPace = getPace(lastLapPace.average());
+        if(currentPace>maxPace){
+            maxPace=currentPace;
+        }
+        
+        if(maxPace>0){
+            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
+            h = (currentPace/maxPace*50).toNumber();
+            dc.fillRectangle(x+5*15, y-h, 10, h);   // current lap pace
+
+            for(i = max-1; i>=0; i--){
+                h = data[position];
+                if(h != null){
+                    if(maxPace > 0){
+                        h = (getPace(h)/maxPace*50).toNumber();
+                        dc.fillRectangle(x+i*15, y-h, 10, h);   // last laps paces
+                    } 
+                }
+                position--;
+                if(position<0){
+                    position = max-1;
+                }
             }
         }
     }
@@ -312,9 +318,15 @@ class HeartRateRunnerView extends Ui.DataField {
         }
         return ZERO_TIME;
     }
+
+    function getPace(speed) {
+        if (speed != null && speed > 0.2) {
+            return kmOrMileInMeters / speed;
+        } 
+        return 0;
+    }
     
     //! @author Roelof Koelewijn
-    //function for arc
 	function drawZoneBarsArcs(dc, radius, centerX, centerY, hr){
 		
 		var zoneCircleWidth = [7, 7, 7, 7, 7, 7];
@@ -402,8 +414,7 @@ class HeartRateRunnerView extends Ui.DataField {
 	}
 }
 
-//! A circular queue implementation.
-//! @author Konrad Paumann
+//! A circular queue core by @author Konrad Paumann, math methods by Indrik myneur
 class DataQueue {
 
     //! the data array.
@@ -436,7 +447,7 @@ class DataQueue {
         if(size == 0) {
             return null;
         } else {
-            return Math.round((sum/size).toFloat());
+            return (sum.toFloat()/size.toFloat());
         }
     }
     
@@ -446,6 +457,42 @@ class DataQueue {
             data[i] = null;
         }
         pos = 0;
+    }
+
+    function max(){
+        var max = null;
+        for(var i = 0; i < data.size(); i++){
+            if(data[i] != null){
+                if(max == null || data[i]>max){ 
+                    max = data[i];
+                }
+            }
+        }
+        return max;
+    }
+
+    function min(){
+        var min = null;
+        for(var i = 0; i < data.size(); i++){
+            if(data[i] != null){
+                if(min == null || data[i]<min){ 
+                    min = data[i];
+                }
+            }
+        }
+        return min;
+    }
+
+    function nzmin(){
+        var min = null;
+        for(var i = 0; i < data.size(); i++){
+            if(data[i] != null && data[i] != 0){
+                if(min == null || data[i]<min){ 
+                    min = data[i];
+                }
+            }
+        }
+        return min;
     }
     
     //! Get the underlying data array.

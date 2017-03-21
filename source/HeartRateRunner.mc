@@ -2,6 +2,7 @@ using Toybox.Application as App;
 using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Graphics;
 using Toybox.System as System;
+using Toybox.Math as Math;
 
 //! @author Roelof Koelewijn - Many thanks to Konrad Paumann for the code for the dataFields check out his awsome runningfields Datafield
 class HeartRateRunner extends App.AppBase {
@@ -39,9 +40,8 @@ class HeartRateRunnerView extends Ui.DataField {
     
     hidden var paceData = new DataQueue(10);
     hidden var hrData = new DataQueue(60);
-    //hidden var hrLastData = new DataQue(15);
-    //hidden var hrInterval = 10;
-    //hidden var hrPosition = 0;
+    hidden var hrLastData = new DataQueue(15);
+    hidden var hrInterval = 10;
     hidden var avgSpeed = 0;
     hidden var currentSpeed = 0;
     hidden var hr = 0;
@@ -50,7 +50,7 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var zoneId = 0;
     hidden var secondsInZone = [0, 0, 0, 0, 0, 0];
     
-    /* TODO return to profile reading when debugging done */
+    /* TODO debug return to profile reading when debugging done */
     //hidden var maxHr = Application.getApp().getProperty("maxHr");
     hidden var maxHr = 200;
 	//hidden var zoneLowerBound = [Application.getApp().getProperty("zone1"), Application.getApp().getProperty("zone2"), Application.getApp().getProperty("zone3"), Application.getApp().getProperty("zone4"), Application.getApp().getProperty("zone5")];
@@ -70,8 +70,10 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             paceData.reset();
         }
-        //hrLastData.add(info.currentHeartRate);
-        hrData.add(info.currentHeartRate);
+        if(hrLastData.add(info.currentHeartRate)==0){
+            hrData.add(hrLastData.average());
+        }
+        
         
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
         currentSpeed = info.currentSpeed != null ? info.currentSpeed : 0;
@@ -409,6 +411,23 @@ class DataQueue {
     function add(element) {
         data[pos] = element;
         pos = (pos + 1) % maxSize;
+        return pos;
+    }
+
+    function average(){
+        var sum = 0;
+        var size = 0;
+        for(var i = 0; i < data.size(); i++){
+            if(data[i] != null){
+                sum = sum + data[i];
+                size++;
+            }
+        }
+        if(size == 0) {
+            return null;
+        } else {
+            return Math.round((sum/size).toFloat());
+        }
     }
     
     //! Reset the queue to its initial state.

@@ -1,0 +1,1 @@
+monkeyc -o bin/hrun.prg -m manifest.xml source/HeartRateRunner.mc -y ../developer_key.der -z resources/resources.xml:resources/strings.xml -d fenix3

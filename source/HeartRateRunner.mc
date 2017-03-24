@@ -48,6 +48,7 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var distance = 0;
     hidden var elapsedTime = 0;
     hidden var zoneId = 0;
+    //hidden var paused = true; // stop averages and time from running when paused https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/WatchUi/DataField.html
     hidden var secondsInZone = [0, 0, 0, 0, 0, 0];
     
     /* TODO debug return to profile reading when debugging done */
@@ -70,9 +71,19 @@ class HeartRateRunnerView extends Ui.DataField {
             paceData.add(lastLapPace.average());
 
         }
+        
         if(hrLastData.add(info.currentHeartRate)==0){
             hrData.add(hrLastData.average());
         }
+        /* // debug
+        var id = 15; var v = 50; var i = 0;
+        for(; i<60; i++){
+            v +=id;
+            if(v>200 || i<=0){id = -id;}
+            hrData.add(v);
+        }
+        hrLastData.reset();
+        hrLastData.add(v);*/
         
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
         maxSpeed = info.maxSpeed != null ? info.maxSpeed : 0;
@@ -141,17 +152,17 @@ class HeartRateRunnerView extends Ui.DataField {
     function drawValues(dc) {
         var width = dc.getWidth();
     	var height = dc.getHeight();       
-                
-        //apace
-        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(155, 130, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
-        drawPaceDiff(dc);
-        drawPaceChart(dc);
 
         //hr
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(155, 80, VALUE_FONT, hr.format("%d"), CENTER); 
         drawHrChart(dc);
+
+        //apace
+        dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(155, 130, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
+        drawPaceDiff(dc);
+        drawPaceChart(dc);
         
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         
@@ -234,59 +245,121 @@ class HeartRateRunnerView extends Ui.DataField {
     function drawHrChart(dc){
         var data = hrData.getData();
         var position = hrData.lastPosition(); var size = data.size();
-        var x = 10; var y = 109; var h;
+        var x = 10; var y = 105; var h; var height = 50; var offset=50; var last = null;
+
+        // todo before data from chart is available, the current hr is shown wrong in the chart
         
+        // chart alignment and crop
+        var maxHr = hrData.max(); 
+        if(maxHr==null){
+            maxHr=0;
+        }
+        var minHr = hrData.min();
+        if(minHr==null){
+            minHr=0;
+        }
 
-        var offset = hr-30;
-        var last = null;
+        h = hrLastData.average();
+        if(h==null){
+            h=0;
+        } 
+            
+        if(h<minHr){
+            minHr = h;
+        }
+        if(h>maxHr){
+            maxHr = h;
+        }
+    
+        // cut offset which will not fit into an area
+        if(maxHr-minHr>height){
+            offset = maxHr-height; // put max to the top of the chart
+            if(h<offset && h>0){
+                offset = h-10; // make sure current hr is shown
+            }
+        } else {
+            offset = (((minHr+maxHr)-height)/2).toNumber(); // put it in the middle of the chart
+        }          
 
-        if(offset<0){offset = 0;}
+        //System.println(offset + " " + maxHr + " " + minHr + " " + h + " " + height); 
 
         dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(2);
+        // set current hr to be drawn and draw it
+        
+        if(h > 0){
+            dc.drawPoint(x+size*2, y-h+offset);
+            last = h;
+        }
+
+        //System.println("draw hr history");
+        // draw hr history
+        var color1; var color2; var midPoint = null;
         for(var i = size-1; i>=0; i--){
             h = data[position];
             if(h != null){
-                if(h>=offset){
-                    if(last == null){
-                        dc.drawPoint(x+i*2, y-h+offset);
+                color1 = (h>=offset && h<= offset+height) ? Graphics.COLOR_DK_RED : Graphics.COLOR_LT_GRAY; 
+                dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                if(last != null){
+                    color2 = (last >= offset && last <= offset+height) ? Graphics.COLOR_DK_RED : Graphics.COLOR_LT_GRAY;  
+                    if(color1 != color2){
+                        if(color1 == Graphics.COLOR_DK_RED){   // h (left value) is within boundaries
+                            midPoint = (last<offset) ? y : y-height;  
+                            dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+                            dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset); 
+                            dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                            dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint);  
+                            //System.println("RED " + color1.toString() + " " + color2.toString());System.println(midPoint.toString());System.println( (y-last+offset).toString() + " " + (y-h+offset).toString());
+                        } else {    // h (left value) is out of boundaries
+                            midPoint = (h<offset) ? y : y-height;
+                            dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                            dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint); 
+                            dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+                            dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset);  
+                            //System.println("GRAY " + color1.toString() + " " + color2.toString());System.println(midPoint.toString());System.println((y-h+offset).toString() + " " + (y-last+offset).toString());
+                        }
                     } else {
-                        dc.drawLine(x+i*2, y-h+offset, x+i*2+2, y-last+offset);
+                        dc.drawLine(x+i*2, y-h+offset, x+i*2+2, y-last+offset);    
                     }
-                    last = h;
+                } else {
+                    dc.drawPoint(x+i*2, y-h+offset);
                 }
-            } else {
-                last = null;
             }
+            last = h; 
             position--;
             if(position<0){
                 position = size-1;
             }
         }
+        
+
     }
 
     function drawPaceChart(dc){
         var data = paceData.getData();
         var position = paceData.lastPosition(); var max = data.size();
-        var x = 15; var y = 155; var h; var i;
+        var x = 15; var y = 160; var h; var i; var height = 50;
 
         // chart y limit
         var maxPace = getPace(paceData.nzmin()); // non-zero minimum speed is max pace
+        //System.println(maxPace);
         var currentPace = getPace(lastLapPace.average());
+        //System.println(maxPace + " max/Current " + currentPace);
         if(currentPace>maxPace){
             maxPace=currentPace;
         }
+        //System.println(maxPace + " max");
         
         if(maxPace>0){
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
-            h = (currentPace/maxPace*50).toNumber();
+            h = (currentPace/maxPace*height).toNumber();
             dc.fillRectangle(x+5*15, y-h, 10, h);   // current lap pace
 
             for(i = max-1; i>=0; i--){
                 h = data[position];
                 if(h != null){
                     if(maxPace > 0){
-                        h = (getPace(h)/maxPace*50).toNumber();
+                        h = (getPace(h)/maxPace*height).toNumber();
                         dc.fillRectangle(x+i*15, y-h, 10, h);   // last laps paces
                     } 
                 }
@@ -486,9 +559,11 @@ class DataQueue {
     function nzmin(){
         var min = null;
         for(var i = 0; i < data.size(); i++){
-            if(data[i] != null && data[i] != 0){
-                if(min == null || data[i]<min){ 
-                    min = data[i];
+            if(data[i]!=null){
+                if(data[i]!=0){
+                    if(min == null ||data[i]<min){ 
+                        min =data[i];
+                    }
                 }
             }
         }

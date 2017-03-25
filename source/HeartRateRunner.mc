@@ -143,6 +143,8 @@ class HeartRateRunnerView extends Ui.DataField {
     function drawValues(dc) {
         var width = dc.getWidth();
     	var height = dc.getHeight();       
+        var centerX = width>>1;
+        var centerY = height>>1;
 
         //hr
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
@@ -173,7 +175,7 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             distStr = ZERO_DISTANCE;
         }
-        dc.drawText(109 , 30, VALUE_FONT, distStr, CENTER);
+        dc.drawText(centerY , 30, VALUE_FONT, distStr, CENTER);
         
         //duration
         var duration;
@@ -195,10 +197,10 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             duration = ZERO_TIME;
         } 
-        dc.drawText(109, 185, VALUE_FONT, duration, CENTER);
+        dc.drawText(centerX, 185, VALUE_FONT, duration, CENTER);
         
         //Arcs
-		var zone = drawZoneBarsArcs(dc, (height/2)+1, width/2, height/2, hr); //radius, center x, center y
+		var zone = drawZoneBarsArcs(dc, centerY+1, centerX, centerY, hr); //radius, center x, center y
 
     }
 

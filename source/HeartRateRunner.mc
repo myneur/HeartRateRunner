@@ -37,10 +37,10 @@ class HeartRateRunnerView extends Ui.DataField {
         
     hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
     
-    hidden var paceData = new DataQueue(5);
+    hidden var paceChartData = new DataQueue(5);
     hidden var lastLapPace = new DataQueue(60);
-    hidden var hrData = new DataQueue(60);
-    hidden var hrLastData = new DataQueue(15);
+    hidden var hrChartData = new DataQueue(60);
+    hidden var lastHrData = new DataQueue(30);
     hidden var hrInterval = 10;
     hidden var avgSpeed = 0;
     hidden var lapAvgSpeed = 0;
@@ -70,11 +70,11 @@ class HeartRateRunnerView extends Ui.DataField {
     function compute(info) {
 
         if(lastLapPace.add(info.currentSpeed)==0){
-            paceData.add(lastLapPace.average());
+            paceChartData.add(lastLapPace.average());
         }
         
-        if(hrLastData.add(info.currentHeartRate)==0){
-            hrData.add(hrLastData.average());
+        if(lastHrData.add(info.currentHeartRate)==0){
+            hrChartData.add(lastHrData.average());
         }        
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
         maxSpeed = info.maxSpeed != null ? info.maxSpeed : 0;
@@ -234,8 +234,8 @@ class HeartRateRunnerView extends Ui.DataField {
     }
 
     function drawPaceChart(dc, x, y, height){
-        var data = paceData.getData();
-        var position = paceData.lastPosition(); var max = data.size();
+        var data = paceChartData.getData();
+        var position = paceChartData.lastPosition(); var max = data.size();
         var h; var i; 
         var lapAvgPace = getPace(lapAvgSpeed);
         y += height;
@@ -262,10 +262,10 @@ class HeartRateRunnerView extends Ui.DataField {
                 if(speed != null){
                     if(maxPace > 0){
                         h = (getPace(speed)/maxPace*height).toNumber();
-                        if(h>50){
+                        /*if(h>50){
                             System.println("height " + h + "speed " + speed + " pace "  + getPace(speed) + "lapAvgPace " + lapAvgPace + "lapAvgSpeed " + lapAvgSpeed + " max " + maxPace );
                             System.println(data.toString());
-                        }
+                        }*/
                         dc.fillRectangle(x+i*15, y-h, 10, h);   // last laps paces
                     } 
                 }
@@ -278,24 +278,24 @@ class HeartRateRunnerView extends Ui.DataField {
     }
 
     function drawHrChart(dc, x, y, height){
-        var data = hrData.getData();
-        var position = hrData.lastPosition(); var size = data.size();
+        var data = hrChartData.getData();
+        var position = hrChartData.lastPosition(); var size = data.size();
         var h; var offset=50; var last = null;
         y += height;
 
         // todo before data from chart is available, the current hr is shown wrong in the chart
         
         // chart alignment and crop
-        var maxHr = hrData.max(); 
+        var maxHr = hrChartData.max(); 
         if(maxHr==null){
             maxHr=0;
         }
-        var minHr = hrData.min();
+        var minHr = hrChartData.min();
         if(minHr==null){
             minHr=0;
         }
 
-        h = hrLastData.average();
+        h = lastHrData.average();
         if(h==null){
             h=0;
         } 
@@ -306,6 +306,9 @@ class HeartRateRunnerView extends Ui.DataField {
         if(h>maxHr){
             maxHr = h;
         }
+        maxHr = maxHr.toNumber() >> 1;
+        minHr = minHr.toNumber() >> 1;
+        h = h.toNumber() >> 1;
     
         // cut offset which will not fit into an area
         if(maxHr-minHr>height){
@@ -316,9 +319,6 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             offset = (((minHr+maxHr)-height)/2).toNumber(); // put it in the middle of the chart
         }          
-
-        //System.println(offset + " " + maxHr + " " + minHr + " " + h + " " + height); 
-
         dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
         dc.setPenWidth(2);
         // set current hr to be drawn and draw it
@@ -328,12 +328,13 @@ class HeartRateRunnerView extends Ui.DataField {
             last = h;
         }
 
-        //System.println("draw hr history");
+
         // draw hr history
         var color1; var color2; var midPoint = null;
         for(var i = size-1; i>=0; i--){
             h = data[position];
             if(h != null){
+                h = h.toNumber() >> 1;
                 color1 = (h>=offset && h<= offset+height) ? Graphics.COLOR_DK_RED : Graphics.COLOR_LT_GRAY; 
                 dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
                 if(last != null){

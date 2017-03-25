@@ -26,7 +26,7 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden const ZERO_DISTANCE = "0.00";
     
     hidden var kmOrMileInMeters = 1000;
-    hidden var is24Hour = true;
+    //hidden var is24Hour = true;
     hidden var distanceUnits = System.UNIT_METRIC;
     hidden var textColor = Graphics.COLOR_BLACK;
     hidden var inverseTextColor = Graphics.COLOR_WHITE;
@@ -35,7 +35,7 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var lineColor = Graphics.COLOR_RED;
     hidden var headerColor = Graphics.COLOR_DK_GRAY;
         
-    hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
+    //hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
     
     hidden var paceChartData = new DataQueue(5);
     hidden var lastLapPace = new DataQueue(60);
@@ -120,13 +120,13 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             kmOrMileInMeters = 1610;
         }
-        is24Hour = System.getDeviceSettings().is24Hour;
+        //is24Hour = System.getDeviceSettings().is24Hour;
         
-        paceStr = Ui.loadResource(Rez.Strings.pace);
+        /*paceStr = Ui.loadResource(Rez.Strings.pace);
         avgPaceStr = Ui.loadResource(Rez.Strings.avgpace);
         hrStr = Ui.loadResource(Rez.Strings.hr);
         distanceStr = Ui.loadResource(Rez.Strings.distance);
-        durationStr = Ui.loadResource(Rez.Strings.duration);
+        durationStr = Ui.loadResource(Rez.Strings.duration);*/
     }
     
     function setColors() {
@@ -148,7 +148,11 @@ class HeartRateRunnerView extends Ui.DataField {
 
         //hr
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(155, 80, VALUE_FONT, hr.format("%d"), CENTER); 
+        if(hr>0){
+            dc.drawText(155, 80, VALUE_FONT, hr.format("%d"), CENTER); 
+        } else {
+            dc.drawText(155, 80, VALUE_FONT, "-", CENTER); 
+        }
         drawHrChart(dc, 10, 55, 50);
 
         //apace
@@ -205,27 +209,26 @@ class HeartRateRunnerView extends Ui.DataField {
     }
 
     function drawPaceDiff(dc, x, y, height){
-        if(lapAvgSpeed!=null){
-            if((currentSpeed-lapAvgSpeed).abs()>.4 ){
-                var pitch = 10; 
-
-                var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0.0;
+        if(lapAvgSpeed != null){
+            dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
+            if(currentSpeed==0){
+                dc.fillRectangle(x, y+height>>1, 8, 8);
+            } else if((currentSpeed-lapAvgSpeed).abs()>0){
+                var pitch = 10; var step = 1;
                 var avg = lapAvgSpeed>0 ? kmOrMileInMeters/lapAvgSpeed : 0.0;
-                // how many times do we differ by 15 s from the average pace? 
-                var diff = Math.round((current-avg)/15);
-                var step = 1;
-                  
-                dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
-                if(diff>0){ // faster = avg pace > pace
+                
+                // how many times do we differ by 15s (1/4 min) from the average pace? 
+                var diff = Math.round((kmOrMileInMeters/currentSpeed-avg)/15);
+                if(diff>0){ // faster than average = avg pace > pace
                     y += height;
                     step = -step;
                     pitch = -pitch;
-                    dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
+                } else {
+                    dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
                 }
 
                 var i = diff.abs();
                 if(i>3){i=3;}
-                
                 while(i>0){    
                     dc.fillPolygon([[x,y],[x+8, y],[x+4,y+8*step]]);
                     y+=pitch;
@@ -242,32 +245,38 @@ class HeartRateRunnerView extends Ui.DataField {
         var lapAvgPace = getPace(lapAvgSpeed);
         y += height;
         
+        // max pace for chart scale
         var maxPace = lapAvgPace;
-        for(i = 0; i < data.size(); i++){
+        for(i = 0; i < data.size(); i++){   // find max space in array with speeds
             if(data[i]!=null){
                 if(data[i]!=0){
                     h = getPace(data[i]);
                     if(maxPace == null || h>maxPace){ 
-                        maxPace =h;
+                        maxPace = h;
                     }
                 }
             }
         }
+        var avgPace = getPace(avgSpeed);
+        if(avgPace>maxPace){ maxPace=avgPace;}
         
         if(maxPace>0){
+            // avg pace line
+            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT); 
+            h = (avgPace/maxPace*height).toNumber();
+            dc.setPenWidth(1);
+            dc.drawLine(x, y-h, x+15*6, y-h);
+            // current pace bar
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
             h = (lapAvgPace/maxPace*height).toNumber();
             dc.fillRectangle(x+5*15, y-h, 10, h);   // current lap pace
+            // pace history bar chart
             var speed = 0;
             for(i = max-1; i>=0; i--){
                 speed = data[position];
                 if(speed != null){
                     if(maxPace > 0){
                         h = (getPace(speed)/maxPace*height).toNumber();
-                        /*if(h>50){
-                            System.println("height " + h + "speed " + speed + " pace "  + getPace(speed) + "lapAvgPace " + lapAvgPace + "lapAvgSpeed " + lapAvgSpeed + " max " + maxPace );
-                            System.println(data.toString());
-                        }*/
                         dc.fillRectangle(x+i*15, y-h, 10, h);   // last laps paces
                     } 
                 }
@@ -279,98 +288,84 @@ class HeartRateRunnerView extends Ui.DataField {
         }
     }
 
-    function drawHrChart(dc, x, y, height){
-        var data = hrChartData.getData();
-        var position = hrChartData.lastPosition(); var size = data.size();
-        var h; var offset=50; var last = null;
-        y += height;
-
-        // todo before data from chart is available, the current hr is shown wrong in the chart
-        
+    function drawHrChart(dc, x, y, height){        
         // chart alignment and crop
         var maxHr = hrChartData.max(); 
-        if(maxHr==null){
-            maxHr=0;
-        }
-        var minHr = hrChartData.min();
-        if(minHr==null){
-            minHr=0;
-        }
+        if(maxHr != null){  // no data, no chart
+            var h; var offset=50; var last = null;
+            y += height; // y should be at top
 
-        h = lastHrData.average();
-        if(h==null){
-            h=0;
-        } 
+            var minHr = hrChartData.min();
+            h = lastHrData.average();
             
-        if(h<minHr){
-            minHr = h;
-        }
-        if(h>maxHr){
-            maxHr = h;
-        }
-        maxHr = maxHr.toNumber() >> 1;
-        minHr = minHr.toNumber() >> 1;
-        h = h.toNumber() >> 1;
-    
-        // cut offset which will not fit into an area
-        if(maxHr-minHr>height){
-            offset = maxHr-height; // put max to the top of the chart
-            if(h<offset && h>0){
-                offset = h-10; // make sure current hr is shown
-            }
-        } else {
-            offset = (((minHr+maxHr)-height)/2).toNumber(); // put it in the middle of the chart
-        }          
-        dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
-        dc.setPenWidth(2);
-        // set current hr to be drawn and draw it
+            if(h==null){h=0;} 
+            if(h<minHr){ minHr = h;}
+            if(h>maxHr){ maxHr = h;}
+
+            // scale
+            maxHr = maxHr.toNumber() >> 1;
+            minHr = minHr.toNumber() >> 1;
+            h = h.toNumber() >> 1;
         
-        if(h > 0){
-            dc.drawPoint(x+size*2, y-h+offset);
-            last = h;
-        }
+            // cut offset which will not fit into an area
+            if(maxHr-minHr>height){
+                offset = maxHr-height; // put max to the top of the chart
+                if(h<offset && h>0){
+                    offset = h-10; // make sure current hr is shown
+                }
+            } else {
+                offset = (((minHr+maxHr)-height)/2).toNumber(); // put it in the middle of the chart
+            }          
+            dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
+            dc.setPenWidth(2);
 
+            // draw hr history
+            var data = hrChartData.getData();
+            var position = hrChartData.lastPosition(); var size = data.size();
+            var color1; var color2; var midPoint = null;
 
-        // draw hr history
-        var color1; var color2; var midPoint = null;
-        for(var i = size-1; i>=0; i--){
-            h = data[position];
-            if(h != null){
-                h = h.toNumber() >> 1;
-                color1 = (h>=offset && h<= offset+height) ? Graphics.COLOR_DK_RED : Graphics.COLOR_LT_GRAY; 
-                dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
-                if(last != null){
-                    color2 = (last >= offset && last <= offset+height) ? Graphics.COLOR_DK_RED : Graphics.COLOR_LT_GRAY;  
-                    if(color1 != color2){
-                        if(color1 == Graphics.COLOR_DK_RED){   // h (left value) is within boundaries
-                            midPoint = (last<offset) ? y : y-height;  
-                            dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
-                            dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset); 
-                            dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
-                            dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint);  
-                            //System.println("RED " + color1.toString() + " " + color2.toString());System.println(midPoint.toString());System.println( (y-last+offset).toString() + " " + (y-h+offset).toString());
-                        } else {    // h (left value) is out of boundaries
-                            midPoint = (h<offset) ? y : y-height;
-                            dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
-                            dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint); 
-                            dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
-                            dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset);  
-                            //System.println("GRAY " + color1.toString() + " " + color2.toString());System.println(midPoint.toString());System.println((y-h+offset).toString() + " " + (y-last+offset).toString());
+            // set current hr to be drawn and draw it            
+            if(h > 0){
+                dc.drawPoint(x+size*2, y-h+offset);
+                last = h;
+            }
+
+            for(var i = size-1; i>=0; i--){
+                h = data[position];
+                if(h != null){
+                    h = h.toNumber() >> 1;
+                    color1 = (h>=offset && h<= offset+height) ? Graphics.COLOR_DK_RED : Graphics.COLOR_LT_GRAY; 
+                    dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                    if(last != null){
+                        color2 = (last >= offset && last <= offset+height) ? Graphics.COLOR_DK_RED : Graphics.COLOR_LT_GRAY;  
+                        if(color1 != color2){
+                            if(color1 == Graphics.COLOR_DK_RED){   // h (left value) is within boundaries
+                                midPoint = (last<offset) ? y : y-height;  
+                                dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+                                dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset); 
+                                dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                                dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint);  
+                            } else {    // h (left value) is out of boundaries
+                                midPoint = (h<offset) ? y : y-height;
+                                dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                                dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint); 
+                                dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+                                dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset);  
+                            }
+                        } else {
+                            dc.drawLine(x+i*2, y-h+offset, x+i*2+2, y-last+offset);    
                         }
                     } else {
-                        dc.drawLine(x+i*2, y-h+offset, x+i*2+2, y-last+offset);    
+                        dc.drawPoint(x+i*2, y-h+offset);
                     }
-                } else {
-                    dc.drawPoint(x+i*2, y-h+offset);
+                }
+                last = h; 
+                position--;
+                if(position<0){
+                    position = size-1;
                 }
             }
-            last = h; 
-            position--;
-            if(position<0){
-                position = size-1;
-            }
         }
-        
 
     }
 
@@ -409,13 +404,15 @@ class HeartRateRunnerView extends Ui.DataField {
 		var zoneCircleWidth = [7, 7, 7, 7, 7, 7];
 		
 		var i;	
-		for (i = 0; i < zoneLowerBound.size() && hr >= zoneLowerBound[i]; ++i) { }
+		for (i = 0; i < zoneLowerBound.size() && hr >= zoneLowerBound[i]; ++i) { 
+
+        }
 		if(i >= 0){
 			zoneCircleWidth[i] = 15;
 		}
 		
 		var zonedegree = 58 / (zoneLowerBound[1] - zoneLowerBound[0]);
-		
+
 		//zone 1
 		dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT);
 		dc.setPenWidth(zoneCircleWidth[1]);

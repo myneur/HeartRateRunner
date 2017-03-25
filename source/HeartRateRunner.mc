@@ -3,6 +3,7 @@ using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Graphics;
 using Toybox.System as System;
 using Toybox.Math as Math;
+//using Toybox.ActivityRecording as Activity;
 
 //! @author Indrik myneur -  Many thanks to Konrad Paumann and Roelof Koelewijn for the code for the dataFields: check out their Datafields as well 
 class HeartRateRunner extends App.AppBase {
@@ -42,6 +43,7 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var hrLastData = new DataQueue(15);
     hidden var hrInterval = 10;
     hidden var avgSpeed = 0;
+    hidden var lapAvgSpeed = 0;
     hidden var maxSpeed = 0;
     hidden var currentSpeed = 0;
     hidden var hr = 0;
@@ -69,22 +71,11 @@ class HeartRateRunnerView extends Ui.DataField {
 
         if(lastLapPace.add(info.currentSpeed)==0){
             paceData.add(lastLapPace.average());
-
         }
         
         if(hrLastData.add(info.currentHeartRate)==0){
             hrData.add(hrLastData.average());
-        }
-        /* // debug
-        var id = 15; var v = 50; var i = 0;
-        for(; i<60; i++){
-            v +=id;
-            if(v>200 || i<=0){id = -id;}
-            hrData.add(v);
-        }
-        hrLastData.reset();
-        hrLastData.add(v);*/
-        
+        }        
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
         maxSpeed = info.maxSpeed != null ? info.maxSpeed : 0;
         currentSpeed = info.currentSpeed != null ? info.currentSpeed : 0;
@@ -156,13 +147,17 @@ class HeartRateRunnerView extends Ui.DataField {
         //hr
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         dc.drawText(155, 80, VALUE_FONT, hr.format("%d"), CENTER); 
-        drawHrChart(dc);
+        drawHrChart(dc, 10, 55, 50);
 
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(155, 130, VALUE_FONT, getMinutesPerKmOrMile(avgSpeed), CENTER);
-        drawPaceDiff(dc);
-        drawPaceChart(dc);
+        lapAvgSpeed = lastLapPace.average();
+        dc.drawText(155, 130, VALUE_FONT, getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
+        drawPaceDiff(dc, 110, 110, 50);
+        drawPaceChart(dc, 20, 110, 50);
+        
+        dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(155, 160, HEADER_FONT, getMinutesPerKmOrMile(currentSpeed), CENTER);
         
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         
@@ -178,7 +173,6 @@ class HeartRateRunnerView extends Ui.DataField {
         } else {
             distStr = ZERO_DISTANCE;
         }
-        //dc.drawText(155 , 85, VALUE_FONT, distStr, CENTER);
         dc.drawText(109 , 30, VALUE_FONT, distStr, CENTER);
         
         //duration
@@ -203,49 +197,91 @@ class HeartRateRunnerView extends Ui.DataField {
         } 
         dc.drawText(109, 185, VALUE_FONT, duration, CENTER);
         
-
-
         //Arcs
 		var zone = drawZoneBarsArcs(dc, (height/2)+1, width/2, height/2, hr); //radius, center x, center y
 
     }
 
-    function drawPaceDiff(dc){
-        if((currentSpeed-avgSpeed).abs()>0 ){
-            var x = 110; var y = 115; // coordinates of the diff indicator
-            var pitch = 10; 
+    function drawPaceDiff(dc, x, y, height){
+        if(lapAvgSpeed!=null){
+            if((currentSpeed-lapAvgSpeed).abs()>.4 ){
+                var pitch = 10; 
 
-            var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0;
-            var avg = avgSpeed>0 ? kmOrMileInMeters/avgSpeed : 0;
-            // how many times do we differ by 15 s from the average pace? 
-            var diff = ((current-avg)/15).toNumber();
-            var step = 1;
-            
-            
-            dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
-            if(diff>0){ // faster = avg pace > pace
-                y += 40;
-                step = -step;
-                pitch = -pitch;
-                dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
-            }
+                var current = currentSpeed>0 ? kmOrMileInMeters/currentSpeed : 0.0;
+                var avg = lapAvgSpeed>0 ? kmOrMileInMeters/lapAvgSpeed : 0.0;
+                // how many times do we differ by 15 s from the average pace? 
+                var diff = Math.round((current-avg)/15);
+                var step = 1;
+                  
+                dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
+                if(diff>0){ // faster = avg pace > pace
+                    y += height;
+                    step = -step;
+                    pitch = -pitch;
+                    dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
+                }
 
-            var i = diff.abs();
-            if(i>2){i=2;}
-            
-            
-            while(i>=0){    
-                dc.fillPolygon([[x,y],[x+8, y],[x+4,y+8*step]]);
-                y+=pitch;
-                i--;
+                var i = diff.abs();
+                if(i>3){i=3;}
+                
+                while(i>0){    
+                    dc.fillPolygon([[x,y],[x+8, y],[x+4,y+8*step]]);
+                    y+=pitch;
+                    i--;
+                }
             }
         }
     }
 
-    function drawHrChart(dc){
+    function drawPaceChart(dc, x, y, height){
+        var data = paceData.getData();
+        var position = paceData.lastPosition(); var max = data.size();
+        var h; var i; 
+        var lapAvgPace = getPace(lapAvgSpeed);
+        y += height;
+        
+        var maxPace = lapAvgPace;
+        for(i = 0; i < data.size(); i++){
+            if(data[i]!=null){
+                if(data[i]!=0){
+                    h = getPace(data[i]);
+                    if(maxPace == null || h>maxPace){ 
+                        maxPace =h;
+                    }
+                }
+            }
+        }
+        
+        if(maxPace>0){
+            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
+            h = (lapAvgPace/maxPace*height).toNumber();
+            dc.fillRectangle(x+5*15, y-h, 10, h);   // current lap pace
+            var speed = 0;
+            for(i = max-1; i>=0; i--){
+                speed = data[position];
+                if(speed != null){
+                    if(maxPace > 0){
+                        h = (getPace(speed)/maxPace*height).toNumber();
+                        if(h>50){
+                            System.println("height " + h + "speed " + speed + " pace "  + getPace(speed) + "lapAvgPace " + lapAvgPace + "lapAvgSpeed " + lapAvgSpeed + " max " + maxPace );
+                            System.println(data.toString());
+                        }
+                        dc.fillRectangle(x+i*15, y-h, 10, h);   // last laps paces
+                    } 
+                }
+                position--;
+                if(position<0){
+                    position = max-1;
+                }
+            }
+        }
+    }
+
+    function drawHrChart(dc, x, y, height){
         var data = hrData.getData();
         var position = hrData.lastPosition(); var size = data.size();
-        var x = 10; var y = 105; var h; var height = 50; var offset=50; var last = null;
+        var h; var offset=50; var last = null;
+        y += height;
 
         // todo before data from chart is available, the current hr is shown wrong in the chart
         
@@ -335,41 +371,6 @@ class HeartRateRunnerView extends Ui.DataField {
 
     }
 
-    function drawPaceChart(dc){
-        var data = paceData.getData();
-        var position = paceData.lastPosition(); var max = data.size();
-        var x = 15; var y = 160; var h; var i; var height = 50;
-
-        // chart y limit
-        var maxPace = getPace(paceData.nzmin()); // non-zero minimum speed is max pace
-        //System.println(maxPace);
-        var currentPace = getPace(lastLapPace.average());
-        //System.println(maxPace + " max/Current " + currentPace);
-        if(currentPace>maxPace){
-            maxPace=currentPace;
-        }
-        //System.println(maxPace + " max");
-        
-        if(maxPace>0){
-            dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
-            h = (currentPace/maxPace*height).toNumber();
-            dc.fillRectangle(x+5*15, y-h, 10, h);   // current lap pace
-
-            for(i = max-1; i>=0; i--){
-                h = data[position];
-                if(h != null){
-                    if(maxPace > 0){
-                        h = (getPace(h)/maxPace*height).toNumber();
-                        dc.fillRectangle(x+i*15, y-h, 10, h);   // last laps paces
-                    } 
-                }
-                position--;
-                if(position<0){
-                    position = max-1;
-                }
-            }
-        }
-    }
     
     function computeHour(hour) {
         if (hour < 1) {
@@ -550,20 +551,6 @@ class DataQueue {
             if(data[i] != null){
                 if(min == null || data[i]<min){ 
                     min = data[i];
-                }
-            }
-        }
-        return min;
-    }
-
-    function nzmin(){
-        var min = null;
-        for(var i = 0; i < data.size(); i++){
-            if(data[i]!=null){
-                if(data[i]!=0){
-                    if(min == null ||data[i]<min){ 
-                        min =data[i];
-                    }
                 }
             }
         }

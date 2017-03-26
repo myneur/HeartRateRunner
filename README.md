@@ -1,6 +1,6 @@
 # Heart Rate Runner
 
-![HeartRateRunner Screenshot Bright](/doc/screen.png) 
+![HeartRateRunner Screenshot Bright](/doc/screen.jpg) 
 
 DataField designed to show running metrics at one page. 
 It shows heart rate and pace with trends and hr zones. 

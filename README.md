@@ -2,6 +2,8 @@
 
 ![HeartRateRunner Screenshot Bright](/doc/screen.jpg) 
 
+# Heart zones are hardcoded so far, because it is under testing and there are no permissions to read it from profile when installed manually. 
+
 DataField designed to show all running metrics at one page. 
 It shows heart rate and pace with trends and hr zones. 
 

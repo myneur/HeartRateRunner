@@ -1,39 +1,25 @@
-# Heart Rate Runner
+# Heart Pace Runner
 
 ![HeartRateRunner Screenshot Bright](/doc/screen.jpg) 
 
-DataField designed to show running metrics at one page. 
+DataField designed to show all running metrics at one page. 
 It shows heart rate and pace with trends and hr zones. 
 
-It is yet in an early stage of development. Pace-chart is not finished. 
+* Current heart rate zone indicator (zones from a watch profile)
+* Heart rate trend for up to 30 mins
+* Average pace trend chart for last 5 laps and current lap average
+* Pace difference indicator of how the current pace differes from the lap average
+* Pace in km/min or mi/min based on system settings
+* Distance elapsed distance in km or miles based on system settings.
+* Duration of the activity in [hh:]mm:ss
+* use bright or dark color scheme based on the background color setting of the app (Settings/Apps/Run/Background Color).
+  needs at least a firmware with SDK 1.2 compatibility (otherwise bright scheme is always used).
 
 ===============================================
 
 ## Special thanks
 * To Roelof Koelewijn
-* Thank you for sharing your code showing hr zones as open source on https://github.com/roelofk/HeartRateRunner as a base for this app
-* Release versions of Heart Rate Runner are published in the [Garmin App Store](https://apps.garmin.com/nl-NL/apps/cb7742e6-1914-490f-b581-fa41ad863b72)
-
-* To Konrad Paumann
-* Thank you for your hard work and making your code freely available!!!
-* Heart Rate Runner datafield is an addition to RunnersField
-* RunnersField is open source and its code resides at github: https://github.com/kopa/RunnersField
-* Release versions of RunnersField are published in the [Garmin App Store](https://apps.garmin.com/en-US/apps/8428701b-e621-4156-9d4e-37d92b30151f)
-
-
-===============================================
-
-
-## Features
-* HEART RATE: shows five colored zones. Zone is made thicker when in zone and indicator shows where in the zone you are.
-* HEART RATE SETTINS: you can set your own zones in settings
-* TIME: 12/24h mode based on system settings.
-* PACE: pace in km/min or mi/min based on system settings (as average of the last 10 values).
-* AVG PACE: average pace over the whole activity.
-* DISTANCE: elapsed distance in km or miles based on system settings.
-* DURATION: duration of the activity in [hh:]mm:ss
-* use bright or dark color scheme based on the background color setting of the app (Settings/Apps/Run/Background Color).
-  needs at least a firmware with SDK 1.2 compatibility (otherwise bright scheme is always used).
+* Thank you for sharing your code showing hr zones as open source on https://github.com/roelofk/HeartRateRunner [Garmin App Store](https://apps.garmin.com/nl-NL/apps/cb7742e6-1914-490f-b581-fa41ad863b72) as a base for this app
 
 ===============================================
 

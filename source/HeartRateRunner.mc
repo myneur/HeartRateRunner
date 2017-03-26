@@ -38,12 +38,14 @@ class HeartRateRunnerView extends Ui.DataField {
     //hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
     
     hidden var paceChartData = new DataQueue(5);
-    hidden var lastLapPace = new DataQueue(60);
+    hidden var lastLapPace = new DataQueue(10);
     hidden var hrChartData = new DataQueue(60);
     hidden var lastHrData = new DataQueue(30);
     hidden var hrInterval = 10;
     hidden var avgSpeed = 0;
     hidden var lapAvgSpeed = 0;
+    hidden var lastLapStartTimer = 0;
+    hidden var lastLapStartDistance = 0;
     hidden var maxSpeed = 0;
     hidden var currentSpeed = 0;
     hidden var hr = 0;
@@ -69,9 +71,7 @@ class HeartRateRunnerView extends Ui.DataField {
     //! The given info object contains all the current workout
     function compute(info) {
 
-        if(lastLapPace.add(info.currentSpeed)==0){
-            paceChartData.add(lastLapPace.average());
-        }
+        lastLapPace.add(info.currentSpeed);
         
         if(lastHrData.add(info.currentHeartRate)==0){
             hrChartData.add(lastHrData.average());
@@ -82,6 +82,14 @@ class HeartRateRunnerView extends Ui.DataField {
         elapsedTime = info.timerTime != null ? info.timerTime : 0;        
         hr = info.currentHeartRate != null ? info.currentHeartRate : 0;
         distance = info.elapsedDistance != null ? info.elapsedDistance : 0;
+        if(lastLapStartTimer!=elapsedTime){
+            lapAvgSpeed = (distance-lastLapStartDistance)/(elapsedTime-lastLapStartTimer)*1000;
+        }
+        if(distance-lastLapStartDistance >= kmOrMileInMeters){
+            paceChartData.add(lapAvgSpeed);
+            lastLapStartTimer += kmOrMileInMeters;    // TODO or should I copy elapsed time and round it, because it can be a little over km/mile?
+            lastLapStartDistance = distance;
+        }
 	    if (hr != null) {
 			zoneId = getZoneIdForHr(hr) - 1;
 			if(zoneId >= 0){
@@ -149,17 +157,16 @@ class HeartRateRunnerView extends Ui.DataField {
         //hr
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         if(hr>0){
-            dc.drawText(width-55, centerY-30, VALUE_FONT, hr.format("%d"), CENTER); 
+            dc.drawText(width-55, centerY-31, VALUE_FONT, hr.format("%d"), CENTER); 
         } else {
-            dc.drawText(width-55, centerY-30, VALUE_FONT, "-", CENTER); 
+            dc.drawText(width-55, centerY-31, VALUE_FONT, "-", CENTER); 
         }
-        drawHrChart(dc, 10, 58, 50);
+        drawHrChart(dc, 10, centerY-51, 50);
 
         //apace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        lapAvgSpeed = lastLapPace.average();
         dc.drawText(width-55, centerY+30, VALUE_FONT, getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
-        drawPaceDiff(dc, 110, centerY+1, 50);
+        drawPaceDiff(dc, 115, centerY+1, 50);
         drawPaceChart(dc, 20, centerY+1, 50);
         
         dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT);
@@ -167,44 +174,46 @@ class HeartRateRunnerView extends Ui.DataField {
         
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         
-        //distance
-        var distStr;
-        if (distance > 0) {
-            var distanceKmOrMiles = distance / kmOrMileInMeters;
-            if (distanceKmOrMiles < 100) {
-                distStr = distanceKmOrMiles.format("%.2f");
+        if(height>200){
+            //distance
+            var distStr;
+            if (distance > 0) {
+                var distanceKmOrMiles = distance / kmOrMileInMeters;
+                if (distanceKmOrMiles < 100) {
+                    distStr = distanceKmOrMiles.format("%.2f");
+                } else {
+                    distStr = distanceKmOrMiles.format("%.1f");
+                }
             } else {
-                distStr = distanceKmOrMiles.format("%.1f");
+                distStr = ZERO_DISTANCE;
             }
-        } else {
-            distStr = ZERO_DISTANCE;
+            dc.drawText(centerX , 33, VALUE_FONT, distStr, CENTER);
+            
+            //duration
+            var duration;
+            if (elapsedTime != null && elapsedTime > 0) {
+                var hours = null;
+                var minutes = elapsedTime / 1000 / 60;
+                var seconds = elapsedTime / 1000 % 60;
+                
+                if (minutes >= 60) {
+                    hours = minutes / 60;
+                    minutes = minutes % 60;
+                }
+                
+                if (hours == null) {
+                    duration = minutes.format("%d") + ":" + seconds.format("%02d");
+                } else {
+                    duration = hours.format("%d") + ":" + minutes.format("%02d") + ":" + seconds.format("%02d");
+                }
+            } else {
+                duration = ZERO_TIME;
+            } 
+            dc.drawText(centerX, height-33, VALUE_FONT, duration, CENTER);
+        
+            //Arcs
+    		var zone = drawZoneBarsArcs(dc, centerY+1, centerX, centerY, hr); //radius, center x, center y
         }
-        dc.drawText(centerX , 33, VALUE_FONT, distStr, CENTER);
-        
-        //duration
-        var duration;
-        if (elapsedTime != null && elapsedTime > 0) {
-            var hours = null;
-            var minutes = elapsedTime / 1000 / 60;
-            var seconds = elapsedTime / 1000 % 60;
-            
-            if (minutes >= 60) {
-                hours = minutes / 60;
-                minutes = minutes % 60;
-            }
-            
-            if (hours == null) {
-                duration = minutes.format("%d") + ":" + seconds.format("%02d");
-            } else {
-                duration = hours.format("%d") + ":" + minutes.format("%02d") + ":" + seconds.format("%02d");
-            }
-        } else {
-            duration = ZERO_TIME;
-        } 
-        dc.drawText(centerX, height-33, VALUE_FONT, duration, CENTER);
-        
-        //Arcs
-		var zone = drawZoneBarsArcs(dc, centerY+1, centerX, centerY, hr); //radius, center x, center y
 
     }
 

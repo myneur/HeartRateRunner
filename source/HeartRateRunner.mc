@@ -70,7 +70,6 @@ class HeartRateRunnerView extends Ui.DataField {
 
     //! The given info object contains all the current workout
     function compute(info) {
-
         lastLapPace.add(info.currentSpeed);
         
         if(lastHrData.add(info.currentHeartRate)==0){
@@ -85,12 +84,7 @@ class HeartRateRunnerView extends Ui.DataField {
         if(lastLapStartTimer!=elapsedTime){
             lapAvgSpeed = (distance-lastLapStartDistance)/(elapsedTime-lastLapStartTimer)*1000;
         }
-        if(distance-lastLapStartDistance >= kmOrMileInMeters){
-            paceChartData.add(lapAvgSpeed);
-            lastLapStartTimer += kmOrMileInMeters;    // TODO or should I copy elapsed time and round it, because it can be a little over km/mile?
-            lastLapStartDistance = distance;
-        }
-	    if (hr != null) {
+        if (hr != null) {
 			zoneId = getZoneIdForHr(hr) - 1;
 			if(zoneId >= 0){
 				secondsInZone[zoneId] += 1;
@@ -117,6 +111,14 @@ class HeartRateRunnerView extends Ui.DataField {
         dc.fillRectangle(0, 0, width, height);
         
         drawValues(dc);
+    }
+
+    function onTimerLap(){
+        //System.println(  "distance " + distance + " time "+ (elapsedTime/1000)  + " lap time start " + (lastLapStartTimer/1000 ) + " lap dist start "+lastLapStartDistance + " current speed "+ currentSpeed + " current pace "+getPace(currentSpeed)); System.println(" lap distance " + ((distance-lastLapStartDistance)) +" lap time " + ((elapsedTime-lastLapStartTimer)/1000) + " lapavg "+ lapAvgSpeed + " lap pace " + getPace(lapAvgSpeed) );
+        paceChartData.add(lapAvgSpeed);
+        lastLapStartTimer = elapsedTime;    // TODO or should I copy elapsed time and round it, because it can be a little over km/mile?
+        lastLapStartDistance = distance;
+        
     }
 
     function setDeviceSettingsDependentVariables() {

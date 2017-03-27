@@ -83,6 +83,7 @@ class HeartRateRunnerView extends Ui.DataField {
         distance = info.elapsedDistance != null ? info.elapsedDistance : 0;
         if(lastLapStartTimer!=elapsedTime){
             lapAvgSpeed = (distance-lastLapStartDistance)/(elapsedTime-lastLapStartTimer)*1000;
+            //System.println(  "distance " + distance + " time "+ (elapsedTime/1000)  + " current speed "+ currentSpeed + " current pace "+getPace(currentSpeed) + " lapavg "+ lapAvgSpeed + " lap pace " + getPace(lapAvgSpeed) );
         }
         if (hr != null) {
 			zoneId = getZoneIdForHr(hr) - 1;

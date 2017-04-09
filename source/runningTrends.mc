@@ -75,12 +75,13 @@ class RunningTrendsView extends Ui.DataField {
     
     function initialize() {
         // WTF! who the hell designd this idiotic language. It can not deal with nulls and can not even raise an exception, so it really must be as ugly as below ! 
-        maxHr = Application.getApp().getProperty("maxHr") != null ? Application.getApp().getProperty("maxHr") : maxHr ;
-        zoneLowerBound[0] = Application.getApp().getProperty("zone1") != null ? Application.getApp().getProperty("zone1") : zoneLowerBound[0];
-        zoneLowerBound[1] = Application.getApp().getProperty("zone2") != null ? Application.getApp().getProperty("zone2") : zoneLowerBound[1];
-        zoneLowerBound[2] = Application.getApp().getProperty("zone3") != null ? Application.getApp().getProperty("zone3") : zoneLowerBound[2];
-        zoneLowerBound[3] = Application.getApp().getProperty("zone4") != null ? Application.getApp().getProperty("zone4") : zoneLowerBound[3];
-        zoneLowerBound[4] = Application.getApp().getProperty("zone5") != null ? Application.getApp().getProperty("zone5") : zoneLowerBound[4];
+        // WTF2!! if you want to run it in a simulator, comment out all next ifs of reading info from profile or it will run out of the memory! WTF! WTF!!!! WTF!!!!!!! Dafuq!!
+        if(Application.getApp().getProperty("maxHr") != null) { maxHr = Application.getApp().getProperty("maxHr");}
+        if(Application.getApp().getProperty("zone1") != null) { zoneLowerBound[0] = Application.getApp().getProperty("zone1");}
+        if(Application.getApp().getProperty("zone2") != null) { zoneLowerBound[1] = Application.getApp().getProperty("zone2");}
+        if(Application.getApp().getProperty("zone3") != null) { zoneLowerBound[2] = Application.getApp().getProperty("zone3");}
+        if(Application.getApp().getProperty("zone4") != null) { zoneLowerBound[3] = Application.getApp().getProperty("zone4");}
+        if(Application.getApp().getProperty("zone5") != null) { zoneLowerBound[4] = Application.getApp().getProperty("zone5");}
         setDeviceSettingsDependentVariables();
         DataField.initialize();
 	}
@@ -146,10 +147,7 @@ class RunningTrendsView extends Ui.DataField {
         hasBackgroundColorOption = (self has :getBackgroundColor);
         
         distanceUnits = System.getDeviceSettings().distanceUnits;
-        if (distanceUnits == System.UNIT_METRIC) {
-            kmOrMileInMeters = 1000;
-            kmOrMileStr = "km";
-        } else {
+        if (distanceUnits != System.UNIT_METRIC) {
             kmOrMileInMeters = 1610;
             kmOrMileStr = "mi";
         }
@@ -197,11 +195,7 @@ class RunningTrendsView extends Ui.DataField {
             var distStr;
             if (distance > 0) {
                 var distanceKmOrMiles = distance / kmOrMileInMeters;
-                if (distanceKmOrMiles < 100) {
-                    distStr = distanceKmOrMiles.format("%.2f");
-                } else {
-                    distStr = distanceKmOrMiles.format("%.1f");
-                }
+                distStr = (distanceKmOrMiles < 100) ? distanceKmOrMiles.format("%.2f") : distanceKmOrMiles.format("%.1f");
             } else {
                 distStr = ZERO_DISTANCE;
             }
@@ -232,7 +226,7 @@ class RunningTrendsView extends Ui.DataField {
             } 
             dc.drawText(centerX, height-33, fontMidNumbers, duration, CENTER);
         
-            //Arcs
+            // hr zone arcs
     		var zone = drawZoneBarsArcs(dc, centerY+1, centerX, centerY, hr); //radius, center x, center y
         }
 

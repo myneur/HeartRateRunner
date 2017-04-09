@@ -2,10 +2,10 @@ using Toybox.Application as App;
 using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Graphics;
 using Toybox.System as System;
-using Toybox.Math as Math;
+//using Toybox.Math as Math;
 //using Toybox.ActivityRecording as Activity;
 
-//! @author Indrik myneur -  Many thanks to Roelof Koelewijn for the code for hr gauge
+//! @author Indrik myneur -  Many thanks to Roelof Koelewijn for a hr gauge code
 class RunningTrends extends App.AppBase {
 
     function getInitialView() {
@@ -20,82 +20,79 @@ class RunningTrendsView extends Ui.DataField {
 
     hidden const CENTER = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
     hidden const LEFT = Graphics.TEXT_JUSTIFY_LEFT;
-    hidden const HEADER_FONT = Graphics.FONT_XTINY;
+    hidden const LABEL_FONT = Graphics.FONT_XTINY;
     hidden const VALUE_FONT = Graphics.FONT_NUMBER_MEDIUM;
+    hidden var fontBigNumbers = VALUE_FONT;
+    hidden var fontMidNumbers = VALUE_FONT;
+
     hidden const ZERO_TIME = "0:00";
     hidden const ZERO_DISTANCE = "0.00";
+    hidden const ZERO_HR = "-";
+    //hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
 
-    hidden const paceBarWidth = 13;
-    hidden const pacePitch = 15;
+    hidden const PACE_BAR_WIDTH = 13;
+    hidden const PACE_BAR_PITCH = 15;
     
     hidden var kmOrMileInMeters = 1000;
-    hidden var kmOrMile = "km";
+    hidden var kmOrMileStr = "km";
     hidden var distanceUnits = System.UNIT_METRIC;
+
+    //hidden var inverseBackgroundColor = Graphics.COLOR_BLACK;
     hidden var textColor = Graphics.COLOR_BLACK;
     hidden var inverseTextColor = Graphics.COLOR_WHITE;
     hidden var backgroundColor = Graphics.COLOR_WHITE;
-    //hidden var inverseBackgroundColor = Graphics.COLOR_BLACK;
     hidden var darkColor = Graphics.COLOR_DK_GRAY;
     hidden var lightColor = Graphics.COLOR_LT_GRAY;
-        
-    //hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
+    hidden var hasBackgroundColorOption = false;
     
+    // data for charts and averages
     hidden var paceChartData = new DataQueue(5);
-    //hidden var lastLapPace = new DataQueue(10); // averaging pace
     hidden var hrChartData = new DataQueue(60);
     hidden var lastHrData = new DataQueue(30);
-    hidden var hrInterval = 10;
+    //hidden var lastLapPace = new DataQueue(10); // averaging pace
+
+    // metrics
     hidden var avgSpeed = 0;
     hidden var lapAvgSpeed = 0;
     hidden var lastLapStartTimer = 0;
     hidden var lastLapStartDistance = 0;
-    //hidden var maxSpeed = 0;
     hidden var currentSpeed = 0;
     hidden var hr = 0;
     hidden var distance = 0;
-    //hidden var altitude = 0;
     hidden var elapsedTime = 0;
+
+    // heart rate zones
     hidden var zoneId = 0;
-    //hidden var paused = true; // stop averages and time from running when paused https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/WatchUi/DataField.html
-    //hidden var secondsInZone = [0, 0, 0, 0, 0, 0];
     hidden var maxHr = 200;
     hidden var zoneLowerBound = [113, 139, 155, 165, 174];
-
-    var zoneColor = [Graphics.COLOR_TRANSPARENT, Graphics.COLOR_LT_GRAY, Graphics.COLOR_BLUE, Graphics.COLOR_GREEN, Graphics.COLOR_ORANGE, Graphics.COLOR_RED];
+    hidden var zoneColor = [Graphics.COLOR_TRANSPARENT, Graphics.COLOR_LT_GRAY, Graphics.COLOR_BLUE, Graphics.COLOR_GREEN, Graphics.COLOR_ORANGE, Graphics.COLOR_RED];
     
-    hidden var hasBackgroundColorOption = false;
-
-    hidden var fontBigNumbers = VALUE_FONT;
-    hidden var fontMidNumbers = VALUE_FONT;
+    hidden var width = 218;
+    hidden var height = 218;
+    hidden var centerX = 109;
+    hidden var centerY = 109;
     //hidden var fontMiniText;
     
     function initialize() {
-        try {
-            // WTF!! who the hell designd this idiotic language. It can not read profile without IQ Store and it can not even handle the exception!!! 
-            maxHr = Application.getApp().getProperty("maxHr") != null ? Application.getApp().getProperty("maxHr") : maxHr ;
-            zoneLowerBound[0] = Application.getApp().getProperty("zone1") != null ? Application.getApp().getProperty("zone1") : zoneLowerBound[0];
-            zoneLowerBound[1] = Application.getApp().getProperty("zone2") != null ? Application.getApp().getProperty("zone2") : zoneLowerBound[1];
-            zoneLowerBound[2] = Application.getApp().getProperty("zone3") != null ? Application.getApp().getProperty("zone3") : zoneLowerBound[2];
-            zoneLowerBound[3] = Application.getApp().getProperty("zone4") != null ? Application.getApp().getProperty("zone4") : zoneLowerBound[3];
-            zoneLowerBound[4] = Application.getApp().getProperty("zone5") != null ? Application.getApp().getProperty("zone5") : zoneLowerBound[4];
-        } catch (ex /*instanceof UnexpectedTypeException*/) {
-            /* no info from profile: forcing hardcoded hr zones */
-            maxHr = 200;
-            zoneLowerBound = [113, 139, 155, 165, 174];
-        }
-
+        // WTF! who the hell designd this idiotic language. It can not deal with nulls and can not even raise an exception, so it really must be as ugly as below ! 
+        maxHr = Application.getApp().getProperty("maxHr") != null ? Application.getApp().getProperty("maxHr") : maxHr ;
+        zoneLowerBound[0] = Application.getApp().getProperty("zone1") != null ? Application.getApp().getProperty("zone1") : zoneLowerBound[0];
+        zoneLowerBound[1] = Application.getApp().getProperty("zone2") != null ? Application.getApp().getProperty("zone2") : zoneLowerBound[1];
+        zoneLowerBound[2] = Application.getApp().getProperty("zone3") != null ? Application.getApp().getProperty("zone3") : zoneLowerBound[2];
+        zoneLowerBound[3] = Application.getApp().getProperty("zone4") != null ? Application.getApp().getProperty("zone4") : zoneLowerBound[3];
+        zoneLowerBound[4] = Application.getApp().getProperty("zone5") != null ? Application.getApp().getProperty("zone5") : zoneLowerBound[4];
+        setDeviceSettingsDependentVariables();
         DataField.initialize();
 	}
 
     //! The given info object contains all the current workout
     function compute(info) {
-        //lastLapPace.add(info.currentSpeed);
+        //lastLapPace.add(info.currentSpeed); // everaging speed, because Garmin's current speed is shitty on GPS inaccuracy 
         
-        if(lastHrData.add(info.currentHeartRate)==0){
+        if(lastHrData.add(info.currentHeartRate)==0){   // when we filled full length of cirucular buffer
             hrChartData.add(lastHrData.average());
         }        
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
-        //maxSpeed = info.maxSpeed != null ? info.maxSpeed : 0;
         currentSpeed = info.currentSpeed != null ? info.currentSpeed : 0;
         elapsedTime = info.timerTime != null ? info.timerTime : 0;   
         hr = info.currentHeartRate != null ? info.currentHeartRate : 0;
@@ -120,17 +117,19 @@ class RunningTrendsView extends Ui.DataField {
 	}
     
     function onLayout(dc) {
-        //fontMidNumbers = Ui.loadResource(Rez.Fonts.MidNumbers);   // runs out of memory
+        // WTF! If I load the fonts it runs out of memory!
+        //fontMidNumbers = Ui.loadResource(Rez.Fonts.MidNumbers);   
         //fontBigNumbers = Ui.loadResource(Rez.Fonts.BigNumbers);   
         //fontMiniText = Ui.loadResource(Rez.Fonts.MiniText);
-        setDeviceSettingsDependentVariables();
+        width = dc.getWidth();
+        height = dc.getHeight();
+        centerX = width>>1;
+        centerY = height>>1;
         onUpdate(dc);
     }
     
     function onUpdate(dc) {
         setColors();
-        var width = dc.getWidth();
-    	var height = dc.getHeight();
         dc.setColor(backgroundColor, backgroundColor);
         dc.fillRectangle(0, 0, width, height);
         
@@ -149,10 +148,10 @@ class RunningTrendsView extends Ui.DataField {
         distanceUnits = System.getDeviceSettings().distanceUnits;
         if (distanceUnits == System.UNIT_METRIC) {
             kmOrMileInMeters = 1000;
-            kmOrMile = "km";
+            kmOrMileStr = "km";
         } else {
             kmOrMileInMeters = 1610;
-            kmOrMile = "mi";
+            kmOrMileStr = "mi";
         }
         //is24Hour = System.getDeviceSettings().is24Hour;
         
@@ -175,31 +174,25 @@ class RunningTrendsView extends Ui.DataField {
     }
         
     function drawValues(dc) {
-        var width = dc.getWidth();
-    	var height = dc.getHeight();       
-        var centerX = width>>1;
-        var centerY = height>>1;
-
+        
         //hr
         drawHrChart(dc, 10, centerY-51, 50);
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        if(hr>0){
-            dc.drawText(width-55, centerY-31, fontBigNumbers, hr.format("%d"), CENTER); 
-        } else {
-            dc.drawText(width-55, centerY-31, fontBigNumbers, "-", CENTER); 
-        }
-        //apace
+        dc.drawText(width-55, centerY-31, fontBigNumbers, hr>0 ? hr.format("%d") : ZERO_HR, CENTER); 
+        
+        //pace
         dc.drawText(width-55, centerY+30, fontBigNumbers, getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
             
         drawPaceDiff(dc, 115, centerY+1, 50);
         drawPaceChart(dc, 20, centerY+1, 50);
         
         dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-        //dc.drawText(width-55, centerY+2, HEADER_FONT, "pace " + getMinutesPerKmOrMile(currentSpeed) , CENTER);
-        dc.drawText(width-55, centerY+2, HEADER_FONT, "lap pace"  , CENTER);
+        //dc.drawText(width-55, centerY+2, LABEL_FONT, "pace " + getMinutesPerKmOrMile(currentSpeed) , CENTER);
+        dc.drawText(width-55, centerY+2, LABEL_FONT, "lap pace"  , CENTER);
 
         
         if(height>200){
+
             //distance
             var distStr;
             if (distance > 0) {
@@ -213,7 +206,7 @@ class RunningTrendsView extends Ui.DataField {
                 distStr = ZERO_DISTANCE;
             }
 
-            dc.drawText(centerX + dc.getTextWidthInPixels(distStr, fontMidNumbers)>>1+5, 40, HEADER_FONT, kmOrMile, LEFT);
+            dc.drawText(centerX + dc.getTextWidthInPixels(distStr, fontMidNumbers)>>1+5, 40, LABEL_FONT, kmOrMileStr, LEFT);
             dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
             dc.drawText(centerX , 33, fontMidNumbers, distStr, CENTER);
             
@@ -307,11 +300,11 @@ class RunningTrendsView extends Ui.DataField {
             dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT); 
             h = (avgPace/maxPace*height).toNumber();
             dc.setPenWidth(1);
-            dc.drawLine(x, y-h, x+pacePitch*6, y-h);
+            dc.drawLine(x, y-h, x+PACE_BAR_PITCH*6, y-h);
             // current pace bar
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
             h = (lapAvgPace/maxPace*height).toNumber();
-            dc.fillRectangle(x+5*pacePitch, y-h, paceBarWidth, h);   // current lap pace
+            dc.fillRectangle(x+5*PACE_BAR_PITCH, y-h, PACE_BAR_WIDTH, h);   // current lap pace
             // pace history bar chart
             var speed = 0;
             for(i = max-1; i>=0; i--){
@@ -319,7 +312,7 @@ class RunningTrendsView extends Ui.DataField {
                 if(speed != null){
                     if(maxPace > 0){
                         h = (getPace(speed)/maxPace*height).toNumber();
-                        dc.fillRectangle(x+i*pacePitch, y-h, paceBarWidth, h);   // last laps paces
+                        dc.fillRectangle(x+i*PACE_BAR_PITCH, y-h, PACE_BAR_WIDTH, h);   // last laps paces
                     } 
                 }
                 position--;
@@ -364,7 +357,7 @@ class RunningTrendsView extends Ui.DataField {
             // draw hr history
             var data = hrChartData.getData();
             var position = hrChartData.lastPosition(); var size = data.size();
-            var color1; var color2; var midPoint = null;
+            var colorLineStart; var colorLineEnd; var midPoint = null;
 
             // set current hr to be drawn and draw it            
             if(h > 0){
@@ -376,22 +369,26 @@ class RunningTrendsView extends Ui.DataField {
                 h = data[position];
                 if(h != null){
                     h = h.toNumber() >> 1;
-                    color1 = (h>=offset && h<= offset+height) ? Graphics.COLOR_DK_RED : lightColor; 
-                    dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+
+                    // line can have two colors if it crossses a chart boundary
+                    colorLineStart = (h>=offset && h<= offset+height) ? Graphics.COLOR_DK_RED : lightColor; 
+                    dc.setColor(colorLineStart, Graphics.COLOR_TRANSPARENT);
                     if(last != null){
-                        color2 = (last >= offset && last <= offset+height) ? Graphics.COLOR_DK_RED : lightColor;  
-                        if(color1 != color2){
-                            if(color1 == Graphics.COLOR_DK_RED){   // h (left value) is within boundaries
+                        colorLineEnd = (last >= offset && last <= offset+height) ? Graphics.COLOR_DK_RED : lightColor;  
+                        
+                        // when line crosses boundary
+                        if(colorLineStart != colorLineEnd){
+                            if(colorLineStart == Graphics.COLOR_DK_RED){   // h (left value) is within boundaries
                                 midPoint = (last<offset) ? y : y-height;  
-                                dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+                                dc.setColor(colorLineEnd, Graphics.COLOR_TRANSPARENT);
                                 dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset); 
-                                dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                                dc.setColor(colorLineStart, Graphics.COLOR_TRANSPARENT);
                                 dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint);  
                             } else {    // h (left value) is out of boundaries
                                 midPoint = (h<offset) ? y : y-height;
-                                dc.setColor(color1, Graphics.COLOR_TRANSPARENT);
+                                dc.setColor(colorLineStart, Graphics.COLOR_TRANSPARENT);
                                 dc.drawLine(x+i*2, y-h+offset, x+i*2+1, midPoint); 
-                                dc.setColor(color2, Graphics.COLOR_TRANSPARENT);
+                                dc.setColor(colorLineEnd, Graphics.COLOR_TRANSPARENT);
                                 dc.drawLine(x+i*2+1, midPoint, x+i*2+2, y-last+offset);  
                             }
                         } else {
@@ -401,25 +398,13 @@ class RunningTrendsView extends Ui.DataField {
                         dc.drawPoint(x+i*2, y-h+offset);
                     }
                 }
-                last = h; 
+                last = h; // value to continue from in the next iteration
                 position--;
                 if(position<0){
                     position = size-1;
                 }
             }
         }
-
-    }
-
-    
-    function computeHour(hour) {
-        if (hour < 1) {
-            return hour + 12;
-        }
-        if (hour >  12) {
-            return hour - 12;
-        }
-        return hour;      
     }
     
     function getMinutesPerKmOrMile(speedMetersPerSecond) {

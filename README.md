@@ -1,4 +1,4 @@
-# Heart Pace Runner
+# Trendy run
 
 ![HeartRateRunner Screenshot Bright](/doc/cover.png) 
 

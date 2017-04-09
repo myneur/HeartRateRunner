@@ -1,5 +1,5 @@
 <resources>
-	<string id="AppName">Running Trends</string>
+	<string id="AppName">Trendy run</string>
     <string id="pace">PACE</string>
     <string id="avgpace">AVG PACE</string>
     <string id="hr">HR</string>

@@ -1,6 +1,6 @@
 # Heart Pace Runner
 
-![HeartRateRunner Screenshot Bright](/doc/cover.jpg) 
+![HeartRateRunner Screenshot Bright](/doc/cover.png) 
 
 # Heart rate zones are hardcoded so far, because it is under testing and there are no permissions to read it from profile when installed manually. 
 # Average split pace is under testing now. 

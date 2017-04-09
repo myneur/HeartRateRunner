@@ -1,5 +1,5 @@
 <fonts>
-	<font id="MiddleNumbers" filename="futuraCondensed46.fnt" filter="0123456789:,.-" antialias="true" />
-	<font id="SmallNumbers" filename="futuraCondensed34.fnt" filter="0123456789:,.-" antialias="true" />
+	<font id="MidNumbers" filename="futuraCondensed34.fnt" filter="0123456789:,.-" antialias="true" />
+	<font id="BigNumbers" filename="futuraCondensed46.fnt" filter="0123456789:,.-" antialias="true" />
 	<font id="MiniText" filename="futuraCondensed12.fnt" filter="0123456789abcdefghijklmnoprstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ" antialias="true" />
 </fonts>

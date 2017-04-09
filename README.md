@@ -2,6 +2,8 @@
 
 ![HeartRateRunner Screenshot Bright](/doc/cover.png) 
 
+All running metrics on a single screen based on a [design concept](https://www.behance.net/gallery/35894907/Running-metrics-on-a-single-screen-no-distraction)
+
 Being tested so far. Please tell me if it runs for you on a different device than Garmin fenix 3
 When I try to use custom fonts it runs out of memory. I am open for suggestions. With device fonts it looks like this: 
 

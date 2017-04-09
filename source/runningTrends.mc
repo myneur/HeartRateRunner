@@ -5,18 +5,18 @@ using Toybox.System as System;
 using Toybox.Math as Math;
 //using Toybox.ActivityRecording as Activity;
 
-//! @author Indrik myneur -  Many thanks to Konrad Paumann and Roelof Koelewijn for the code for the dataFields: check out their Datafields as well 
-class HeartRateRunner extends App.AppBase {
+//! @author Indrik myneur -  Many thanks to Roelof Koelewijn for the code for hr gauge
+class RunningTrends extends App.AppBase {
 
     function getInitialView() {
-        var view = new HeartRateRunnerView();
+        var view = new RunningTrendsView();
         return [ view ];
     }
 }
 
 //! skeleton by @author Konrad Paumann, HeartRateZones by @author Roelof Koelewijn
 //! charts and layout by Indrik myneur
-class HeartRateRunnerView extends Ui.DataField {
+class RunningTrendsView extends Ui.DataField {
 
     hidden const CENTER = Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER;
     hidden const LEFT = Graphics.TEXT_JUSTIFY_LEFT;
@@ -24,9 +24,11 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden const VALUE_FONT = Graphics.FONT_NUMBER_MEDIUM;
     hidden const ZERO_TIME = "0:00";
     hidden const ZERO_DISTANCE = "0.00";
+
+    hidden const paceBarWidth = 13;
+    hidden const pacePitch = 15;
     
     hidden var kmOrMileInMeters = 1000;
-    //hidden var is24Hour = true;
     hidden var distanceUnits = System.UNIT_METRIC;
     hidden var textColor = Graphics.COLOR_BLACK;
     hidden var inverseTextColor = Graphics.COLOR_WHITE;
@@ -50,6 +52,7 @@ class HeartRateRunnerView extends Ui.DataField {
     hidden var currentSpeed = 0;
     hidden var hr = 0;
     hidden var distance = 0;
+    //hidden var altitude = 0;
     hidden var elapsedTime = 0;
     hidden var zoneId = 0;
     //hidden var paused = true; // stop averages and time from running when paused https://developer.garmin.com/downloads/connect-iq/monkey-c/doc/Toybox/WatchUi/DataField.html
@@ -78,12 +81,13 @@ class HeartRateRunnerView extends Ui.DataField {
         avgSpeed = info.averageSpeed != null ? info.averageSpeed : 0;
         maxSpeed = info.maxSpeed != null ? info.maxSpeed : 0;
         currentSpeed = info.currentSpeed != null ? info.currentSpeed : 0;
-        elapsedTime = info.timerTime != null ? info.timerTime : 0;        
+        elapsedTime = info.timerTime != null ? info.timerTime : 0;   
         hr = info.currentHeartRate != null ? info.currentHeartRate : 0;
         distance = info.elapsedDistance != null ? info.elapsedDistance : 0;
+        //altitude = info.altitude != null ? info.altitude : 0;
+        //cadence = info.currentCadence != null ? info.currentCadence : 0;
         if(lastLapStartTimer!=elapsedTime){
             lapAvgSpeed = (distance-lastLapStartDistance)/(elapsedTime-lastLapStartTimer)*1000;
-            //System.println(  "distance " + distance + " time "+ (elapsedTime/1000)  + " current speed "+ currentSpeed + " current pace "+getPace(currentSpeed) + " lapavg "+ lapAvgSpeed + " lap pace " + getPace(lapAvgSpeed) );
         }
         if (hr != null) {
 			zoneId = getZoneIdForHr(hr) - 1;
@@ -115,11 +119,9 @@ class HeartRateRunnerView extends Ui.DataField {
     }
 
     function onTimerLap(){
-        //System.println(  "distance " + distance + " time "+ (elapsedTime/1000)  + " lap time start " + (lastLapStartTimer/1000 ) + " lap dist start "+lastLapStartDistance + " current speed "+ currentSpeed + " current pace "+getPace(currentSpeed)); System.println(" lap distance " + ((distance-lastLapStartDistance)) +" lap time " + ((elapsedTime-lastLapStartTimer)/1000) + " lapavg "+ lapAvgSpeed + " lap pace " + getPace(lapAvgSpeed) );
         paceChartData.add(lapAvgSpeed);
-        lastLapStartTimer = elapsedTime;    // TODO or should I copy elapsed time and round it, because it can be a little over km/mile?
+        lastLapStartTimer = elapsedTime;    
         lastLapStartDistance = distance;
-        
     }
 
     function setDeviceSettingsDependentVariables() {
@@ -229,13 +231,12 @@ class HeartRateRunnerView extends Ui.DataField {
                 var pitch = 10; var step = 1;
                 var avg = lapAvgSpeed>0 ? kmOrMileInMeters/lapAvgSpeed : 0.0;
                 
-                // how many times do we differ by 15s (1/4 min) from the average pace? 
+                // how many times does current pace differ by 15s (1/4 min) from the average pace? 
                 var diff = Math.round((kmOrMileInMeters/currentSpeed-avg)/15);
-                if(diff>0){ // faster than average = avg pace > pace
+                if(diff<0){ // slower than average = avg pace < pace
                     y += height;
                     step = -step;
                     pitch = -pitch;
-                } else {
                     dc.setColor(Graphics.COLOR_DK_BLUE, Graphics.COLOR_TRANSPARENT);
                 }
 
@@ -277,11 +278,11 @@ class HeartRateRunnerView extends Ui.DataField {
             dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT); 
             h = (avgPace/maxPace*height).toNumber();
             dc.setPenWidth(1);
-            dc.drawLine(x, y-h, x+15*6, y-h);
+            dc.drawLine(x, y-h, x+pacePitch*6, y-h);
             // current pace bar
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
             h = (lapAvgPace/maxPace*height).toNumber();
-            dc.fillRectangle(x+5*15, y-h, 10, h);   // current lap pace
+            dc.fillRectangle(x+5*pacePitch, y-h, paceBarWidth, h);   // current lap pace
             // pace history bar chart
             var speed = 0;
             for(i = max-1; i>=0; i--){
@@ -289,7 +290,7 @@ class HeartRateRunnerView extends Ui.DataField {
                 if(speed != null){
                     if(maxPace > 0){
                         h = (getPace(speed)/maxPace*height).toNumber();
-                        dc.fillRectangle(x+i*15, y-h, 10, h);   // last laps paces
+                        dc.fillRectangle(x+i*pacePitch, y-h, paceBarWidth, h);   // last laps paces
                     } 
                 }
                 position--;

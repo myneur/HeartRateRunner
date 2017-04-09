@@ -1,0 +1,1 @@
+cp bin/*.prg /Volumes/GARMIN/GARMIN/APPS

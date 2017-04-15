@@ -4,7 +4,6 @@
 
 All running metrics on a single screen based on a [design concept](https://www.behance.net/gallery/35894907/Running-metrics-on-a-single-screen-no-distraction)
 
-Being tested so far. Please tell me if it runs for you on a different device than Garmin fenix 3
 When I try to use custom fonts it runs out of memory. I am open for suggestions. With device fonts it looks like this: 
 
 ![HeartRateRunner Screenshot Bright](/doc/screen.png) 
@@ -25,7 +24,6 @@ It shows heart rate and lap pace with trends and hr zones.
 ===============================================
 
 ## Special thanks
-* To Roelof Koelewijn
-* Thank you for sharing your code showing hr zones as open source on https://github.com/roelofk/HeartRateRunner [Garmin App Store](https://apps.garmin.com/nl-NL/apps/cb7742e6-1914-490f-b581-fa41ad863b72) as a base for this app
+* To Roelof Koelewijn: Thank you for sharing your [code showing hr zones](https://github.com/roelofk/HeartRateRunner) [Garmin App Store](https://apps.garmin.com/nl-NL/apps/cb7742e6-1914-490f-b581-fa41ad863b72) as a base for this app
 
 ===============================================

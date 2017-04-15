@@ -1,8 +1,3 @@
 <properties>
-	<property id="zone1" type="number">117</property>
-	<property id="zone2" type="number">131</property>
-	<property id="zone3" type="number">145</property>
-	<property id="zone4" type="number">159</property>
-	<property id="zone5" type="number">173</property>
-	<property id="maxHr" type="number">187</property>
+	<property id="showLapMetrics" type="boolean">false</property>
 </properties>

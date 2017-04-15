@@ -2,6 +2,7 @@ using Toybox.Application as App;
 using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Graphics;
 using Toybox.System as System;
+using Toybox.UserProfile as UserProfile;
 //using Toybox.Math as Math;
 //using Toybox.ActivityRecording as Activity;
 
@@ -9,8 +10,7 @@ using Toybox.System as System;
 class RunningTrends extends App.AppBase {
 
     function getInitialView() {
-        var view = new RunningTrendsView();
-        return [ view ];
+        return [ new RunningTrendsView() ];
     }
 }
 
@@ -22,24 +22,24 @@ class RunningTrendsView extends Ui.DataField {
     hidden const LEFT = Graphics.TEXT_JUSTIFY_LEFT;
     hidden const LABEL_FONT = Graphics.FONT_XTINY;
     hidden const VALUE_FONT = Graphics.FONT_NUMBER_MEDIUM;
-    hidden var fontBigNumbers = VALUE_FONT;
-    hidden var fontMidNumbers = VALUE_FONT;
+    /*hidden var fontBigNumbers = VALUE_FONT;
+    hidden var fontMidNumbers = VALUE_FONT;*/
 
     hidden const ZERO_TIME = "0:00";
     hidden const ZERO_DISTANCE = "0.00";
     hidden const ZERO_HR = "-";
-    //hidden var paceStr, avgPaceStr, hrStr, distanceStr, durationStr;
+    //hidden var paceStr, hrStr, distanceStr, durationStr;
 
     hidden const PACE_BAR_WIDTH = 13;
     hidden const PACE_BAR_PITCH = 15;
     
     hidden var kmOrMileInMeters = 1000;
     hidden var kmOrMileStr = "km";
+    hidden var avgPaceStr;
     hidden var distanceUnits = System.UNIT_METRIC;
+    hidden var showLapMetrics = false;
 
-    //hidden var inverseBackgroundColor = Graphics.COLOR_BLACK;
     hidden var textColor = Graphics.COLOR_BLACK;
-    hidden var inverseTextColor = Graphics.COLOR_WHITE;
     hidden var backgroundColor = Graphics.COLOR_WHITE;
     hidden var darkColor = Graphics.COLOR_DK_GRAY;
     hidden var lightColor = Graphics.COLOR_LT_GRAY;
@@ -63,9 +63,10 @@ class RunningTrendsView extends Ui.DataField {
 
     // heart rate zones
     hidden var zoneId = 0;
-    hidden var maxHr = 200;
-    hidden var zoneLowerBound = [113, 139, 155, 165, 174];
-    hidden var zoneColor = [Graphics.COLOR_TRANSPARENT, Graphics.COLOR_LT_GRAY, Graphics.COLOR_BLUE, Graphics.COLOR_GREEN, Graphics.COLOR_ORANGE, Graphics.COLOR_RED];
+    hidden var zoneMaxLimits = [113, 139, 155, 165, 174, 200];
+    hidden var degrees = [[0,0],[220, 166],[166, 112],[112, 58],[58, 4],[4, 320],[4, 320]];
+    hidden var maxHr = zoneMaxLimits[5];
+    hidden var zoneColor = [Graphics.COLOR_TRANSPARENT, Graphics.COLOR_LT_GRAY, Graphics.COLOR_BLUE, Graphics.COLOR_GREEN, Graphics.COLOR_ORANGE, Graphics.COLOR_RED, Graphics.COLOR_RED];
     
     hidden var width = 218;
     hidden var height = 218;
@@ -75,13 +76,7 @@ class RunningTrendsView extends Ui.DataField {
     
     function initialize() {
         // WTF! who the hell designd this idiotic language. It can not deal with nulls and can not even raise an exception, so it really must be as ugly as below ! 
-        // WTF2!! if you want to run it in a simulator, comment out all next ifs of reading info from profile or it will run out of the memory! WTF! WTF!!!! WTF!!!!!!! Dafuq!!
-        if(Application.getApp().getProperty("maxHr") != null) { maxHr = Application.getApp().getProperty("maxHr");}
-        if(Application.getApp().getProperty("zone1") != null) { zoneLowerBound[0] = Application.getApp().getProperty("zone1");}
-        if(Application.getApp().getProperty("zone2") != null) { zoneLowerBound[1] = Application.getApp().getProperty("zone2");}
-        if(Application.getApp().getProperty("zone3") != null) { zoneLowerBound[2] = Application.getApp().getProperty("zone3");}
-        if(Application.getApp().getProperty("zone4") != null) { zoneLowerBound[3] = Application.getApp().getProperty("zone4");}
-        if(Application.getApp().getProperty("zone5") != null) { zoneLowerBound[4] = Application.getApp().getProperty("zone5");}
+        if(Application.getApp().getProperty("showLapMetrics") != null) { showLapMetrics = Application.getApp().getProperty("showLapMetrics");}
         setDeviceSettingsDependentVariables();
         DataField.initialize();
 	}
@@ -105,6 +100,7 @@ class RunningTrendsView extends Ui.DataField {
         }
         if (hr != null) {
 			zoneId = getZoneIdForHr(hr) - 1;
+
 			/*if(zoneId >= 0){
 				secondsInZone[zoneId] += 1;
 			}*/
@@ -113,7 +109,7 @@ class RunningTrendsView extends Ui.DataField {
 	
 	function getZoneIdForHr(hr) {
 		var i;	
-		for (i = 0; i < zoneLowerBound.size() && hr > zoneLowerBound[i]; ++i) { }
+		for (i = 0; i < zoneMaxLimits.size() && hr > zoneMaxLimits[i]; ++i) { }
 		return i;
 	}
     
@@ -153,8 +149,15 @@ class RunningTrendsView extends Ui.DataField {
         }
         //is24Hour = System.getDeviceSettings().is24Hour;
         
-        /*paceStr = Ui.loadResource(Rez.Strings.pace);
         avgPaceStr = Ui.loadResource(Rez.Strings.avgpace);
+
+        if(UserProfile has :getHeartRateZones){
+            zoneMaxLimits = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
+            zoneMaxLimits[0] = zoneMaxLimits[0]-1; // germin returns first limit as zone 1 start, so normalizing to make it comparable
+            maxHr = zoneMaxLimits[5];
+            //System.println(zoneMaxLimits);
+        }
+        /*paceStr = Ui.loadResource(Rez.Strings.pace);
         hrStr = Ui.loadResource(Rez.Strings.hr);
         distanceStr = Ui.loadResource(Rez.Strings.distance);
         durationStr = Ui.loadResource(Rez.Strings.duration);*/
@@ -164,52 +167,52 @@ class RunningTrendsView extends Ui.DataField {
         if (hasBackgroundColorOption) {
             backgroundColor = getBackgroundColor();
             textColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_WHITE : Graphics.COLOR_BLACK;
-            inverseTextColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_WHITE : Graphics.COLOR_WHITE;
-            //inverseBackgroundColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_DK_GRAY: Graphics.COLOR_BLACK;
             darkColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_LT_GRAY: Graphics.COLOR_DK_GRAY;
             lightColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_DK_GRAY: Graphics.COLOR_LT_GRAY;
         }
     }
         
     function drawValues(dc) {
-        
+
         //hr
         drawHrChart(dc, 10, centerY-51, 50);
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width-55, centerY-31, fontBigNumbers, hr>0 ? hr.format("%d") : ZERO_HR, CENTER); 
+        dc.drawText(width-55, centerY-31, VALUE_FONT, hr>0 ? hr.format("%d") : ZERO_HR, CENTER); 
+
         
         //pace
-        dc.drawText(width-55, centerY+30, fontBigNumbers, getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
+        dc.drawText(width-55, centerY+31, VALUE_FONT, getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
             
         drawPaceDiff(dc, 115, centerY+1, 50);
         drawPaceChart(dc, 20, centerY+1, 50);
         
         dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
         //dc.drawText(width-55, centerY+2, LABEL_FONT, "pace " + getMinutesPerKmOrMile(currentSpeed) , CENTER);
-        dc.drawText(width-55, centerY+2, LABEL_FONT, "lap pace"  , CENTER);
+        dc.drawText(width-55, centerY+2, LABEL_FONT, avgPaceStr, CENTER);
 
         
         if(height>200){
-
             //distance
-            var distStr;
-            if (distance > 0) {
-                var distanceKmOrMiles = distance / kmOrMileInMeters;
-                distStr = (distanceKmOrMiles < 100) ? distanceKmOrMiles.format("%.2f") : distanceKmOrMiles.format("%.1f");
+            var d = (showLapMetrics == false) ? distance : distance - lastLapStartDistance;
+            if (d > 0) {
+                var distanceKmOrMiles = d / kmOrMileInMeters;
+                d = (distanceKmOrMiles < 100) ? distanceKmOrMiles.format("%.2f") : distanceKmOrMiles.format("%.1f");
             } else {
-                distStr = ZERO_DISTANCE;
+                d = ZERO_DISTANCE;
             }
-
-            dc.drawText(centerX + dc.getTextWidthInPixels(distStr, fontMidNumbers)>>1+5, 40, LABEL_FONT, kmOrMileStr, LEFT);
+            // WTF Graphics.getFontSize does not return real font size for F3: 60 instead of 40 and 18 instead of 11
+            // F3 font heights MID/TINY: 60/18 F5: 36/26, ascents: 53/14 36/21
+            dc.drawText(centerX + dc.getTextWidthInPixels(d, VALUE_FONT)>>1+5, 40, LABEL_FONT, kmOrMileStr, LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
             dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-            dc.drawText(centerX , 33, fontMidNumbers, distStr, CENTER);
-            
+            dc.drawText(centerX , 33, VALUE_FONT, d, CENTER);
+
+
             //duration
-            var duration;
-            if (elapsedTime != null && elapsedTime > 0) {
+            d = (showLapMetrics == false) ? elapsedTime : elapsedTime - lastLapStartTimer;
+            if (d != null && d > 0) {
                 var hours = null;
-                var minutes = elapsedTime / 1000 / 60;
-                var seconds = elapsedTime / 1000 % 60;
+                var minutes = d / 1000 / 60;
+                var seconds = d / 1000 % 60;
                 
                 if (minutes >= 60) {
                     hours = minutes / 60;
@@ -217,17 +220,17 @@ class RunningTrendsView extends Ui.DataField {
                 }
                 
                 if (hours == null) {
-                    duration = minutes.format("%d") + ":" + seconds.format("%02d");
+                    d = minutes.format("%d") + ":" + seconds.format("%02d");
                 } else {
-                    duration = hours.format("%d") + ":" + minutes.format("%02d") + ":" + seconds.format("%02d");
+                    d = hours.format("%d") + ":" + minutes.format("%02d") + ":" + seconds.format("%02d");
                 }
             } else {
-                duration = ZERO_TIME;
+                d = ZERO_TIME;
             } 
-            dc.drawText(centerX, height-33, fontMidNumbers, duration, CENTER);
+            dc.drawText(centerX, height-33, VALUE_FONT, d, CENTER);
         
             // hr zone arcs
-    		var zone = drawZoneBarsArcs(dc, centerY+1, centerX, centerY, hr); //radius, center x, center y
+            drawZoneBarsArcs(dc, centerY+1, centerX, centerY, hr); //radius, center x, center y
         }
 
     }
@@ -403,10 +406,8 @@ class RunningTrendsView extends Ui.DataField {
     
     function getMinutesPerKmOrMile(speedMetersPerSecond) {
         if (speedMetersPerSecond != null && speedMetersPerSecond > 0.2) {
-            var metersPerMinute = speedMetersPerSecond * 60.0;
-            var minutesPerKmOrMilesDecimal = kmOrMileInMeters / metersPerMinute;
-            var minutesPerKmOrMilesFloor = minutesPerKmOrMilesDecimal.toNumber();
-            var seconds = (minutesPerKmOrMilesDecimal - minutesPerKmOrMilesFloor) * 60;
+            var minutesPerKmOrMilesDecimal = kmOrMileInMeters / (speedMetersPerSecond * 60.0);
+            var seconds = (minutesPerKmOrMilesDecimal - minutesPerKmOrMilesDecimal.toNumber()) * 60;
             return minutesPerKmOrMilesDecimal.format("%2d") + ":" + seconds.format("%02d");
         }
         return ZERO_TIME;
@@ -421,51 +422,51 @@ class RunningTrendsView extends Ui.DataField {
     
     //! @author Roelof Koelewijn
 	function drawZoneBarsArcs(dc, radius, centerX, centerY, hr){
-        var degrees = [[0,0],[220, 166],[166, 112],[112, 58],[58, 4],[4, 320]];
         dc.setPenWidth(8);
 		
 		var i;	
-		for (i = 0; i < zoneLowerBound.size() && hr >= zoneLowerBound[i]; ++i) { }
-        var zonedegree = 58 / (zoneLowerBound[1] - zoneLowerBound[0]);
-		if(i >= 0){
+		for (i = 0; i < zoneMaxLimits.size() && hr > zoneMaxLimits[i]; ++i) { }
+        var zonedegree = 58.0 / (zoneMaxLimits[1] - zoneMaxLimits[0]);
+		
+        if(i >= 0){ // show zone arc
             dc.setColor(zoneColor[i], Graphics.COLOR_TRANSPARENT);
             dc.drawArc(centerX, centerY, radius - 4, 1, degrees[i][0], degrees[i][1]);	
 		}
-		
-		if(hr >= zoneLowerBound[0] && hr < zoneLowerBound[1]){
-			zonedegree = (58 / (zoneLowerBound[1] - zoneLowerBound[0])) * (zoneLowerBound[1]-hr);
+		// curret hr indicator
+		if(hr > zoneMaxLimits[0] && hr <= zoneMaxLimits[1]){
+			zonedegree = (58.0 / (zoneMaxLimits[1] - zoneMaxLimits[0])) * (zoneMaxLimits[1]-hr);
 			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(20);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 166 + zonedegree - 3, 166 + zonedegree + 1);
 			dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(17);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 166 + zonedegree - 2, 166 + zonedegree);
-		}else if(hr >= zoneLowerBound[1] && hr < zoneLowerBound[2]){
-			zonedegree = (58 / (zoneLowerBound[2] - zoneLowerBound[1])) * (zoneLowerBound[2]-hr);
+		}else if(hr > zoneMaxLimits[1] && hr <= zoneMaxLimits[2]){
+			zonedegree = (58.0 / (zoneMaxLimits[2] - zoneMaxLimits[1])) * (zoneMaxLimits[2]-hr);
 			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(20);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 112 + zonedegree - 3, 112 + zonedegree + 1);
 			dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(17);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 112 + zonedegree -2, 112 + zonedegree);
-		}else if(hr >= zoneLowerBound[2] && hr < zoneLowerBound[3]){
-			zonedegree = (58 / (zoneLowerBound[3] - zoneLowerBound[2])) * (zoneLowerBound[3]-hr);
+		}else if(hr > zoneMaxLimits[2] && hr <= zoneMaxLimits[3]){
+			zonedegree = (58.0 / (zoneMaxLimits[3] - zoneMaxLimits[2])) * (zoneMaxLimits[3]-hr);
 			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(20);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 58 + zonedegree - 3, 58 + zonedegree + 1);
 			dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(17);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 58 + zonedegree - 2, 58 + zonedegree);
-		}else if(hr >= zoneLowerBound[3] && hr < zoneLowerBound[4]){
-			zonedegree = (58 / (zoneLowerBound[4] - zoneLowerBound[3])) * (zoneLowerBound[4]-hr);
+		}else if(hr > zoneMaxLimits[3] && hr <= zoneMaxLimits[4]){
+			zonedegree = (58.0 / (zoneMaxLimits[4] - zoneMaxLimits[3])) * (zoneMaxLimits[4]-hr);
 			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(20);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 4 + zonedegree - 3, 4 + zonedegree + 1);
 			dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(17);
 			dc.drawArc(centerX, centerY, radius - 8, 0, 4 + zonedegree - 2, 4 + zonedegree);
-		}else if(hr >= zoneLowerBound[4] && hr < maxHr){
-			zonedegree = (58 / (maxHr - zoneLowerBound[4])) * (maxHr-hr);
+		}else if(hr > zoneMaxLimits[4] && hr <= maxHr){
+			zonedegree = (58.0 / (maxHr - zoneMaxLimits[4])) * (maxHr-hr);
 			dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
 			dc.setPenWidth(20);
 			if((320 + zonedegree) < 360){
@@ -481,7 +482,7 @@ class RunningTrendsView extends Ui.DataField {
 				dc.drawArc(centerX, centerY, radius - 8, 0, -50 + zonedegree -2 , -50 + zonedegree);
 			}
 		}
-		
+		//System.println(i + " deg " + zonedegree + " hr " + hr + " / " + zoneMaxLimits);
 		return i;
 	}
 }

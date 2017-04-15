@@ -4,7 +4,7 @@
 <entry filename="source/runningTrends.mc" lineNum="11" pc="268435456" symbol="getInitialView"/>
 <entry filename="source/runningTrends.mc" lineNum="12" pc="268435460" symbol="getInitialView"/>
 <entry filename="source/runningTrends.mc" lineNum="13" pc="268435484" symbol="getInitialView"/>
-<entry filename="source/runningTrends.mc" lineNum="76" pc="268435503" symbol="initialize"/>
+<entry filename="source/runningTrends.mc" lineNum="77" pc="268435503" symbol="initialize"/>
 <entry filename="source/runningTrends.mc" lineNum="79" pc="268435507" symbol="initialize"/>
 <entry filename="source/runningTrends.mc" lineNum="79" pc="268435543" symbol="initialize"/>
 <entry filename="source/runningTrends.mc" lineNum="80" pc="268435585" symbol="initialize"/>
@@ -56,310 +56,310 @@
 <entry filename="source/runningTrends.mc" lineNum="150" pc="268436802" symbol="setDeviceSettingsDependentVariables"/>
 <entry filename="source/runningTrends.mc" lineNum="151" pc="268436826" symbol="setDeviceSettingsDependentVariables"/>
 <entry filename="source/runningTrends.mc" lineNum="152" pc="268436839" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/runningTrends.mc" lineNum="163" pc="268436856" symbol="setColors"/>
-<entry filename="source/runningTrends.mc" lineNum="164" pc="268436860" symbol="setColors"/>
-<entry filename="source/runningTrends.mc" lineNum="165" pc="268436871" symbol="setColors"/>
-<entry filename="source/runningTrends.mc" lineNum="166" pc="268436890" symbol="setColors"/>
-<entry filename="source/runningTrends.mc" lineNum="167" pc="268436949" symbol="setColors"/>
-<entry filename="source/runningTrends.mc" lineNum="169" pc="268437008" symbol="setColors"/>
-<entry filename="source/runningTrends.mc" lineNum="170" pc="268437067" symbol="setColors"/>
-<entry filename="source/runningTrends.mc" lineNum="174" pc="268437130" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="177" pc="268437134" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="178" pc="268437172" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="179" pc="268437204" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="182" pc="268437310" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="184" pc="268437385" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="185" pc="268437423" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="187" pc="268437461" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="189" pc="268437493" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="192" pc="268437554" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="195" pc="268437571" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="196" pc="268437571" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="197" pc="268437588" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="198" pc="268437607" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="200" pc="268437658" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="203" pc="268437668" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="204" pc="268437752" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="205" pc="268437784" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="208" pc="268437827" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="209" pc="268437827" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="210" pc="268437860" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="211" pc="268437863" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="212" pc="268437885" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="214" pc="268437907" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="215" pc="268437918" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="216" pc="268437928" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="219" pc="268437941" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="220" pc="268437948" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="222" pc="268437992" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="225" pc="268438059" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="227" pc="268438069" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="230" pc="268438121" symbol="drawValues"/>
-<entry filename="source/runningTrends.mc" lineNum="235" pc="268438178" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="236" pc="268438182" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="237" pc="268438195" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="238" pc="268438231" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="239" pc="268438248" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="241" pc="268438322" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="241" pc="268438329" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="242" pc="268438336" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="245" pc="268438380" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="246" pc="268438408" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="247" pc="268438419" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="248" pc="268438432" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="249" pc="268438442" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="250" pc="268438452" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="252" pc="268438491" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="255" pc="268438501" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="256" pc="268438514" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="256" pc="268438525" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="257" pc="268438535" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="258" pc="268438546" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="259" pc="268438557" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="260" pc="268438698" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="261" pc="268438705" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="264" pc="268438721" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="267" pc="268438730" symbol="drawPaceDiff"/>
-<entry filename="source/runningTrends.mc" lineNum="270" pc="268438737" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="271" pc="268438741" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="272" pc="268438760" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="272" pc="268438779" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="273" pc="268438792" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="273" pc="268438792" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="274" pc="268438792" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="275" pc="268438813" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="278" pc="268438820" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="279" pc="268438824" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="280" pc="268438848" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="281" pc="268438858" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="282" pc="268438872" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="283" pc="268438890" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="284" pc="268438908" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="289" pc="268438934" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="290" pc="268438955" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="290" pc="268438963" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="292" pc="268438970" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="294" pc="268438981" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="295" pc="268439017" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="296" pc="268439036" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="297" pc="268439053" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="299" pc="268439094" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="300" pc="268439130" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="301" pc="268439149" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="303" pc="268439193" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="304" pc="268439200" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="305" pc="268439221" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="306" pc="268439228" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="307" pc="268439235" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="308" pc="268439246" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="309" pc="268439276" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="312" pc="268439323" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="313" pc="268439333" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="314" pc="268439344" symbol="drawPaceChart"/>
-<entry filename="source/runningTrends.mc" lineNum="320" pc="268439374" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="322" pc="268439378" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="323" pc="268439397" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="324" pc="268439404" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="324" pc="268439404" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="324" pc="268439411" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="325" pc="268439414" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="327" pc="268439421" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="328" pc="268439440" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="330" pc="268439459" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="330" pc="268439466" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="331" pc="268439476" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="331" pc="268439484" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="332" pc="268439491" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="332" pc="268439499" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="335" pc="268439506" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="336" pc="268439526" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="337" pc="268439546" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="340" pc="268439566" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="341" pc="268439577" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="342" pc="268439584" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="343" pc="268439606" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="346" pc="268439622" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="348" pc="268439647" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="349" pc="268439683" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="352" pc="268439700" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="353" pc="268439719" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="353" pc="268439738" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="354" pc="268439751" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="354" pc="268439751" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="354" pc="268439751" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="357" pc="268439754" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="358" pc="268439765" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="359" pc="268439796" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="362" pc="268439803" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="363" pc="268439824" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="364" pc="268439831" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="365" pc="268439838" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="368" pc="268439858" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="369" pc="268439905" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="370" pc="268439931" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="371" pc="268439938" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="374" pc="268439985" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="375" pc="268439993" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="376" pc="268440011" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="377" pc="268440031" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="378" pc="268440057" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="379" pc="268440113" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="380" pc="268440139" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="382" pc="268440192" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="383" pc="268440212" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="384" pc="268440238" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="385" pc="268440288" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="386" pc="268440314" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="156" pc="268436855" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/runningTrends.mc" lineNum="163" pc="268436899" symbol="setColors"/>
+<entry filename="source/runningTrends.mc" lineNum="164" pc="268436903" symbol="setColors"/>
+<entry filename="source/runningTrends.mc" lineNum="165" pc="268436914" symbol="setColors"/>
+<entry filename="source/runningTrends.mc" lineNum="166" pc="268436933" symbol="setColors"/>
+<entry filename="source/runningTrends.mc" lineNum="167" pc="268436992" symbol="setColors"/>
+<entry filename="source/runningTrends.mc" lineNum="169" pc="268437051" symbol="setColors"/>
+<entry filename="source/runningTrends.mc" lineNum="170" pc="268437110" symbol="setColors"/>
+<entry filename="source/runningTrends.mc" lineNum="174" pc="268437173" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="177" pc="268437177" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="178" pc="268437215" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="179" pc="268437247" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="183" pc="268437353" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="185" pc="268437428" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="186" pc="268437466" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="188" pc="268437504" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="190" pc="268437536" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="193" pc="268437600" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="196" pc="268437617" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="197" pc="268437617" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="198" pc="268437634" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="199" pc="268437653" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="201" pc="268437704" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="205" pc="268437714" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="206" pc="268437811" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="207" pc="268437843" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="211" pc="268437886" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="212" pc="268437886" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="213" pc="268437919" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="214" pc="268437922" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="215" pc="268437944" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="217" pc="268437966" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="218" pc="268437977" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="219" pc="268437987" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="222" pc="268438000" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="223" pc="268438007" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="225" pc="268438051" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="228" pc="268438118" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="230" pc="268438128" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="233" pc="268438180" symbol="drawValues"/>
+<entry filename="source/runningTrends.mc" lineNum="238" pc="268438237" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="239" pc="268438241" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="240" pc="268438254" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="241" pc="268438290" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="242" pc="268438307" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="244" pc="268438381" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="244" pc="268438388" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="245" pc="268438395" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="248" pc="268438439" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="249" pc="268438467" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="250" pc="268438478" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="251" pc="268438491" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="252" pc="268438501" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="253" pc="268438511" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="255" pc="268438550" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="258" pc="268438560" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="259" pc="268438573" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="259" pc="268438584" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="260" pc="268438594" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="261" pc="268438605" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="262" pc="268438616" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="263" pc="268438757" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="264" pc="268438764" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="267" pc="268438780" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="270" pc="268438789" symbol="drawPaceDiff"/>
+<entry filename="source/runningTrends.mc" lineNum="273" pc="268438796" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="274" pc="268438800" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="275" pc="268438819" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="275" pc="268438838" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="276" pc="268438851" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="276" pc="268438851" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="277" pc="268438851" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="278" pc="268438872" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="281" pc="268438879" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="282" pc="268438883" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="283" pc="268438907" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="284" pc="268438917" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="285" pc="268438931" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="286" pc="268438949" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="287" pc="268438967" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="292" pc="268438993" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="293" pc="268439014" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="293" pc="268439022" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="295" pc="268439029" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="297" pc="268439040" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="298" pc="268439076" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="299" pc="268439095" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="300" pc="268439112" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="302" pc="268439153" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="303" pc="268439189" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="304" pc="268439208" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="306" pc="268439252" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="307" pc="268439259" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="308" pc="268439280" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="309" pc="268439287" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="310" pc="268439294" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="311" pc="268439305" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="312" pc="268439335" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="315" pc="268439382" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="316" pc="268439392" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="317" pc="268439403" symbol="drawPaceChart"/>
+<entry filename="source/runningTrends.mc" lineNum="323" pc="268439433" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="325" pc="268439437" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="326" pc="268439456" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="327" pc="268439463" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="327" pc="268439463" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="327" pc="268439470" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="328" pc="268439473" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="330" pc="268439480" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="331" pc="268439499" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="333" pc="268439518" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="333" pc="268439525" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="334" pc="268439535" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="334" pc="268439543" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="335" pc="268439550" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="335" pc="268439558" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="338" pc="268439565" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="339" pc="268439585" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="340" pc="268439605" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="343" pc="268439625" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="344" pc="268439636" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="345" pc="268439643" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="346" pc="268439665" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="349" pc="268439681" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="351" pc="268439706" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="352" pc="268439742" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="355" pc="268439759" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="356" pc="268439778" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="356" pc="268439797" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="357" pc="268439810" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="357" pc="268439810" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="357" pc="268439810" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="360" pc="268439813" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="361" pc="268439824" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="362" pc="268439855" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="365" pc="268439862" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="366" pc="268439883" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="367" pc="268439890" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="368" pc="268439897" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="371" pc="268439917" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="372" pc="268439964" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="373" pc="268439990" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="374" pc="268439997" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="377" pc="268440044" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="378" pc="268440052" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="379" pc="268440070" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="380" pc="268440090" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="381" pc="268440116" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="382" pc="268440172" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="383" pc="268440198" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="385" pc="268440251" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="386" pc="268440271" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="387" pc="268440297" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="388" pc="268440347" symbol="drawHrChart"/>
 <entry filename="source/runningTrends.mc" lineNum="389" pc="268440373" symbol="drawHrChart"/>
 <entry filename="source/runningTrends.mc" lineNum="392" pc="268440432" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="395" pc="268440466" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="396" pc="268440470" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="397" pc="268440480" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="398" pc="268440491" symbol="drawHrChart"/>
-<entry filename="source/runningTrends.mc" lineNum="404" pc="268440521" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="405" pc="268440525" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="406" pc="268440546" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="407" pc="268440556" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="408" pc="268440569" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="409" pc="268440582" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="410" pc="268440595" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="412" pc="268440638" symbol="getMinutesPerKmOrMile"/>
-<entry filename="source/runningTrends.mc" lineNum="415" pc="268440648" symbol="getPace"/>
-<entry filename="source/runningTrends.mc" lineNum="416" pc="268440652" symbol="getPace"/>
-<entry filename="source/runningTrends.mc" lineNum="417" pc="268440673" symbol="getPace"/>
-<entry filename="source/runningTrends.mc" lineNum="419" pc="268440688" symbol="getPace"/>
-<entry filename="source/runningTrends.mc" lineNum="423" pc="268440695" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="424" pc="268440699" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="425" pc="268440947" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="427" pc="268440964" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="428" pc="268440964" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="429" pc="268441027" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="430" pc="268441064" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="431" pc="268441075" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="432" pc="268441110" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="435" pc="268441164" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="436" pc="268441207" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="437" pc="268441262" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="438" pc="268441298" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="439" pc="268441315" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="440" pc="268441372" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="441" pc="268441408" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="442" pc="268441425" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="444" pc="268441522" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="445" pc="268441577" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="446" pc="268441613" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="447" pc="268441630" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="448" pc="268441687" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="449" pc="268441723" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="450" pc="268441740" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="452" pc="268441837" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="453" pc="268441892" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="454" pc="268441928" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="455" pc="268441945" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="456" pc="268442002" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="457" pc="268442038" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="458" pc="268442055" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="460" pc="268442152" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="461" pc="268442207" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="462" pc="268442243" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="463" pc="268442260" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="464" pc="268442317" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="465" pc="268442353" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="466" pc="268442370" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="468" pc="268442461" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="469" pc="268442504" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="470" pc="268442540" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="471" pc="268442557" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="472" pc="268442574" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="474" pc="268442634" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="476" pc="268442691" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="477" pc="268442727" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="478" pc="268442744" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="479" pc="268442761" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="481" pc="268442815" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="485" pc="268442869" symbol="drawZoneBarsArcs"/>
-<entry filename="source/runningTrends.mc" lineNum="498" pc="268442873" symbol="initialize"/>
-<entry filename="source/runningTrends.mc" lineNum="499" pc="268442877" symbol="initialize"/>
-<entry filename="source/runningTrends.mc" lineNum="500" pc="268442888" symbol="initialize"/>
-<entry filename="source/runningTrends.mc" lineNum="504" pc="268442899" symbol="add"/>
-<entry filename="source/runningTrends.mc" lineNum="505" pc="268442903" symbol="add"/>
-<entry filename="source/runningTrends.mc" lineNum="506" pc="268442922" symbol="add"/>
-<entry filename="source/runningTrends.mc" lineNum="507" pc="268442953" symbol="add"/>
-<entry filename="source/runningTrends.mc" lineNum="510" pc="268442963" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="511" pc="268442967" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="512" pc="268442974" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="513" pc="268442981" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="514" pc="268443011" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="515" pc="268443027" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="516" pc="268443043" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="519" pc="268443069" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="520" pc="268443080" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="522" pc="268443085" symbol="average"/>
-<entry filename="source/runningTrends.mc" lineNum="527" pc="268443110" symbol="reset"/>
-<entry filename="source/runningTrends.mc" lineNum="528" pc="268443114" symbol="reset"/>
-<entry filename="source/runningTrends.mc" lineNum="529" pc="268443144" symbol="reset"/>
-<entry filename="source/runningTrends.mc" lineNum="531" pc="268443169" symbol="reset"/>
-<entry filename="source/runningTrends.mc" lineNum="534" pc="268443183" symbol="max"/>
-<entry filename="source/runningTrends.mc" lineNum="535" pc="268443187" symbol="max"/>
-<entry filename="source/runningTrends.mc" lineNum="536" pc="268443190" symbol="max"/>
-<entry filename="source/runningTrends.mc" lineNum="537" pc="268443220" symbol="max"/>
-<entry filename="source/runningTrends.mc" lineNum="538" pc="268443236" symbol="max"/>
-<entry filename="source/runningTrends.mc" lineNum="539" pc="268443263" symbol="max"/>
-<entry filename="source/runningTrends.mc" lineNum="543" pc="268443295" symbol="max"/>
-<entry filename="source/runningTrends.mc" lineNum="546" pc="268443299" symbol="min"/>
-<entry filename="source/runningTrends.mc" lineNum="547" pc="268443303" symbol="min"/>
-<entry filename="source/runningTrends.mc" lineNum="548" pc="268443306" symbol="min"/>
-<entry filename="source/runningTrends.mc" lineNum="549" pc="268443336" symbol="min"/>
-<entry filename="source/runningTrends.mc" lineNum="550" pc="268443352" symbol="min"/>
-<entry filename="source/runningTrends.mc" lineNum="551" pc="268443379" symbol="min"/>
-<entry filename="source/runningTrends.mc" lineNum="555" pc="268443411" symbol="min"/>
-<entry filename="source/runningTrends.mc" lineNum="559" pc="268443415" symbol="getData"/>
-<entry filename="source/runningTrends.mc" lineNum="560" pc="268443419" symbol="getData"/>
-<entry filename="source/runningTrends.mc" lineNum="563" pc="268443429" symbol="lastPosition"/>
-<entry filename="source/runningTrends.mc" lineNum="564" pc="268443433" symbol="lastPosition"/>
-<entry filename="source/runningTrends.mc" lineNum="565" pc="268443449" symbol="lastPosition"/>
+<entry filename="source/runningTrends.mc" lineNum="395" pc="268440491" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="398" pc="268440525" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="399" pc="268440529" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="400" pc="268440539" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="401" pc="268440550" symbol="drawHrChart"/>
+<entry filename="source/runningTrends.mc" lineNum="407" pc="268440580" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/runningTrends.mc" lineNum="408" pc="268440584" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/runningTrends.mc" lineNum="409" pc="268440605" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/runningTrends.mc" lineNum="410" pc="268440624" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/runningTrends.mc" lineNum="411" pc="268440646" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/runningTrends.mc" lineNum="413" pc="268440689" symbol="getMinutesPerKmOrMile"/>
+<entry filename="source/runningTrends.mc" lineNum="416" pc="268440699" symbol="getPace"/>
+<entry filename="source/runningTrends.mc" lineNum="417" pc="268440703" symbol="getPace"/>
+<entry filename="source/runningTrends.mc" lineNum="418" pc="268440724" symbol="getPace"/>
+<entry filename="source/runningTrends.mc" lineNum="420" pc="268440739" symbol="getPace"/>
+<entry filename="source/runningTrends.mc" lineNum="424" pc="268440746" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="425" pc="268440750" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="426" pc="268440998" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="428" pc="268441015" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="429" pc="268441015" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="430" pc="268441078" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="431" pc="268441115" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="432" pc="268441126" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="433" pc="268441161" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="436" pc="268441215" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="437" pc="268441258" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="438" pc="268441313" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="439" pc="268441349" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="440" pc="268441366" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="441" pc="268441423" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="442" pc="268441459" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="443" pc="268441476" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="445" pc="268441573" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="446" pc="268441628" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="447" pc="268441664" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="448" pc="268441681" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="449" pc="268441738" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="450" pc="268441774" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="451" pc="268441791" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="453" pc="268441888" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="454" pc="268441943" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="455" pc="268441979" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="456" pc="268441996" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="457" pc="268442053" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="458" pc="268442089" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="459" pc="268442106" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="461" pc="268442203" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="462" pc="268442258" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="463" pc="268442294" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="464" pc="268442311" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="465" pc="268442368" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="466" pc="268442404" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="467" pc="268442421" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="469" pc="268442512" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="470" pc="268442555" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="471" pc="268442591" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="472" pc="268442608" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="473" pc="268442625" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="475" pc="268442685" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="477" pc="268442742" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="478" pc="268442778" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="479" pc="268442795" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="480" pc="268442812" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="482" pc="268442866" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="486" pc="268442920" symbol="drawZoneBarsArcs"/>
+<entry filename="source/runningTrends.mc" lineNum="499" pc="268442924" symbol="initialize"/>
+<entry filename="source/runningTrends.mc" lineNum="500" pc="268442928" symbol="initialize"/>
+<entry filename="source/runningTrends.mc" lineNum="501" pc="268442939" symbol="initialize"/>
+<entry filename="source/runningTrends.mc" lineNum="505" pc="268442950" symbol="add"/>
+<entry filename="source/runningTrends.mc" lineNum="506" pc="268442954" symbol="add"/>
+<entry filename="source/runningTrends.mc" lineNum="507" pc="268442973" symbol="add"/>
+<entry filename="source/runningTrends.mc" lineNum="508" pc="268443004" symbol="add"/>
+<entry filename="source/runningTrends.mc" lineNum="511" pc="268443014" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="512" pc="268443018" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="513" pc="268443025" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="514" pc="268443032" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="515" pc="268443062" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="516" pc="268443078" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="517" pc="268443094" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="520" pc="268443120" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="521" pc="268443131" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="523" pc="268443136" symbol="average"/>
+<entry filename="source/runningTrends.mc" lineNum="528" pc="268443161" symbol="reset"/>
+<entry filename="source/runningTrends.mc" lineNum="529" pc="268443165" symbol="reset"/>
+<entry filename="source/runningTrends.mc" lineNum="530" pc="268443195" symbol="reset"/>
+<entry filename="source/runningTrends.mc" lineNum="532" pc="268443220" symbol="reset"/>
+<entry filename="source/runningTrends.mc" lineNum="535" pc="268443234" symbol="max"/>
+<entry filename="source/runningTrends.mc" lineNum="536" pc="268443238" symbol="max"/>
+<entry filename="source/runningTrends.mc" lineNum="537" pc="268443241" symbol="max"/>
+<entry filename="source/runningTrends.mc" lineNum="538" pc="268443271" symbol="max"/>
+<entry filename="source/runningTrends.mc" lineNum="539" pc="268443287" symbol="max"/>
+<entry filename="source/runningTrends.mc" lineNum="540" pc="268443314" symbol="max"/>
+<entry filename="source/runningTrends.mc" lineNum="544" pc="268443346" symbol="max"/>
+<entry filename="source/runningTrends.mc" lineNum="547" pc="268443350" symbol="min"/>
+<entry filename="source/runningTrends.mc" lineNum="548" pc="268443354" symbol="min"/>
+<entry filename="source/runningTrends.mc" lineNum="549" pc="268443357" symbol="min"/>
+<entry filename="source/runningTrends.mc" lineNum="550" pc="268443387" symbol="min"/>
+<entry filename="source/runningTrends.mc" lineNum="551" pc="268443403" symbol="min"/>
+<entry filename="source/runningTrends.mc" lineNum="552" pc="268443430" symbol="min"/>
+<entry filename="source/runningTrends.mc" lineNum="556" pc="268443462" symbol="min"/>
+<entry filename="source/runningTrends.mc" lineNum="560" pc="268443466" symbol="getData"/>
+<entry filename="source/runningTrends.mc" lineNum="561" pc="268443470" symbol="getData"/>
+<entry filename="source/runningTrends.mc" lineNum="564" pc="268443480" symbol="lastPosition"/>
+<entry filename="source/runningTrends.mc" lineNum="565" pc="268443484" symbol="lastPosition"/>
+<entry filename="source/runningTrends.mc" lineNum="566" pc="268443500" symbol="lastPosition"/>
 </pcToLineNum>
 <symbolTable>
 <entry id="8388644" symbol="System"/>
 <entry id="16" method="true" symbol="getData"/>
 <entry id="44" symbol="PACE_BAR_PITCH"/>
 <entry id="8389124" method="true" symbol="onUpdate"/>
-<entry id="69" method="true" symbol="getMinutesPerKmOrMile"/>
-<entry id="62" method="true" symbol="getZoneIdForHr"/>
+<entry id="70" method="true" symbol="getMinutesPerKmOrMile"/>
+<entry id="63" method="true" symbol="getZoneIdForHr"/>
 <entry id="42" symbol="ZERO_HR"/>
-<entry id="58" symbol="lastLapStartDistance"/>
+<entry id="59" symbol="lastLapStartDistance"/>
 <entry field="true" id="30" symbol="avgpace"/>
 <entry id="13" method="true" symbol="average"/>
 <entry field="true" id="27" symbol="pace"/>
 <entry id="8" object="true" symbol="RunningTrends"/>
 <entry id="46" symbol="kmOrMileStr"/>
 <entry field="true" id="8388611" symbol="Toybox"/>
-<entry id="52" symbol="paceChartData"/>
+<entry id="47" symbol="avgPaceStr"/>
+<entry id="53" symbol="paceChartData"/>
 <entry id="8388770" module="true" symbol="Strings"/>
-<entry id="64" method="true" symbol="setColors"/>
+<entry id="65" method="true" symbol="setColors"/>
 <entry id="8389280" method="true" symbol="getInitialView"/>
-<entry id="50" symbol="lightColor"/>
-<entry id="66" method="true" symbol="drawPaceDiff"/>
+<entry id="51" symbol="lightColor"/>
+<entry id="67" method="true" symbol="drawPaceDiff"/>
 <entry id="8388639" symbol="Graphics"/>
-<entry id="47" symbol="textColor"/>
+<entry id="48" symbol="textColor"/>
 <entry id="8389761" symbol="centerY"/>
 <entry id="8389760" symbol="centerX"/>
-<entry id="54" symbol="lastHrData"/>
+<entry id="55" symbol="lastHrData"/>
 <entry id="8388769" module="true" symbol="Rez"/>
 <entry id="8389627" symbol="getBackgroundColor"/>
 <entry field="true" id="22" symbol="BigNumbers"/>
 <entry id="34" symbol="CENTER"/>
 <entry field="true" id="21" symbol="MidNumbers"/>
 <entry id="17" method="true" symbol="lastPosition"/>
-<entry id="61" symbol="zoneColor"/>
+<entry id="62" symbol="zoneColor"/>
 <entry id="37" symbol="VALUE_FONT"/>
 <entry id="38" symbol="fontBigNumbers"/>
 <entry id="39" symbol="fontMidNumbers"/>
-<entry id="59" symbol="zoneId"/>
-<entry id="51" symbol="hasBackgroundColorOption"/>
+<entry id="60" symbol="zoneId"/>
+<entry id="52" symbol="hasBackgroundColorOption"/>
 <entry id="8389807" symbol="data"/>
 <entry id="8388702" method="true" symbol="initialize"/>
-<entry id="71" method="true" symbol="drawZoneBarsArcs"/>
+<entry id="72" method="true" symbol="drawZoneBarsArcs"/>
 <entry field="true" id="33" symbol="AppName"/>
 <entry field="true" id="8388935" symbol="duration"/>
 <entry id="35" symbol="LEFT"/>
@@ -371,19 +371,19 @@
 <entry field="true" id="29" symbol="zone3"/>
 <entry field="true" id="31" symbol="zone2"/>
 <entry field="true" id="32" symbol="zone1"/>
-<entry id="57" symbol="lastLapStartTimer"/>
+<entry id="58" symbol="lastLapStartTimer"/>
 <entry id="8388771" module="true" symbol="Drawables"/>
 <entry id="8389137" method="true" symbol="compute"/>
 <entry id="11" symbol="maxSize"/>
 <entry id="8389122" method="true" symbol="onLayout"/>
 <entry id="8388732" symbol="elapsedTime"/>
-<entry id="53" symbol="hrChartData"/>
+<entry id="54" symbol="hrChartData"/>
 <entry id="9" object="true" symbol="RunningTrendsView"/>
 <entry id="8388942" method="true" symbol="add"/>
-<entry id="48" symbol="inverseTextColor"/>
+<entry id="49" symbol="inverseTextColor"/>
 <entry id="8388738" symbol="currentSpeed"/>
 <entry id="8389743" symbol="backgroundColor"/>
-<entry id="60" symbol="zoneLowerBound"/>
+<entry id="61" symbol="zoneLowerBound"/>
 <entry id="41" symbol="ZERO_DISTANCE"/>
 <entry id="8389067" symbol="height"/>
 <entry id="40" symbol="ZERO_TIME"/>
@@ -394,76 +394,74 @@
 <entry id="12" symbol="pos"/>
 <entry id="8388721" method="true" symbol="min"/>
 <entry id="36" symbol="LABEL_FONT"/>
-<entry id="70" method="true" symbol="getPace"/>
-<entry id="55" symbol="avgSpeed"/>
+<entry id="71" method="true" symbol="getPace"/>
+<entry id="56" symbol="avgSpeed"/>
 <entry id="43" symbol="PACE_BAR_WIDTH"/>
-<entry id="68" method="true" symbol="drawHrChart"/>
+<entry id="69" method="true" symbol="drawHrChart"/>
 <entry id="8389066" symbol="width"/>
 <entry id="15" method="true" symbol="max"/>
 <entry field="true" id="26" symbol="maxHr"/>
-<entry id="63" method="true" symbol="setDeviceSettingsDependentVariables"/>
-<entry id="65" method="true" symbol="drawValues"/>
+<entry id="64" method="true" symbol="setDeviceSettingsDependentVariables"/>
+<entry id="66" method="true" symbol="drawValues"/>
 <entry id="18" module="true" symbol="Menus"/>
-<entry id="67" method="true" symbol="drawPaceChart"/>
+<entry id="68" method="true" symbol="drawPaceChart"/>
 <entry id="8389751" method="true" symbol="onTimerLap"/>
 <entry field="true" id="28" symbol="hr"/>
 <entry id="8388772" module="true" symbol="Fonts"/>
 <entry id="45" symbol="kmOrMileInMeters"/>
-<entry id="49" symbol="darkColor"/>
-<entry id="56" symbol="lapAvgSpeed"/>
+<entry id="50" symbol="darkColor"/>
+<entry id="57" symbol="lapAvgSpeed"/>
 </symbolTable>
 <localVars>
 <entry endPc="268435501" name="view" stackId="1" startPc="268435460"/>
 <entry endPc="268436489" name="i" stackId="2" startPc="268436423"/>
-<entry endPc="268437655" name="distanceKmOrMiles" stackId="3" startPc="268437588"/>
-<entry endPc="268438056" name="hours" stackId="5" startPc="268437860"/>
-<entry endPc="268438056" name="minutes" stackId="6" startPc="268437860"/>
-<entry endPc="268438056" name="seconds" stackId="7" startPc="268437860"/>
-<entry endPc="268438174" name="zone" stackId="8" startPc="268437571"/>
-<entry endPc="268438174" name="duration" stackId="4" startPc="268437571"/>
-<entry endPc="268438174" name="distStr" stackId="2" startPc="268437571"/>
-<entry endPc="268438724" name="i" stackId="9" startPc="268438322"/>
-<entry endPc="268438724" name="step" stackId="6" startPc="268438322"/>
-<entry endPc="268438724" name="diff" stackId="8" startPc="268438322"/>
-<entry endPc="268438724" name="avg" stackId="7" startPc="268438322"/>
-<entry endPc="268438724" name="pitch" stackId="5" startPc="268438322"/>
-<entry endPc="268439370" name="speed" stackId="13" startPc="268438981"/>
-<entry endPc="268439373" name="max" stackId="7" startPc="268438741"/>
-<entry endPc="268439373" name="position" stackId="6" startPc="268438741"/>
-<entry endPc="268439373" name="lapAvgPace" stackId="10" startPc="268438741"/>
-<entry endPc="268439373" name="avgPace" stackId="12" startPc="268438741"/>
-<entry endPc="268439373" name="i" stackId="9" startPc="268438741"/>
-<entry endPc="268439373" name="maxPace" stackId="11" startPc="268438741"/>
-<entry endPc="268439373" name="h" stackId="8" startPc="268438741"/>
-<entry endPc="268439373" name="data" stackId="5" startPc="268438741"/>
-<entry endPc="268440517" name="i" stackId="16" startPc="268439824"/>
-<entry endPc="268440517" name="minHr" stackId="9" startPc="268439404"/>
-<entry endPc="268440517" name="offset" stackId="7" startPc="268439404"/>
-<entry endPc="268440517" name="data" stackId="10" startPc="268439404"/>
-<entry endPc="268440517" name="colorLineStart" stackId="13" startPc="268439404"/>
-<entry endPc="268440517" name="h" stackId="6" startPc="268439404"/>
-<entry endPc="268440517" name="position" stackId="11" startPc="268439404"/>
-<entry endPc="268440517" name="colorLineEnd" stackId="14" startPc="268439404"/>
-<entry endPc="268440517" name="midPoint" stackId="15" startPc="268439404"/>
-<entry endPc="268440517" name="last" stackId="8" startPc="268439404"/>
-<entry endPc="268440517" name="size" stackId="12" startPc="268439404"/>
-<entry endPc="268440520" name="maxHr" stackId="5" startPc="268439378"/>
-<entry endPc="268440635" name="minutesPerKmOrMilesFloor" stackId="4" startPc="268440546"/>
-<entry endPc="268440635" name="metersPerMinute" stackId="2" startPc="268440546"/>
-<entry endPc="268440635" name="seconds" stackId="5" startPc="268440546"/>
-<entry endPc="268440635" name="minutesPerKmOrMilesDecimal" stackId="3" startPc="268440546"/>
-<entry endPc="268442872" name="zonedegree" stackId="8" startPc="268440699"/>
-<entry endPc="268442872" name="i" stackId="7" startPc="268440699"/>
-<entry endPc="268442872" name="degrees" stackId="6" startPc="268440699"/>
-<entry endPc="268443069" name="i" stackId="3" startPc="268443011"/>
-<entry endPc="268443109" name="size" stackId="2" startPc="268442967"/>
-<entry endPc="268443109" name="sum" stackId="1" startPc="268442967"/>
-<entry endPc="268443169" name="i" stackId="1" startPc="268443144"/>
-<entry endPc="268443295" name="i" stackId="2" startPc="268443220"/>
-<entry endPc="268443298" name="max" stackId="1" startPc="268443187"/>
-<entry endPc="268443411" name="i" stackId="2" startPc="268443336"/>
-<entry endPc="268443414" name="min" stackId="1" startPc="268443303"/>
-<entry endPc="268443480" name="i" stackId="1" startPc="268443433"/>
+<entry endPc="268437701" name="distanceKmOrMiles" stackId="3" startPc="268437634"/>
+<entry endPc="268438115" name="hours" stackId="5" startPc="268437919"/>
+<entry endPc="268438115" name="minutes" stackId="6" startPc="268437919"/>
+<entry endPc="268438115" name="seconds" stackId="7" startPc="268437919"/>
+<entry endPc="268438233" name="zone" stackId="8" startPc="268437617"/>
+<entry endPc="268438233" name="duration" stackId="4" startPc="268437617"/>
+<entry endPc="268438233" name="distStr" stackId="2" startPc="268437617"/>
+<entry endPc="268438783" name="i" stackId="9" startPc="268438381"/>
+<entry endPc="268438783" name="step" stackId="6" startPc="268438381"/>
+<entry endPc="268438783" name="diff" stackId="8" startPc="268438381"/>
+<entry endPc="268438783" name="avg" stackId="7" startPc="268438381"/>
+<entry endPc="268438783" name="pitch" stackId="5" startPc="268438381"/>
+<entry endPc="268439429" name="speed" stackId="13" startPc="268439040"/>
+<entry endPc="268439432" name="max" stackId="7" startPc="268438800"/>
+<entry endPc="268439432" name="position" stackId="6" startPc="268438800"/>
+<entry endPc="268439432" name="lapAvgPace" stackId="10" startPc="268438800"/>
+<entry endPc="268439432" name="avgPace" stackId="12" startPc="268438800"/>
+<entry endPc="268439432" name="i" stackId="9" startPc="268438800"/>
+<entry endPc="268439432" name="maxPace" stackId="11" startPc="268438800"/>
+<entry endPc="268439432" name="h" stackId="8" startPc="268438800"/>
+<entry endPc="268439432" name="data" stackId="5" startPc="268438800"/>
+<entry endPc="268440576" name="i" stackId="16" startPc="268439883"/>
+<entry endPc="268440576" name="minHr" stackId="9" startPc="268439463"/>
+<entry endPc="268440576" name="offset" stackId="7" startPc="268439463"/>
+<entry endPc="268440576" name="data" stackId="10" startPc="268439463"/>
+<entry endPc="268440576" name="colorLineStart" stackId="13" startPc="268439463"/>
+<entry endPc="268440576" name="h" stackId="6" startPc="268439463"/>
+<entry endPc="268440576" name="position" stackId="11" startPc="268439463"/>
+<entry endPc="268440576" name="colorLineEnd" stackId="14" startPc="268439463"/>
+<entry endPc="268440576" name="midPoint" stackId="15" startPc="268439463"/>
+<entry endPc="268440576" name="last" stackId="8" startPc="268439463"/>
+<entry endPc="268440576" name="size" stackId="12" startPc="268439463"/>
+<entry endPc="268440579" name="maxHr" stackId="5" startPc="268439437"/>
+<entry endPc="268440686" name="seconds" stackId="3" startPc="268440605"/>
+<entry endPc="268440686" name="minutesPerKmOrMilesDecimal" stackId="2" startPc="268440605"/>
+<entry endPc="268442923" name="zonedegree" stackId="8" startPc="268440750"/>
+<entry endPc="268442923" name="i" stackId="7" startPc="268440750"/>
+<entry endPc="268442923" name="degrees" stackId="6" startPc="268440750"/>
+<entry endPc="268443120" name="i" stackId="3" startPc="268443062"/>
+<entry endPc="268443160" name="size" stackId="2" startPc="268443018"/>
+<entry endPc="268443160" name="sum" stackId="1" startPc="268443018"/>
+<entry endPc="268443220" name="i" stackId="1" startPc="268443195"/>
+<entry endPc="268443346" name="i" stackId="2" startPc="268443271"/>
+<entry endPc="268443349" name="max" stackId="1" startPc="268443238"/>
+<entry endPc="268443462" name="i" stackId="2" startPc="268443387"/>
+<entry endPc="268443465" name="min" stackId="1" startPc="268443354"/>
+<entry endPc="268443531" name="i" stackId="1" startPc="268443484"/>
 </localVars>
 <annotations/>
 <functions>

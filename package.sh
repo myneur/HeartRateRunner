@@ -1,0 +1,1 @@
+monkeyc -e -o bin/trendyRun.iq -m manifest.xml source/runningTrends.mc -y ../developer_key.der -z resources/resources.xml:resources/fonts/fonts.xml:resources/strings.xml:resources/settings/settings.xml:resources/settings/properties.xml -d fenix3

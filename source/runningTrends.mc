@@ -307,10 +307,8 @@ class RunningTrendsView extends Ui.DataField {
             for(i = max-1; i>=0; i--){
                 speed = data[position];
                 if(speed != null){
-                    if(maxPace > 0){
-                        h = (getPace(speed)/maxPace*height).toNumber();
-                        dc.fillRectangle(x+i*PACE_BAR_PITCH, y-h, PACE_BAR_WIDTH, h);   // last laps paces
-                    } 
+                    h = (getPace(speed)/maxPace*height).toNumber();
+                    dc.fillRectangle(x+i*PACE_BAR_PITCH, y-h, PACE_BAR_WIDTH, h);   // last laps paces
                 }
                 position--;
                 if(position<0){
@@ -408,7 +406,7 @@ class RunningTrendsView extends Ui.DataField {
         if (speedMetersPerSecond != null && speedMetersPerSecond > 0.2) {
             var minutesPerKmOrMilesDecimal = kmOrMileInMeters / (speedMetersPerSecond * 60.0);
             var seconds = (minutesPerKmOrMilesDecimal - minutesPerKmOrMilesDecimal.toNumber()) * 60;
-            return minutesPerKmOrMilesDecimal.format("%2d") + ":" + seconds.format("%02d");
+            return minutesPerKmOrMilesDecimal.format("%d") + ":" + seconds.format("%02d");
         }
         return ZERO_TIME;
     }

@@ -6,11 +6,12 @@ using Toybox.UserProfile as UserProfile;
 //using Toybox.Math as Math;
 //using Toybox.ActivityRecording as Activity;
 
+
 //! @author Indrik myneur -  Many thanks to Roelof Koelewijn for a hr gauge code
 class RunningTrends extends App.AppBase {
 
     function getInitialView() {
-        return [ new RunningTrendsView() ];
+        return [new RunningTrendsView()];
     }
 }
 
@@ -43,7 +44,7 @@ class RunningTrendsView extends Ui.DataField {
     hidden var backgroundColor = Graphics.COLOR_WHITE;
     hidden var darkColor = Graphics.COLOR_DK_GRAY;
     hidden var lightColor = Graphics.COLOR_LT_GRAY;
-    hidden var hasBackgroundColorOption = false;
+    //hidden var hasBackgroundColorOption = false;
     
     // data for charts and averages
     hidden var paceChartData = new DataQueue(5);
@@ -72,7 +73,6 @@ class RunningTrendsView extends Ui.DataField {
     hidden var height = 218;
     hidden var centerX = 109;
     hidden var centerY = 109;
-    //hidden var fontMiniText;
     
     function initialize() {
         // WTF! who the hell designd this idiotic language. It can not deal with nulls and can not even raise an exception, so it really must be as ugly as below ! 
@@ -93,6 +93,7 @@ class RunningTrendsView extends Ui.DataField {
         elapsedTime = info.timerTime != null ? info.timerTime : 0;   
         hr = info.currentHeartRate != null ? info.currentHeartRate : 0;
         distance = info.elapsedDistance != null ? info.elapsedDistance : 0;
+        //System.println(distance);
         //altitude = info.altitude != null ? info.altitude : 0;
         //cadence = info.currentCadence != null ? info.currentCadence : 0;
         if(lastLapStartTimer!=elapsedTime){
@@ -114,6 +115,7 @@ class RunningTrendsView extends Ui.DataField {
 	}
     
     function onLayout(dc) {
+        //System.println("layout");
         // WTF! If I load the fonts it runs out of memory!
         //fontMidNumbers = Ui.loadResource(Rez.Fonts.MidNumbers);   
         //fontBigNumbers = Ui.loadResource(Rez.Fonts.BigNumbers);   
@@ -122,13 +124,14 @@ class RunningTrendsView extends Ui.DataField {
         height = dc.getHeight();
         centerX = width>>1;
         centerY = height>>1;
+        //setColors();        
         onUpdate(dc);
     }
     
     function onUpdate(dc) {
-        setColors();
+        //System.println("update");
         dc.setColor(backgroundColor, backgroundColor);
-        dc.fillRectangle(0, 0, width, height);
+        dc.fillRectangle(backgroundColor, backgroundColor, width, height);
         
         drawValues(dc);
     }
@@ -137,20 +140,18 @@ class RunningTrendsView extends Ui.DataField {
         paceChartData.add(lapAvgSpeed);
         lastLapStartTimer = elapsedTime;    
         lastLapStartDistance = distance;
+        //System.println(elapsedTime + " " + distance );
     }
 
     function setDeviceSettingsDependentVariables() {
-        hasBackgroundColorOption = (self has :getBackgroundColor);
+        //hasBackgroundColorOption = (self has :getBackgroundColor);
         
         distanceUnits = System.getDeviceSettings().distanceUnits;
         if (distanceUnits != System.UNIT_METRIC) {
             kmOrMileInMeters = 1610;
             kmOrMileStr = "mi";
         }
-        //is24Hour = System.getDeviceSettings().is24Hour;
-        
         avgPaceStr = Ui.loadResource(Rez.Strings.avgpace);
-
         if(UserProfile has :getHeartRateZones){
             zoneMaxLimits = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
             zoneMaxLimits[0] = zoneMaxLimits[0]-1; // germin returns first limit as zone 1 start, so normalizing to make it comparable
@@ -158,36 +159,33 @@ class RunningTrendsView extends Ui.DataField {
             //System.println(zoneMaxLimits);
         }
         /*paceStr = Ui.loadResource(Rez.Strings.pace);
-        hrStr = Ui.loadResource(Rez.Strings.hr);
-        distanceStr = Ui.loadResource(Rez.Strings.distance);
-        durationStr = Ui.loadResource(Rez.Strings.duration);*/
     }
     
     function setColors() {
-        if (hasBackgroundColorOption) {
+        System.println("colors");
+        /*if (hasBackgroundColorOption) {
             backgroundColor = getBackgroundColor();
             textColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_WHITE : Graphics.COLOR_BLACK;
             darkColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_LT_GRAY: Graphics.COLOR_DK_GRAY;
             lightColor = (backgroundColor == Graphics.COLOR_BLACK) ? Graphics.COLOR_DK_GRAY: Graphics.COLOR_LT_GRAY;
-        }
+        }*/
     }
         
     function drawValues(dc) {
-
         //hr
         drawHrChart(dc, 10, centerY-51, 50);
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width-55, centerY-31, VALUE_FONT, hr>0 ? hr.format("%d") : ZERO_HR, CENTER); 
+        dc.drawText(width-55, centerY-31, VALUE_FONT, 
+            hr>0 ? hr.format("%d") : ZERO_HR, CENTER); 
 
-        
         //pace
-        dc.drawText(width-55, centerY+31, VALUE_FONT, getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
-            
+        dc.drawText(width-55, centerY+31, VALUE_FONT, 
+            getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
         drawPaceDiff(dc, 115, centerY+1, 50);
         drawPaceChart(dc, 20, centerY+1, 50);
         
         dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-        //dc.drawText(width-55, centerY+2, LABEL_FONT, "pace " + getMinutesPerKmOrMile(currentSpeed) , CENTER);
+        //dc.drawText(width-55, centerY+2, LABEL_FONT, "avg " + getMinutesPerKmOrMile(avgSpeed) , CENTER);
         dc.drawText(width-55, centerY+2, LABEL_FONT, avgPaceStr, CENTER);
 
         
@@ -279,6 +277,7 @@ class RunningTrendsView extends Ui.DataField {
         
         // max pace for chart scale
         var maxPace = lapAvgPace;
+        var minPace = lapAvgPace;
         for(i = 0; i < data.size(); i++){   // find max space in array with speeds
             if(data[i]!=null){
                 if(data[i]!=0){
@@ -286,39 +285,79 @@ class RunningTrendsView extends Ui.DataField {
                     if(maxPace == null || h>maxPace){ 
                         maxPace = h;
                     }
+                    if(minPace == null || h<minPace){ 
+                        minPace = h;
+                    }
                 }
             }
         }
         var avgPace = getPace(avgSpeed);
-        if(avgPace>maxPace){ maxPace=avgPace;}
-        
+        if(avgPace>maxPace){maxPace=avgPace;}
+        if(avgPace<minPace){minPace=avgPace;}
         if(maxPace>0){
-            // avg pace line
-            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT); 
-            h = (avgPace/maxPace*height).toNumber();
+            var scale = maxPace==minPace ? height/maxPace : height/(maxPace-minPace);
             dc.setPenWidth(1);
-            dc.drawLine(x, y-h, x+PACE_BAR_PITCH*6, y-h);
+            dc.setColor(Graphics.COLOR_LT_GRAY, Graphics.COLOR_TRANSPARENT); 
+            if(scale>1){    // do not zoom-in the diffe without limit
+                scale=1;
+            } 
+            //System.println(scale + ": " + avgPace.toNumber() + " " + lapAvgPace.toNumber() +  " <" + minPace.toNumber() + "," + maxPace.toNumber() + ">" );
+            // avg pace 
+            var baseline = ((avgPace-minPace)*scale).toNumber();
+            if((maxPace-minPace)<height){ // when diff is smaller then chart height: center (scale can't be <1, so we don't need to care about it here)
+                baseline = height>>1;       
+                if(baseline+maxPace-avgPace>height){
+                    baseline = height - (maxPace-avgPace);
+                } else if (baseline - (avgPace-minPace)<0){
+                    baseline = avgPace-minPace;
+                }
+            } else { 
+                if(baseline+scale*(height>>1) < height){
+                    dc.drawLine(x, y-baseline-scale*(height>>1), x+PACE_BAR_PITCH*6, y-baseline-scale*(height>>1));
+                }
+                if((baseline-scale*(height>>1)) > 0){
+                    dc.drawLine(x, y-baseline+scale*(height>>1), x+PACE_BAR_PITCH*6, y-baseline+scale*(height>>1));
+                }
+            }
             // current pace bar
             dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT); 
-            h = (lapAvgPace/maxPace*height).toNumber();
-            dc.fillRectangle(x+5*PACE_BAR_PITCH, y-h, PACE_BAR_WIDTH, h);   // current lap pace
+            if(lapAvgPace>0){
+                h = ((lapAvgPace-avgPace)*scale).toNumber();
+                
+                if(h>0){
+                    dc.fillRectangle(x+5*PACE_BAR_PITCH, y-baseline-h, PACE_BAR_WIDTH, +h);   // current lap pace
+                } else {
+                    dc.fillRectangle(x+5*PACE_BAR_PITCH, y-baseline, PACE_BAR_WIDTH, -h);   // current lap pace
+                }
+            }
+
             // pace history bar chart
             var speed = 0;
             for(i = max-1; i>=0; i--){
                 speed = data[position];
-                if(speed != null){
-                    h = (getPace(speed)/maxPace*height).toNumber();
-                    dc.fillRectangle(x+i*PACE_BAR_PITCH, y-h, PACE_BAR_WIDTH, h);   // last laps paces
+                if(speed != null && speed > 0){
+                    h = ((getPace(speed)-avgPace)*scale).toNumber();
+                    if(h>0){
+                        dc.fillRectangle(x+i*PACE_BAR_PITCH, y-baseline-h, PACE_BAR_WIDTH, h);   // last laps paces
+                    } else {
+                        dc.fillRectangle(x+i*PACE_BAR_PITCH, y-baseline, PACE_BAR_WIDTH, -h);   // last laps paces
+                    }
                 }
                 position--;
                 if(position<0){
                     position = max-1;
                 }
             }
+            // avg pace line
+            
+            dc.setColor(Graphics.COLOR_DK_GRAY, Graphics.COLOR_TRANSPARENT); 
+            dc.drawLine(x, y-baseline, x+PACE_BAR_PITCH*6, y-baseline);
+
+
         }
     }
 
-    function drawHrChart(dc, x, y, height){        
+    function drawHrChart(dc, x, y, height){  
         // chart alignment and crop
         var maxHr = hrChartData.max(); 
         if(maxHr != null){  // no data, no chart
@@ -421,7 +460,6 @@ class RunningTrendsView extends Ui.DataField {
     //! @author Roelof Koelewijn
 	function drawZoneBarsArcs(dc, radius, centerX, centerY, hr){
         dc.setPenWidth(8);
-		
 		var i;	
 		for (i = 0; i < zoneMaxLimits.size() && hr > zoneMaxLimits[i]; ++i) { }
         var zonedegree = 58.0 / (zoneMaxLimits[1] - zoneMaxLimits[0]);

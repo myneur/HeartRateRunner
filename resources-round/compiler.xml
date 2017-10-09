@@ -1,0 +1,3 @@
+<build>
+  <exclude file="../source/semiround.mc"/>
+</build>

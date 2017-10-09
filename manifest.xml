@@ -2,6 +2,10 @@
     <iq:application entry="RunningTrends" id="8f97a970-f2c4-4f1a-8c63-4b50b0b65232" launcherIcon="@Drawables.LauncherIcon" name="@Strings.AppName" type="datafield">
 
         <iq:products>
+            <iq:product id="fr230" />
+            <iq:product id="fr235" />
+            <iq:product id="fr630" />
+            <iq:product id="fr735xt" />
             <iq:product id="fenix3"/>
             <iq:product id="fenix3_hr"/>
             <iq:product id="fenix5"/>
@@ -12,7 +16,7 @@
             <iq:product id="d2bravo_titanium"/>
             <iq:product id="fenixchronos"/>
         </iq:products>
-        
+
         <iq:permissions>
             <iq:uses-permission id="UserProfile"/>
         </iq:permissions>

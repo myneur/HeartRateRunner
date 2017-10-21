@@ -1,3 +1,3 @@
 ./compile.sh
 connectiq
-monkeydo bin/trendyRun.prg fenix5
+monkeydo bin/trendyRun.prg fenix3_hr

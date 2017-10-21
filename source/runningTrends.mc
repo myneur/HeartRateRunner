@@ -75,16 +75,18 @@ class RunningTrendsView extends Ui.DataField {
     hidden var centerY = 109;
     
     function initialize() {
+
         // WTF! who the hell designd this idiotic language. It can not deal with nulls and can not even raise an exception, so it really must be as ugly as below ! 
         if(Application.getApp().getProperty("showLapMetrics") != null) { showLapMetrics = Application.getApp().getProperty("showLapMetrics");}
         setDeviceSettingsDependentVariables();
         DataField.initialize();
+
 	}
 
     //! The given info object contains all the current workout
     function compute(info) {
         //lastLapPace.add(info.currentSpeed); // everaging speed, because Garmin's current speed is shitty on GPS inaccuracy 
-        
+        //System.println(System.getSystemStats().freeMemory);
         if(lastHrData.add(info.currentHeartRate)==0){   // when we filled full length of cirucular buffer
             hrChartData.add(lastHrData.average());
         }        
@@ -180,7 +182,7 @@ class RunningTrendsView extends Ui.DataField {
 
         //pace
         dc.drawText(width-55, centerY+31, VALUE_FONT, 
-            getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
+        getMinutesPerKmOrMile(lapAvgSpeed), CENTER);
         drawPaceDiff(dc, 115, centerY+1, 50);
         drawPaceChart(dc, 20, centerY+1, 50);
         

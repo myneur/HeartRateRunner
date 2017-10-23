@@ -1,5 +1,5 @@
 <resources>
-	<string id="AppName">Trendy run</string>
-    <string id="avgpace">lap pace</string>
+    <string id="AppName">Trendy run</string>
+    <string id="lapPace">lap pace</string>
     <string id="showLapMetricsTitle">Show lap metrics instead of totals?</string>
 </resources>

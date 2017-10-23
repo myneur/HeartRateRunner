@@ -1,0 +1,3 @@
+<build>
+  <exclude file="../source/round.mc"/>
+</build>

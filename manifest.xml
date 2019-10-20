@@ -2,19 +2,59 @@
     <iq:application entry="RunningTrends" id="8f97a970-f2c4-4f1a-8c63-4b50b0b65232" launcherIcon="@Drawables.LauncherIcon" name="@Strings.AppName" type="datafield">
 
         <iq:products>
-            <iq:product id="fr230" />
-            <iq:product id="fr235" />
-            <iq:product id="fr630" />
-            <iq:product id="fr735xt" />
+            <iq:product id="fr735xt"/>
+            <iq:product id="fr230"/>
+            <iq:product id="fr235"/>
+            
+
+            <iq:product id="vivoactive3"/>
+            <iq:product id="vivoactive3m"/>
+            <iq:product id="vivoactive3mlte"/>
+            <iq:product id="vivoactive3d"/>
+            <iq:product id="approachs60"/>
+
+            
             <iq:product id="fenix3"/>
             <iq:product id="fenix3_hr"/>
-            <iq:product id="fenix5"/>
-            <iq:product id="fenix5s"/>
-            <iq:product id="fenix5x"/>
-            <iq:product id="fr935"/>
             <iq:product id="d2bravo"/>
             <iq:product id="d2bravo_titanium"/>
+
+            <iq:product id="d2charlie"/>
+            <iq:product id="d2delta"/>
+            <iq:product id="d2deltas"/>
+            <iq:product id="d2deltapx"/>
+            <iq:product id="descentmk1"/>
+
             <iq:product id="fenixchronos"/>
+            <iq:product id="vivoactive4"/>
+            <iq:product id="vivoactive4s"/>
+            <iq:product id="fenix5"/>
+            <iq:product id="fenix5plus"/>
+            <iq:product id="fenix5s"/>
+            <iq:product id="fenix5splus"/>
+            <iq:product id="fenix5x"/>
+            <iq:product id="fenix5xplus"/>
+            <iq:product id="marqathlete"/>
+            <iq:product id="marqaviator"/>
+            <iq:product id="marqcaptain"/>
+            <iq:product id="marqexpedition"/>
+            <iq:product id="marqdriver"/>
+            
+            <iq:product id="fenix6"/>
+            <iq:product id="fenix6pro"/>
+            <iq:product id="fenix6s"/>
+            <iq:product id="fenix6spro"/>
+            <iq:product id="fenix6xpro"/>
+            
+            <iq:product id="fr245"/>
+            <iq:product id="fr245m"/>
+            <iq:product id="fr630"/>
+            <iq:product id="fr645"/>
+            <iq:product id="fr645m"/>
+            <iq:product id="fr935"/>
+            <iq:product id="fr945"/>
+
+            
         </iq:products>
 
         <iq:permissions>
@@ -27,3 +67,5 @@
 
     </iq:application>
 </iq:manifest>
+
+

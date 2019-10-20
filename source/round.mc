@@ -4,7 +4,7 @@ using Toybox.Graphics as Graphics;
 using Toybox.System as System;
 using Toybox.UserProfile as UserProfile;
 
-//! @author Indrik myneur -  Many thanks to Roelof Koelewijn for a hr gauge code
+//! @author Indrik myneur -  Many thanks to Roelof Koelewijn for a hr gauge code and Hooky for hr chart colors
 class RunningTrends extends App.AppBase {
     function initialize() {
         AppBase.initialize();
@@ -15,14 +15,15 @@ class RunningTrends extends App.AppBase {
     }
 }
 
-//! skeleton by @author Konrad Paumann, HeartRateZones by @author Roelof Koelewijn
+//! skeleton by @author Konrad Paumann, HeartRateZones by @author Roelof Koelewijn, hr chart colors by @author Hooky
 //! design, charts and layout by Indrik myneur
 class RunningTrendsView extends Ui.DataField {
     hidden var referenceDistance = 1000;
     hidden var distanceString = "km";
-    hidden var lapPaceStr;
+    hidden var midStr;
     hidden var distanceUnits = System.UNIT_METRIC;
     hidden var showLapMetrics = false;
+    hidden var showCadence = false;
 
     hidden var textColor = Graphics.COLOR_BLACK;
     hidden var backgroundColor = Graphics.COLOR_WHITE;
@@ -44,11 +45,22 @@ class RunningTrendsView extends Ui.DataField {
     hidden var distance = 0;
     hidden var elapsedTime = 0;
 
+    hidden var cad = 0;
+
     // layout
     hidden var width;
     hidden var height;
     hidden var centerX;
     hidden var centerY;
+
+    hidden var mainMetricsX;
+    hidden var chartsX;
+    hidden var fourthY;
+    hidden var topChartY;
+    hidden var bottomChartY;
+    
+    hidden var value_font = Graphics.FONT_NUMBER_MEDIUM;
+    hidden var label_font = Graphics.FONT_XTINY;
 
     // heart rate zones
     hidden var zoneMaxLimits = [113, 139, 155, 165, 174, 200];
@@ -59,8 +71,20 @@ class RunningTrendsView extends Ui.DataField {
         Graphics.COLOR_BLUE,
         Graphics.COLOR_GREEN,
         Graphics.COLOR_ORANGE,
-        Graphics.COLOR_RED,
+        Graphics.COLOR_DK_RED,
         Graphics.COLOR_RED
+    ];
+
+
+    // cad zones
+    hidden var cadMaxLimits = [153, 164, 174, 184, 220];
+
+    hidden var cadColor = [
+        Graphics.COLOR_DK_RED,
+        Graphics.COLOR_ORANGE,
+        Graphics.COLOR_GREEN,
+        Graphics.COLOR_BLUE,
+        Graphics.COLOR_PURPLE,
     ];
 
     function initialize() {
@@ -68,6 +92,9 @@ class RunningTrendsView extends Ui.DataField {
 
         if (Application.getApp().getProperty("showLapMetrics") != null) {
             showLapMetrics = Application.getApp().getProperty("showLapMetrics");
+        }
+        if (Application.getApp().getProperty("showCadence") != null) {
+            showCadence = Application.getApp().getProperty("showCadence");
         }
         setDeviceSettingsDependentVariables();
     }
@@ -85,6 +112,8 @@ class RunningTrendsView extends Ui.DataField {
         hr = info.currentHeartRate ? info.currentHeartRate : 0;
         distance = info.elapsedDistance ? info.elapsedDistance : 0;
 
+        cad = info.currentCadence;
+
         if (avgSpeed == 0) {
             avgPace = 0;
         } else {
@@ -97,8 +126,13 @@ class RunningTrendsView extends Ui.DataField {
         }
 
         if (distance != lastLapStartDistance) {
-            lapAvgPace = (elapsedTime - lastLapStartTimer) * referenceDistance / 1000 / (distance - lastLapStartDistance);
+            lapAvgPace = (elapsedTime-lastLapStartTimer) * referenceDistance/1000 / (distance-lastLapStartDistance);
             lapAvgPace = lapAvgPace.toNumber();
+            
+        } else {
+            if(distance>0){
+                lapAvgPace = elapsedTime * referenceDistance/1000 / distance;
+            }
         }
     }
 
@@ -112,6 +146,13 @@ class RunningTrendsView extends Ui.DataField {
         height = dc.getHeight();
         centerX = width>>1;
         centerY = height>>1;
+        
+        mainMetricsX = width - 23;
+        chartsX = mainMetricsX - dc.getTextWidthInPixels("10:00", value_font);
+        
+        fourthY = centerY>>2 +5;
+        topChartY = fourthY + (dc.getFontAscent(value_font) - dc.getFontDescent(value_font))>>1 + 5; // fixing the inconsistency of fontHeights; some heights are exact some with padding
+        bottomChartY = (centerY - topChartY - 50)>>1 + centerY;
 
         setColors();
         onUpdate(dc);
@@ -122,10 +163,10 @@ class RunningTrendsView extends Ui.DataField {
         dc.setColor(backgroundColor, backgroundColor);
         dc.clear();
 
-        drawHrChart(dc, centerX, centerY - 51, 50);
-        drawPaceDiff(dc, 115, centerY + 1, 50);
-        drawPaceChart(dc, 20, centerY, 50);
+        drawHrChart(dc, chartsX+10, topChartY - 1, centerY-topChartY);
+        drawPaceChart(dc, chartsX-5, bottomChartY, 50, 13);
         drawZoneBarsArcs(dc, centerY, centerX, centerY, hr);
+        drawGuide(dc, mainMetricsX, centerY);
 
         //distance
         var d = showLapMetrics ? distance - lastLapStartDistance : distance;
@@ -136,7 +177,6 @@ class RunningTrendsView extends Ui.DataField {
         d = (presentedDistanceValue < 100) ? presentedDistanceValue.format("%.2f") : presentedDistanceValue.format("%.1f");
 
         drawValues(dc, d);
-        drawLabels(dc, d);
     }
 
     function onTimerLap() {
@@ -154,7 +194,8 @@ class RunningTrendsView extends Ui.DataField {
             referenceDistance = 1000;
             distanceString = "km";
         }
-        lapPaceStr = Ui.loadResource(Rez.Strings.lapPace);
+        midStr = Ui.loadResource(showLapMetrics ? Rez.Strings.cad : Rez.Strings.lapPace);
+        
         if (UserProfile has :getHeartRateZones) {
             zoneMaxLimits = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
             zoneMaxLimits[0] = zoneMaxLimits[0] - 1; // Garmin returns first limit as zone 1 start, so normalizing to make it comparable
@@ -175,56 +216,46 @@ class RunningTrendsView extends Ui.DataField {
     }
 
     function drawLabels(dc, presentedDistance) {
-        var label_font = Graphics.FONT_XTINY;
-        var value_font = Graphics.FONT_NUMBER_MEDIUM;
-
-        var centerOs = 2;
-
-        //if (dc.getFontDescent(value_font) == 7) {centerOs = -4;}  // TODO fix text top padding for older watch: this tells how the gap is big
-
-        dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-
-        dc.drawText(width - 23, centerY + centerOs, label_font, lapPaceStr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
-        if(height>200){
-            dc.drawText(width / 2 + dc.getTextWidthInPixels(presentedDistance, value_font) >> 1 + 5, 40, label_font, distanceString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
-        }
+        // no static fluff here:) 
+        //dc.drawText(width - 23, centerY + 2, label_font, midStr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+        
     }
 
     function drawValues(dc, presentedDistance) {
-        var value_font = Graphics.FONT_NUMBER_MEDIUM;
-        var centerOs = 31;
-        if (height == 240) {
-            centerOs = 33;
-        }
-
+        
+        // hr pace
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
         var displayHr = hr > 0 ? hr.format("%d") : "-";
-        dc.drawText(width - 23, centerY - centerOs, value_font, displayHr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
-        dc.drawText(width - 23, centerY + centerOs, value_font, displayPace(lapAvgPace), Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(mainMetricsX, centerY - fourthY, value_font, displayHr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(mainMetricsX, centerY + fourthY, value_font, displayPace(lapAvgPace), Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        if(height>200){
-            dc.drawText(width / 2, 33, value_font, presentedDistance, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        // distance unit
+        dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(width / 2 + dc.getTextWidthInPixels(presentedDistance, value_font) >> 1 + 5, 40, label_font, distanceString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+        // distance
+        dc.drawText(centerX, fourthY, value_font, presentedDistance, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-            //duration
-            var d = showLapMetrics ? elapsedTime - lastLapStartTimer : elapsedTime;
+        // duration
+        var d = showLapMetrics ? elapsedTime - lastLapStartTimer : elapsedTime;
 
-            var seconds = d / 1000;
-            var minutes = seconds / 60;
-            var hours = minutes / 60;
-            seconds %= 60;
-            minutes %= 60;
+        var seconds = d / 1000;
+        var minutes = seconds / 60;
+        var hours = minutes / 60;
+        seconds %= 60;
+        minutes %= 60;
 
-            if (hours > 0) {
-                d = Lang.format("$1$:$2$:$3$", [hours, minutes.format("%02d"), seconds.format("%02i")]);
-            } else {
-                d = Lang.format("$1$:$2$", [minutes, seconds.format("%02i")]);
-            }
-            dc.drawText(centerX, height - 33, value_font, d, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        if (hours > 0) {
+            d = Lang.format("$1$:$2$:$3$", [hours, minutes.format("%02d"), seconds.format("%02i")]);
+        } else {
+            d = Lang.format("$1$:$2$", [minutes, seconds.format("%02i")]);
         }
+        dc.drawText(centerX, height-fourthY, value_font, d, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+
     }
 
     function drawPaceDiff(dc, x, y, height) {
         if (currentPace <= 0) {
+            dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
             dc.fillRectangle(x, y + height >> 1, 8, 8);
         } else {
             var pitch = 10;
@@ -260,9 +291,56 @@ class RunningTrendsView extends Ui.DataField {
         }
     }
 
-    function drawPaceChart(dc, x, y, height) {
+    function drawGuide(dc, x, y) {
+        if ( showCadence && cad) {
+            var i = 0;
+            var step = 0;
+
+            while (i < cadMaxLimits.size() - 1 && cad >= cadMaxLimits[i]) {
+                i++;
+            }
+
+            if (cad > cadMaxLimits[i]) {
+                cad = cadMaxLimits[i];
+            }
+
+            // hint
+            dc.setColor(cadColor[i], Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, y, label_font, midStr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+            
+            // indicator
+            x -= dc.getTextWidthInPixels(midStr, label_font) +12;
+            y-=1;
+            if (cad >= cadMaxLimits[3]) { 
+                step = -1;
+                y+=6;
+            } else if (cad < cadMaxLimits[2]) { 
+                step = 1;
+            } else {
+                dc.fillRectangle(x, y, 8, 8);
+                return;
+            }
+    
+            dc.fillPolygon([
+                [x, y],
+                [x + 8, y],
+                [x + 4, y + 8 * step]
+            ]);
+            
+        } else {
+            dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
+            dc.drawText(x, y, label_font, midStr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+        }
+    }
+
+    function drawPaceChart(dc, x, y, height, barWidth) {
+        
+        drawPaceDiff(dc, x, y , height);
+
         var h; var i;
         y += height;
+        x -= 5;
+
 
         // max pace for chart scale
         var max = paceChartData.max();
@@ -278,11 +356,11 @@ class RunningTrendsView extends Ui.DataField {
         // all the numbers are the same
         if (min == max) { 
             dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-            dc.drawLine(x, y - height>>1, x + 90, y - height>>1);
+            dc.drawLine(x-90, y - height>>1, x, y - height>>1);
             return;
         }
 
-        var scale = height.toFloat() / (max - min);
+        var scale = height.toFloat() / (max-min);
         if (scale > 1) { // do not zoom-in the diffe without limit
             scale = 1;
         }
@@ -300,14 +378,14 @@ class RunningTrendsView extends Ui.DataField {
             }
         } else {    // scaled down
             baseline = ((avgPace - min) * scale).toNumber();
-            yL = (baseline + scale * height / 2).toNumber();
+            yL = (baseline + scale*height/2).toNumber();
             if (yL < height) {
-                dc.drawLine(x, y - yL, x + 90, y - yL);
+                dc.drawLine(x-90, y-yL, x, y-yL);
             }
-            yL = (baseline - scale * height / 2).toNumber();
+            yL = (baseline - scale*height/2).toNumber();
             if (yL > 0) {
                 if (yL > 0) {
-                    dc.drawLine(x, y - yL, x + 90, y - yL);
+                    dc.drawLine(x-90, y-yL, x, y-yL);
                 }
             }
         }
@@ -316,12 +394,14 @@ class RunningTrendsView extends Ui.DataField {
         dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
         i = 0;
         var pace = lapAvgPace;
-        while (pace) {
-            h = ((pace - avgPace) * scale).toNumber();
-            if (h > 0) {
-                dc.fillRectangle(x + 75 - i * 15, y - baseline - h, 13, h); // last laps paces
-            } else {
-                dc.fillRectangle(x + 75 - i * 15, y - baseline, 13, -h); // last laps paces
+        while (pace != null) {  // TODO expect pace dropouts
+            if(pace>0){
+                h = ((pace - avgPace) * scale).toNumber();
+                if (h > 0) {
+                    dc.fillRectangle( x-15 - i*(barWidth+2), y - baseline - h, barWidth, h); // last laps paces
+                } else {
+                    dc.fillRectangle( x-15 - i*(barWidth+2), y - baseline, barWidth, -h); // last laps paces
+                }
             }
             pace = paceChartData.prev(i);
             i++;
@@ -329,17 +409,27 @@ class RunningTrendsView extends Ui.DataField {
 
         // avg pace line
         dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawLine(x, y - baseline, x + 90, y - baseline);
+        dc.drawLine(x-90, y - baseline, x, y - baseline);
+
+
     }
+
 
     function drawHrChart(dc, x, y, height) {
         var maxHr = hrChartData.max();
         var h = lastHrData.average(); // the current value
+        //System.println(maxHr+ " "+ h);
+        /*if(h==null){
+            h = hrChartData.first();
+            System.println(h);
+        }*/
+
         if (maxHr == null || h == null) {
             return;
         }
         h = h.toNumber();
         var minHr = hrChartData.min();
+        
         if (maxHr < h) {
             maxHr = h;
         }
@@ -349,14 +439,13 @@ class RunningTrendsView extends Ui.DataField {
         var range = (maxHr - minHr).toNumber();
 
         // do not zoom-in
-        if(range<height){
-            var padding = (height-range) >> 1;
+        if(range <= height){
+            var padding = (height-range) / 2;
             maxHr += padding;
             minHr -= padding;
             range = height;
-        }
-
-        var v = y + height - height * (h - minHr) / range;
+        } 
+        var v = y + height - height*(h-minHr) / range;
         var i;
         var zoneY = new [zoneMaxLimits.size() + 1];
         var curRange = 0;
@@ -374,32 +463,36 @@ class RunningTrendsView extends Ui.DataField {
 
         i = 0;
         h = hrChartData.prev(i);
+
+        //System.println(maxHr+" "+ minHr+ " "+ h);
         var px = x;
-        var py = v;
-        while (h) {
-            v = y + height - height * (hrChartData.prev(i) - minHr) / range;
+        var pv = v;
+        while (i<60) { // TODO expect hr dropouts
             x -= 2;
-            if (v > py) { // HR drops y goes up
-                while (v > zoneY[curRange] && curRange > 0) {
-                    dc.drawLine(px, py, x + 1, zoneY[curRange]);
-                    px = x + 1;
-                    py = zoneY[curRange] + 1;
-                    curRange--;
-                    dc.setColor(zoneColor[curRange + 1], Graphics.COLOR_TRANSPARENT);
+            if(h != null){
+                v = y + height - height*(h-minHr) / range;
+                if (v > pv) { // HR drops y goes up
+                    while (v > zoneY[curRange] && curRange > 0) {
+                        dc.drawLine(px, pv, x + 1, zoneY[curRange]);
+                        px = x + 1;
+                        pv = zoneY[curRange] + 1;
+                        curRange--;
+                        dc.setColor(zoneColor[curRange + 1], Graphics.COLOR_TRANSPARENT);
+                    }
+                } else if (v <= pv) { // HR goes up y drops
+                    while (v <= zoneY[curRange + 1]) {
+                        dc.drawLine(px, pv, x + 1, zoneY[curRange + 1]);
+                        px = x + 1;
+                        pv = zoneY[curRange + 1];
+                        curRange++;
+                        dc.setColor(zoneColor[curRange + 1], Graphics.COLOR_TRANSPARENT);
+                    }
                 }
-            } else if (v <= py) { // HR goes up y drops
-                while (v <= zoneY[curRange + 1]) {
-                    dc.drawLine(px, py, x + 1, zoneY[curRange + 1]);
-                    px = x + 1;
-                    py = zoneY[curRange + 1];
-                    curRange++;
-                    dc.setColor(zoneColor[curRange + 1], Graphics.COLOR_TRANSPARENT);
-                }
+                dc.drawLine(px, pv, x, v);
+                px = x;
+                pv = v;
+                dc.drawPoint(x, v);
             }
-            dc.drawLine(px, py, x, v);
-            px = x;
-            py = v;
-            dc.drawPoint(x, v);
             i += 1;
             h = hrChartData.prev(i);
         }

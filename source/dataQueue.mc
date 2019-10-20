@@ -48,6 +48,17 @@ class DataQueue {
         return max;
     }
 
+    /*function first() {
+        System.println("first");
+        for (var i = 0; i < maxSize; i++) {
+            System.println(i + " " + pos " " + maxSize);
+            if (data[(pos+i) % maxSize] != null) {
+                return data[(pos+i) % maxSize];
+            }
+        }
+        return null;
+    }*/
+
     function min() {
         var min = null;
         for (var i = 0; i < maxSize; i++) {

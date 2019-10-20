@@ -1,5 +1,7 @@
 <resources>
     <string id="AppName">Trendy run</string>
     <string id="lapPace">lap pace</string>
-    <string id="showLapMetricsTitle">Show lap metrics instead of totals?</string>
+    <string id="cad">cadence</string>
+    <string id="showCadenceTitle">Show lap metrics instead of totals?</string>
+    <string id="showLapMetricsTitle">Experimental: show cadence indicator? Strive for 174. </string>
 </resources>

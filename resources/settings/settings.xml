@@ -1,4 +1,7 @@
 <settings>
+	<setting propertyKey="@Properties.showCadence" title="@Strings.showCadenceTitle">
+        <settingConfig type="boolean" />
+    </setting>
     <setting propertyKey="@Properties.showLapMetrics" title="@Strings.showLapMetricsTitle">
         <settingConfig type="boolean" />
     </setting>

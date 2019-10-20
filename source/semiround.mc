@@ -4,9 +4,12 @@ using Toybox.Graphics as Graphics;
 using Toybox.System as System;
 using Toybox.UserProfile as UserProfile;
 
-
 //! @author Indrik myneur -  Many thanks to Roelof Koelewijn for a hr gauge code
 class RunningTrends extends App.AppBase {
+    function initialize() {
+        AppBase.initialize();
+    }
+
     function getInitialView() {
         return [new RunningTrendsView()];
     }
@@ -28,6 +31,8 @@ class RunningTrendsView extends Ui.DataField {
 
     // data for charts and averages
     hidden var paceChartData = new DataQueue(5);
+    hidden var hrChartData = new DataQueue(60);
+    hidden var lastHrData = new DataQueue(30);
 
     // metrics
     hidden var avgPace = 0;
@@ -39,15 +44,27 @@ class RunningTrendsView extends Ui.DataField {
     hidden var distance = 0;
     hidden var elapsedTime = 0;
 
+    // layout
+    hidden var width;
+    hidden var height;
+    hidden var centerX;
+    hidden var centerY;
+    hidden var fourthY;
+    hidden var topChartY;
+    hidden var bottomChartY;
+    hidden var value_font = Graphics.FONT_NUMBER_MEDIUM;
+    hidden var label_font = Graphics.FONT_XTINY;
+
     // heart rate zones
-    var zoneMaxLimits = [113, 139, 155, 165, 174, 200];
+    hidden var zoneMaxLimits = [113, 139, 155, 165, 174, 200];
+
     hidden var zoneColor = [
         Graphics.COLOR_TRANSPARENT,
         Graphics.COLOR_LT_GRAY,
         Graphics.COLOR_BLUE,
         Graphics.COLOR_GREEN,
         Graphics.COLOR_ORANGE,
-        Graphics.COLOR_RED,
+        Graphics.COLOR_DK_RED,
         Graphics.COLOR_RED
     ];
 
@@ -62,6 +79,10 @@ class RunningTrendsView extends Ui.DataField {
 
     //! The given info object contains all the current workout
     function compute(info) {
+        if (lastHrData.add(info.currentHeartRate) == 0) { // when we filled full length of cirucular buffer
+            hrChartData.add(lastHrData.average());
+        }
+
         var avgSpeed = info.averageSpeed ? info.averageSpeed : 0;
         var currentSpeed = info.currentSpeed ? info.currentSpeed : 0;
 
@@ -83,21 +104,40 @@ class RunningTrendsView extends Ui.DataField {
         if (distance != lastLapStartDistance) {
             lapAvgPace = (elapsedTime - lastLapStartTimer) * referenceDistance / 1000 / (distance - lastLapStartDistance);
             lapAvgPace = lapAvgPace.toNumber();
+        } else {
+            if(distance>0){
+                lapAvgPace = (elapsedTime ) * referenceDistance / 1000 / (distance );
+            }
         }
     }
 
     function onLayout(dc) {
+        // WTF! If I load the fonts it runs out of memory!
+        //fontMidNumbers = Ui.loadResource(Rez.Fonts.MidNumbers);
+        //fontBigNumbers = Ui.loadResource(Rez.Fonts.BigNumbers);
+        //fontMiniText = Ui.loadResource(Rez.Fonts.MiniText);
+        
+        width = dc.getWidth();
+        height = dc.getHeight();
+        centerX = width>>1;
+        centerY = height>>1;
+        
+        fourthY = centerY>>2 +5;
+        topChartY = fourthY + (dc.getFontAscent(value_font) - dc.getFontDescent(value_font))>>1 + 5; // fixing the inconsistency of fontHeights; some heights are exact some with padding
+        bottomChartY = (centerY - topChartY - 50)>>1 + centerY;
+
         setColors();
         onUpdate(dc);
     }
 
     function onUpdate(dc) {
+
         dc.setColor(backgroundColor, backgroundColor);
         dc.clear();
-
-        drawPaceDiff(dc, 105, 65, 50);
-        drawPaceChart(dc, 15, 65, 50);
-        drawZoneBarsArcs(dc);
+        drawHrChart(dc, centerX, topChartY - 1, centerY-topChartY);
+        drawPaceDiff(dc, 115, bottomChartY , 50);
+        drawPaceChart(dc, 20, bottomChartY, 50);
+        drawZoneBarsArcs(dc, centerY, centerX, centerY, hr);
 
         //distance
         var d = showLapMetrics ? distance - lastLapStartDistance : distance;
@@ -147,46 +187,57 @@ class RunningTrendsView extends Ui.DataField {
     }
 
     function drawLabels(dc, presentedDistance) {
-        var label_font = Graphics.FONT_XTINY;
-        var value_font = Graphics.FONT_NUMBER_HOT;
+        var centerOs = 2;
+
+        //if (dc.getFontDescent(value_font) == 7) {centerOs = -4;}  // TODO fix text top padding for older watch: this tells how the gap is big
+
         dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(195, 58, label_font, lapPaceStr, Graphics.TEXT_JUSTIFY_RIGHT);
-        dc.drawText(107 + dc.getTextWidthInPixels(presentedDistance, value_font) >> 1 + 5, 39, label_font, distanceString, Graphics.TEXT_JUSTIFY_LEFT);
+
+        dc.drawText(width - 23, centerY + centerOs, label_font, lapPaceStr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+        if(height>200){
+            dc.drawText(width / 2 + dc.getTextWidthInPixels(presentedDistance, value_font) >> 1 + 5, 40, label_font, distanceString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+        }
     }
 
     function drawValues(dc, presentedDistance) {
-        var value_font = Graphics.FONT_NUMBER_HOT;
-
+        
         dc.setColor(textColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(197, 67, value_font, displayPace(lapAvgPace), Graphics.TEXT_JUSTIFY_RIGHT);
+        var displayHr = hr > 0 ? hr.format("%d") : "-";
+        dc.drawText(width - 23, centerY - fourthY, value_font, displayHr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(width - 23, centerY + fourthY, value_font, displayPace(lapAvgPace), Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        dc.drawText(107, 5, value_font, presentedDistance, Graphics.TEXT_JUSTIFY_CENTER);
-        //duration
-        var d = showLapMetrics ? elapsedTime - lastLapStartTimer : elapsedTime;
+        //if(height>200){
+            dc.drawText(centerX, fourthY, value_font, presentedDistance, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
-        var seconds = d / 1000;
-        var minutes = seconds / 60;
-        var hours = minutes / 60;
-        seconds %= 60;
-        minutes %= 60;
+            //duration
+            var d = showLapMetrics ? elapsedTime - lastLapStartTimer : elapsedTime;
 
-        if (hours > 0) {
-            d = Lang.format("$1$:$2$:$3$", [hours, minutes.format("%02d"), seconds.format("%02i")]);
-        } else {
-            d = Lang.format("$1$:$2$", [minutes, seconds.format("%02i")]);
-        }
-        dc.drawText(107, 120, value_font, d, Graphics.TEXT_JUSTIFY_CENTER);
+            var seconds = d / 1000;
+            var minutes = seconds / 60;
+            var hours = minutes / 60;
+            seconds %= 60;
+            minutes %= 60;
+
+            if (hours > 0) {
+                d = Lang.format("$1$:$2$:$3$", [hours, minutes.format("%02d"), seconds.format("%02i")]);
+            } else {
+                d = Lang.format("$1$:$2$", [minutes, seconds.format("%02i")]);
+            }
+            dc.drawText(centerX, height - fourthY, value_font, d, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
+        //}
+
     }
 
     function drawPaceDiff(dc, x, y, height) {
         if (currentPace <= 0) {
+            dc.setColor(Graphics.COLOR_DK_RED, Graphics.COLOR_TRANSPARENT);
             dc.fillRectangle(x, y + height >> 1, 8, 8);
         } else {
             var pitch = 10;
             var step = -1;
 
             // how many times does current pace differ by 15s (1/4 min) from the average pace?
-            var diff = (currentPace - lapAvgPace) / 15;
+            var diff = (currentPace - lapAvgPace).toFloat() / 15;
             if (diff < 0) { // slower than average = avg pace < pace
                 y += height - 8;
                 step = -step;
@@ -201,21 +252,22 @@ class RunningTrendsView extends Ui.DataField {
             if (diff > 3) {
                 diff = 3;
             }
-            while (diff > 0) {
-                dc.fillPolygon([
-                    [x, y],
-                    [x + 8, y],
-                    [x + 4, y + 8 * step]
-                ]);
-                y += pitch;
-                diff--;
+            if(diff.abs()>0.2){
+                while (diff > 0) {
+                    dc.fillPolygon([
+                        [x, y],
+                        [x + 8, y],
+                        [x + 4, y + 8 * step]
+                    ]);
+                    y += pitch;
+                    diff--;
+                }
             }
         }
     }
 
     function drawPaceChart(dc, x, y, height) {
-        var h;
-        var i;
+        var h; var i;
         y += height;
 
         // max pace for chart scale
@@ -224,33 +276,35 @@ class RunningTrendsView extends Ui.DataField {
         if (max == null || max <= 0) {
             return;
         }
+        if(max < lapAvgPace) { max =lapAvgPace;}
+        if(min > lapAvgPace) { min = lapAvgPace;}
+        if(max < avgPace) { max =avgPace;}
+        if(min > avgPace) { min = avgPace;}
 
-        max = max < lapAvgPace ? lapAvgPace : max;
-        min = min > lapAvgPace ? lapAvgPace : min;
-        max = max < avgPace ? avgPace : max;
-        min = min > avgPace ? avgPace : min;
-
-        if (min == max) { // all the numbers are the same
+        // all the numbers are the same
+        if (min == max) { 
             dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-            dc.drawLine(x, y - height / 2, x + 90, y - height / 2);
+            dc.drawLine(x, y - height>>1, x + 90, y - height>>1);
             return;
         }
+
         var scale = height.toFloat() / (max - min);
-        dc.setPenWidth(1);
-        dc.setColor(lightColor, Graphics.COLOR_TRANSPARENT);
         if (scale > 1) { // do not zoom-in the diffe without limit
             scale = 1;
         }
-        // avg pace
+        dc.setPenWidth(1);
+        dc.setColor(lightColor, Graphics.COLOR_TRANSPARENT);
+
+        // align chart and show scale lines
         var yL;
-        var baseline = height / 2;
-        if (max - min < height) {
+        var baseline = height>>1;
+        if (max - min < height) {   // fits chart boundaries
             if (baseline + max - avgPace > height) {
                 baseline = height - (max - avgPace);
             } else if (baseline - (avgPace - min) < 0) {
                 baseline = avgPace - min;
             }
-        } else {
+        } else {    // scaled down
             baseline = ((avgPace - min) * scale).toNumber();
             yL = (baseline + scale * height / 2).toNumber();
             if (yL < height) {
@@ -263,25 +317,110 @@ class RunningTrendsView extends Ui.DataField {
                 }
             }
         }
-        // current pace bar
-        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
 
         // pace history bar chart
+        dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
         i = 0;
         var pace = lapAvgPace;
-        while (pace) {
-            h = ((pace - avgPace) * scale).toNumber();
-            if (h > 0) {
-                dc.fillRectangle(x + 75 - i * 15, y - baseline - h, 13, h); // last laps paces
-            } else {
-                dc.fillRectangle(x + 75 - i * 15, y - baseline, 13, -h); // last laps paces
+        while (pace != null) {  // TODO expect pace dropouts
+            if(pace>0){
+                h = ((pace - avgPace) * scale).toNumber();
+                if (h > 0) {
+                    dc.fillRectangle(x + 75 - i * 15, y - baseline - h, 13, h); // last laps paces
+                } else {
+                    dc.fillRectangle(x + 75 - i * 15, y - baseline, 13, -h); // last laps paces
+                }
             }
             pace = paceChartData.prev(i);
             i++;
         }
+
         // avg pace line
         dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
         dc.drawLine(x, y - baseline, x + 90, y - baseline);
+    }
+
+    function drawHrChart(dc, x, y, height) {
+        var maxHr = hrChartData.max();
+        var h = lastHrData.average(); // the current value
+        //System.println(maxHr+ " "+ h);
+        /*if(h==null){
+            h = hrChartData.first();
+            System.println(h);
+        }*/
+
+        if (maxHr == null || h == null) {
+            return;
+        }
+        h = h.toNumber();
+        var minHr = hrChartData.min();
+        
+        if (maxHr < h) {
+            maxHr = h;
+        }
+        if (minHr > h) {
+            minHr = h;
+        }
+        var range = (maxHr - minHr).toNumber();
+
+        // do not zoom-in
+        if(range <= height){
+            var padding = (height-range) / 2;
+            maxHr += padding;
+            minHr -= padding;
+            range = height;
+        } 
+        var v = y + height - height*(h-minHr) / range;
+        var i;
+        var zoneY = new [zoneMaxLimits.size() + 1];
+        var curRange = 0;
+        for (i = 1; i < zoneMaxLimits.size(); i++) {
+            zoneY[i] = y + height - height * (zoneMaxLimits[i] - minHr) / range;
+            if (zoneY[i] > v) {
+                curRange = i;
+            }
+        }
+        zoneY[0] = 1000000;
+        zoneY[zoneY.size() - 1] = 0;
+        dc.setColor(zoneColor[curRange + 1], Graphics.COLOR_TRANSPARENT);
+        dc.setPenWidth(2);
+        dc.drawPoint(x, v);
+
+        i = 0;
+        h = hrChartData.prev(i);
+
+        //System.println(maxHr+" "+ minHr+ " "+ h);
+        var px = x;
+        var pv = v;
+        while (i<60) { // TODO expect hr dropouts
+            x -= 2;
+            if(h != null){
+                v = y + height - height*(h-minHr) / range;
+                if (v > pv) { // HR drops y goes up
+                    while (v > zoneY[curRange] && curRange > 0) {
+                        dc.drawLine(px, pv, x + 1, zoneY[curRange]);
+                        px = x + 1;
+                        pv = zoneY[curRange] + 1;
+                        curRange--;
+                        dc.setColor(zoneColor[curRange + 1], Graphics.COLOR_TRANSPARENT);
+                    }
+                } else if (v <= pv) { // HR goes up y drops
+                    while (v <= zoneY[curRange + 1]) {
+                        dc.drawLine(px, pv, x + 1, zoneY[curRange + 1]);
+                        px = x + 1;
+                        pv = zoneY[curRange + 1];
+                        curRange++;
+                        dc.setColor(zoneColor[curRange + 1], Graphics.COLOR_TRANSPARENT);
+                    }
+                }
+                dc.drawLine(px, pv, x, v);
+                px = x;
+                pv = v;
+                dc.drawPoint(x, v);
+            }
+            i += 1;
+            h = hrChartData.prev(i);
+        }
     }
 
     function displayPace(pace) {
@@ -295,7 +434,7 @@ class RunningTrendsView extends Ui.DataField {
     }
 
     //! @author Roelof Koelewijn
-    function drawZoneBarsArcs(dc) {
+    function drawZoneBarsArcs(dc, radius, centerX, centerY, hr) {
         var i = 0;
 
         while (i < zoneMaxLimits.size() - 1 && hr > zoneMaxLimits[i]) {

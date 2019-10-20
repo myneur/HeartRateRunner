@@ -1,3 +1,4 @@
 <properties>
+	<property id="showCadence" type="boolean">false</property>
 	<property id="showLapMetrics" type="boolean">false</property>
 </properties>

@@ -47,278 +47,278 @@
 <entry filename="source/round.mc" id="9" lineNum="161" pc="268436561" symbol="onUpdate"/>
 <entry filename="source/round.mc" id="9" lineNum="163" pc="268436565" symbol="onUpdate"/>
 <entry filename="source/round.mc" id="9" lineNum="164" pc="268436593" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="166" pc="268436605" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="167" pc="268436664" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="168" pc="268436710" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="169" pc="268436756" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="172" pc="268436786" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="173" pc="268436827" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="174" pc="268436838" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="176" pc="268436848" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="177" pc="268436861" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="9" lineNum="179" pc="268436909" symbol="onUpdate"/>
-<entry filename="source/round.mc" id="10" lineNum="182" pc="268436926" symbol="onTimerLap"/>
-<entry filename="source/round.mc" id="10" lineNum="183" pc="268436930" symbol="onTimerLap"/>
-<entry filename="source/round.mc" id="10" lineNum="184" pc="268436956" symbol="onTimerLap"/>
-<entry filename="source/round.mc" id="10" lineNum="185" pc="268436972" symbol="onTimerLap"/>
-<entry filename="source/round.mc" id="11" lineNum="188" pc="268436989" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="189" pc="268436993" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="190" pc="268437022" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="191" pc="268437046" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="192" pc="268437059" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="194" pc="268437075" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="195" pc="268437088" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="197" pc="268437101" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="199" pc="268437178" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="200" pc="268437193" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="11" lineNum="201" pc="268437228" symbol="setDeviceSettingsDependentVariables"/>
-<entry filename="source/round.mc" id="12" lineNum="205" pc="268437266" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="206" pc="268437270" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="207" pc="268437289" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="208" pc="268437313" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="209" pc="268437333" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="210" pc="268437353" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="212" pc="268437376" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="213" pc="268437396" symbol="setColors"/>
-<entry filename="source/round.mc" id="12" lineNum="214" pc="268437416" symbol="setColors"/>
-<entry filename="source/round.mc" id="13" lineNum="218" pc="268437437" symbol="drawLabels"/>
-<entry filename="source/round.mc" id="14" lineNum="224" pc="268437442" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="227" pc="268437446" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="228" pc="268437478" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="229" pc="268437527" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="230" pc="268437599" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="233" pc="268437688" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="234" pc="268437720" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="236" pc="268437827" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="239" pc="268437890" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="241" pc="268437931" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="242" pc="268437941" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="243" pc="268437951" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="244" pc="268437961" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="245" pc="268437971" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="247" pc="268437981" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="248" pc="268437992" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="250" pc="268438083" symbol="drawValues"/>
-<entry filename="source/round.mc" id="14" lineNum="252" pc="268438147" symbol="drawValues"/>
-<entry filename="source/round.mc" id="15" lineNum="256" pc="268438220" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="257" pc="268438224" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="258" pc="268438241" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="259" pc="268438277" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="261" pc="268438316" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="262" pc="268438323" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="265" pc="268438330" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="266" pc="268438364" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="267" pc="268438375" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="268" pc="268438388" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="269" pc="268438398" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="270" pc="268438408" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="271" pc="268438418" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="273" pc="268438457" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="274" pc="268438467" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="277" pc="268438503" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="278" pc="268438514" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="280" pc="268438524" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="281" pc="268438544" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="282" pc="268438555" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="287" pc="268438696" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="15" lineNum="288" pc="268438703" symbol="drawPaceDiff"/>
-<entry filename="source/round.mc" id="16" lineNum="294" pc="268438720" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="295" pc="268438724" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="296" pc="268438749" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="297" pc="268438756" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="299" pc="268438763" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="300" pc="268438818" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="303" pc="268438831" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="304" pc="268438854" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="308" pc="268438876" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="309" pc="268438911" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="312" pc="268438968" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="313" pc="268439006" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="314" pc="268439016" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="315" pc="268439042" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="316" pc="268439049" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="317" pc="268439062" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="318" pc="268439088" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="320" pc="268439098" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="321" pc="268439124" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="324" pc="268439125" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="331" pc="268439269" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="16" lineNum="332" pc="268439301" symbol="drawGuide"/>
-<entry filename="source/round.mc" id="17" lineNum="336" pc="268439359" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="338" pc="268439363" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="340" pc="268439383" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="340" pc="268439383" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="341" pc="268439383" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="342" pc="268439390" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="346" pc="268439400" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="347" pc="268439419" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="348" pc="268439438" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="349" pc="268439459" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="351" pc="268439463" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="351" pc="268439477" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="352" pc="268439490" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="352" pc="268439504" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="353" pc="268439517" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="353" pc="268439531" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="354" pc="268439544" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="354" pc="268439558" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="357" pc="268439571" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="358" pc="268439579" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="359" pc="268439611" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="360" pc="268439657" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="363" pc="268439661" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="364" pc="268439680" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="365" pc="268439691" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="367" pc="268439701" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="368" pc="268439718" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="371" pc="268439750" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="372" pc="268439750" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="373" pc="268439761" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="374" pc="268439772" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="375" pc="268439792" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="376" pc="268439811" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="377" pc="268439834" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="380" pc="268439853" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="381" pc="268439878" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="382" pc="268439903" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="383" pc="268439911" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="385" pc="268439946" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="386" pc="268439971" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="387" pc="268439982" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="388" pc="268439993" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="394" pc="268440031" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="395" pc="268440067" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="396" pc="268440074" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="397" pc="268440084" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="398" pc="268440091" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="399" pc="268440102" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="400" pc="268440127" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="401" pc="268440138" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="403" pc="268440185" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="406" pc="268440235" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="407" pc="268440256" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="411" pc="268440269" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="17" lineNum="412" pc="268440301" symbol="drawPaceChart"/>
-<entry filename="source/round.mc" id="18" lineNum="418" pc="268440334" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="419" pc="268440338" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="420" pc="268440357" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="427" pc="268440376" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="428" pc="268440393" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="430" pc="268440397" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="431" pc="268440410" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="433" pc="268440429" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="434" pc="268440437" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="436" pc="268440444" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="437" pc="268440452" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="439" pc="268440459" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="442" pc="268440475" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="443" pc="268440483" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="444" pc="268440496" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="445" pc="268440503" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="446" pc="268440510" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="448" pc="268440517" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="449" pc="268440536" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="450" pc="268440536" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="451" pc="268440562" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="452" pc="268440569" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="453" pc="268440599" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="454" pc="268440630" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="455" pc="268440641" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="458" pc="268440661" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="459" pc="268440674" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="460" pc="268440699" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="461" pc="268440740" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="462" pc="268440757" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="464" pc="268440773" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="465" pc="268440780" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="468" pc="268440801" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="469" pc="268440805" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="470" pc="268440809" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="471" pc="268440820" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="472" pc="268440830" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="473" pc="268440837" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="474" pc="268440856" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="475" pc="268440864" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="476" pc="268440889" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="477" pc="268440918" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="478" pc="268440928" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="479" pc="268440941" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="480" pc="268440951" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="482" pc="268440998" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="483" pc="268441006" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="484" pc="268441023" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="485" pc="268441058" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="486" pc="268441068" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="487" pc="268441081" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="488" pc="268441091" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="491" pc="268441138" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="492" pc="268441158" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="493" pc="268441162" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="494" pc="268441166" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="496" pc="268441185" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="18" lineNum="497" pc="268441195" symbol="drawHrChart"/>
-<entry filename="source/round.mc" id="19" lineNum="501" pc="268441220" symbol="displayPace"/>
-<entry filename="source/round.mc" id="19" lineNum="502" pc="268441224" symbol="displayPace"/>
-<entry filename="source/round.mc" id="19" lineNum="503" pc="268441245" symbol="displayPace"/>
-<entry filename="source/round.mc" id="19" lineNum="505" pc="268441254" symbol="displayPace"/>
-<entry filename="source/round.mc" id="19" lineNum="506" pc="268441267" symbol="displayPace"/>
-<entry filename="source/round.mc" id="19" lineNum="507" pc="268441277" symbol="displayPace"/>
-<entry filename="source/round.mc" id="19" lineNum="508" pc="268441287" symbol="displayPace"/>
-<entry filename="source/round.mc" id="20" lineNum="511" pc="268441351" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="512" pc="268441355" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="514" pc="268441362" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="515" pc="268441411" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="518" pc="268441424" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="519" pc="268441441" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="522" pc="268441457" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="523" pc="268441468" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="524" pc="268441532" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="525" pc="268441548" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="526" pc="268441565" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="527" pc="268441600" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="528" pc="268441633" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="529" pc="268441665" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="530" pc="268441682" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="531" pc="268441727" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="532" pc="268441759" symbol="drawZoneBarsArcs"/>
-<entry filename="source/round.mc" id="20" lineNum="533" pc="268441776" symbol="drawZoneBarsArcs"/>
-<entry filename="source/dataQueue.mc" id="22" lineNum="10" pc="268441825" symbol="initialize"/>
-<entry filename="source/dataQueue.mc" id="22" lineNum="11" pc="268441829" symbol="initialize"/>
-<entry filename="source/dataQueue.mc" id="22" lineNum="12" pc="268441840" symbol="initialize"/>
-<entry filename="source/dataQueue.mc" id="23" lineNum="16" pc="268441851" symbol="add"/>
-<entry filename="source/dataQueue.mc" id="23" lineNum="17" pc="268441855" symbol="add"/>
-<entry filename="source/dataQueue.mc" id="23" lineNum="18" pc="268441874" symbol="add"/>
-<entry filename="source/dataQueue.mc" id="23" lineNum="19" pc="268441905" symbol="add"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="22" pc="268441915" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="23" pc="268441919" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="24" pc="268441926" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="25" pc="268441933" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="26" pc="268441954" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="27" pc="268441970" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="28" pc="268441986" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="31" pc="268442012" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="32" pc="268442023" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="24" lineNum="34" pc="268442028" symbol="average"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="38" pc="268442044" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="39" pc="268442048" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="40" pc="268442051" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="41" pc="268442072" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="42" pc="268442088" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="44" pc="268442094" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="45" pc="268442121" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="25" lineNum="48" pc="268442150" symbol="max"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="62" pc="268442154" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="63" pc="268442158" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="64" pc="268442161" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="65" pc="268442182" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="66" pc="268442198" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="68" pc="268442204" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="69" pc="268442231" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="26" lineNum="72" pc="268442260" symbol="min"/>
-<entry filename="source/dataQueue.mc" id="27" lineNum="75" pc="268442264" symbol="prev"/>
-<entry filename="source/dataQueue.mc" id="27" lineNum="76" pc="268442268" symbol="prev"/>
-<entry filename="source/dataQueue.mc" id="27" lineNum="77" pc="268442282" symbol="prev"/>
-<entry filename="source/dataQueue.mc" id="27" lineNum="79" pc="268442287" symbol="prev"/>
+<entry filename="source/round.mc" id="9" lineNum="165" pc="268436605" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="166" pc="268436664" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="167" pc="268436710" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="168" pc="268436756" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="170" pc="268436786" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="171" pc="268436827" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="172" pc="268436838" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="174" pc="268436848" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="175" pc="268436861" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="9" lineNum="176" pc="268436909" symbol="onUpdate"/>
+<entry filename="source/round.mc" id="10" lineNum="179" pc="268436926" symbol="onTimerLap"/>
+<entry filename="source/round.mc" id="10" lineNum="180" pc="268436930" symbol="onTimerLap"/>
+<entry filename="source/round.mc" id="10" lineNum="181" pc="268436956" symbol="onTimerLap"/>
+<entry filename="source/round.mc" id="10" lineNum="182" pc="268436972" symbol="onTimerLap"/>
+<entry filename="source/round.mc" id="11" lineNum="185" pc="268436989" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="186" pc="268436993" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="187" pc="268437022" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="188" pc="268437046" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="189" pc="268437059" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="191" pc="268437075" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="192" pc="268437088" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="194" pc="268437101" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="196" pc="268437178" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="197" pc="268437193" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="11" lineNum="198" pc="268437228" symbol="setDeviceSettingsDependentVariables"/>
+<entry filename="source/round.mc" id="12" lineNum="202" pc="268437266" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="203" pc="268437270" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="204" pc="268437289" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="205" pc="268437313" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="206" pc="268437333" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="207" pc="268437353" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="209" pc="268437376" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="210" pc="268437396" symbol="setColors"/>
+<entry filename="source/round.mc" id="12" lineNum="211" pc="268437416" symbol="setColors"/>
+<entry filename="source/round.mc" id="13" lineNum="215" pc="268437437" symbol="drawLabels"/>
+<entry filename="source/round.mc" id="14" lineNum="221" pc="268437442" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="224" pc="268437446" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="225" pc="268437478" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="226" pc="268437527" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="227" pc="268437599" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="230" pc="268437688" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="231" pc="268437720" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="234" pc="268437821" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="237" pc="268437884" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="239" pc="268437925" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="240" pc="268437935" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="241" pc="268437945" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="242" pc="268437955" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="243" pc="268437965" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="245" pc="268437975" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="246" pc="268437986" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="248" pc="268438077" symbol="drawValues"/>
+<entry filename="source/round.mc" id="14" lineNum="250" pc="268438141" symbol="drawValues"/>
+<entry filename="source/round.mc" id="15" lineNum="253" pc="268438214" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="254" pc="268438218" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="255" pc="268438235" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="256" pc="268438271" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="258" pc="268438310" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="259" pc="268438317" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="262" pc="268438324" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="263" pc="268438358" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="264" pc="268438369" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="265" pc="268438382" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="266" pc="268438392" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="267" pc="268438402" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="268" pc="268438412" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="270" pc="268438451" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="271" pc="268438461" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="274" pc="268438497" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="275" pc="268438508" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="277" pc="268438518" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="278" pc="268438538" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="279" pc="268438549" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="284" pc="268438690" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="15" lineNum="285" pc="268438697" symbol="drawPaceDiff"/>
+<entry filename="source/round.mc" id="16" lineNum="291" pc="268438714" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="292" pc="268438718" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="293" pc="268438765" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="294" pc="268438772" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="296" pc="268438779" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="297" pc="268438834" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="300" pc="268438847" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="301" pc="268438870" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="304" pc="268438892" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="305" pc="268438927" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="308" pc="268438984" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="309" pc="268439022" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="311" pc="268439032" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="312" pc="268439058" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="313" pc="268439065" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="314" pc="268439078" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="315" pc="268439104" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="317" pc="268439114" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="318" pc="268439140" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="320" pc="268439141" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="328" pc="268439285" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="16" lineNum="329" pc="268439317" symbol="drawGuide"/>
+<entry filename="source/round.mc" id="17" lineNum="333" pc="268439375" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="335" pc="268439379" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="337" pc="268439399" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="337" pc="268439399" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="338" pc="268439399" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="339" pc="268439406" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="343" pc="268439416" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="344" pc="268439435" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="345" pc="268439454" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="346" pc="268439475" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="348" pc="268439479" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="348" pc="268439493" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="349" pc="268439506" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="349" pc="268439520" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="350" pc="268439533" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="350" pc="268439547" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="351" pc="268439560" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="351" pc="268439574" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="354" pc="268439587" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="355" pc="268439595" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="356" pc="268439627" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="357" pc="268439673" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="360" pc="268439677" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="361" pc="268439696" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="362" pc="268439707" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="364" pc="268439717" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="365" pc="268439734" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="368" pc="268439766" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="369" pc="268439766" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="370" pc="268439777" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="371" pc="268439788" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="372" pc="268439808" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="373" pc="268439827" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="374" pc="268439850" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="377" pc="268439869" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="378" pc="268439894" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="379" pc="268439919" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="380" pc="268439927" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="382" pc="268439962" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="383" pc="268439987" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="384" pc="268439998" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="385" pc="268440009" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="391" pc="268440047" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="392" pc="268440083" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="393" pc="268440090" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="394" pc="268440100" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="395" pc="268440107" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="396" pc="268440118" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="397" pc="268440143" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="398" pc="268440154" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="400" pc="268440201" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="403" pc="268440251" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="404" pc="268440272" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="408" pc="268440285" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="17" lineNum="409" pc="268440317" symbol="drawPaceChart"/>
+<entry filename="source/round.mc" id="18" lineNum="415" pc="268440350" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="416" pc="268440354" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="417" pc="268440373" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="424" pc="268440392" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="425" pc="268440409" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="427" pc="268440413" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="428" pc="268440426" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="430" pc="268440445" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="431" pc="268440453" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="433" pc="268440460" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="434" pc="268440468" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="436" pc="268440475" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="439" pc="268440491" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="440" pc="268440499" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="441" pc="268440512" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="442" pc="268440519" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="443" pc="268440526" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="445" pc="268440533" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="446" pc="268440552" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="447" pc="268440552" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="448" pc="268440578" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="449" pc="268440585" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="450" pc="268440615" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="451" pc="268440646" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="452" pc="268440657" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="455" pc="268440677" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="456" pc="268440690" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="457" pc="268440715" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="458" pc="268440756" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="459" pc="268440773" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="461" pc="268440789" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="462" pc="268440796" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="465" pc="268440817" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="466" pc="268440821" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="467" pc="268440825" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="468" pc="268440836" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="469" pc="268440846" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="470" pc="268440853" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="471" pc="268440872" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="472" pc="268440880" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="473" pc="268440905" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="474" pc="268440934" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="475" pc="268440944" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="476" pc="268440957" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="477" pc="268440967" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="479" pc="268441014" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="480" pc="268441022" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="481" pc="268441039" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="482" pc="268441074" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="483" pc="268441084" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="484" pc="268441097" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="485" pc="268441107" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="488" pc="268441154" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="489" pc="268441174" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="490" pc="268441178" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="491" pc="268441182" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="493" pc="268441201" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="18" lineNum="494" pc="268441211" symbol="drawHrChart"/>
+<entry filename="source/round.mc" id="19" lineNum="498" pc="268441236" symbol="displayPace"/>
+<entry filename="source/round.mc" id="19" lineNum="499" pc="268441240" symbol="displayPace"/>
+<entry filename="source/round.mc" id="19" lineNum="500" pc="268441261" symbol="displayPace"/>
+<entry filename="source/round.mc" id="19" lineNum="502" pc="268441270" symbol="displayPace"/>
+<entry filename="source/round.mc" id="19" lineNum="503" pc="268441283" symbol="displayPace"/>
+<entry filename="source/round.mc" id="19" lineNum="504" pc="268441293" symbol="displayPace"/>
+<entry filename="source/round.mc" id="19" lineNum="505" pc="268441303" symbol="displayPace"/>
+<entry filename="source/round.mc" id="20" lineNum="508" pc="268441367" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="509" pc="268441371" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="511" pc="268441378" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="512" pc="268441427" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="515" pc="268441440" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="516" pc="268441457" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="519" pc="268441473" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="520" pc="268441484" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="521" pc="268441548" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="522" pc="268441564" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="523" pc="268441581" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="524" pc="268441616" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="525" pc="268441649" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="526" pc="268441681" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="527" pc="268441698" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="528" pc="268441743" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="529" pc="268441775" symbol="drawZoneBarsArcs"/>
+<entry filename="source/round.mc" id="20" lineNum="530" pc="268441792" symbol="drawZoneBarsArcs"/>
+<entry filename="source/dataQueue.mc" id="22" lineNum="10" pc="268441841" symbol="initialize"/>
+<entry filename="source/dataQueue.mc" id="22" lineNum="11" pc="268441845" symbol="initialize"/>
+<entry filename="source/dataQueue.mc" id="22" lineNum="12" pc="268441856" symbol="initialize"/>
+<entry filename="source/dataQueue.mc" id="23" lineNum="16" pc="268441867" symbol="add"/>
+<entry filename="source/dataQueue.mc" id="23" lineNum="17" pc="268441871" symbol="add"/>
+<entry filename="source/dataQueue.mc" id="23" lineNum="18" pc="268441890" symbol="add"/>
+<entry filename="source/dataQueue.mc" id="23" lineNum="19" pc="268441921" symbol="add"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="22" pc="268441931" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="23" pc="268441935" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="24" pc="268441942" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="25" pc="268441949" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="26" pc="268441970" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="27" pc="268441986" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="28" pc="268442002" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="31" pc="268442028" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="32" pc="268442039" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="24" lineNum="34" pc="268442044" symbol="average"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="38" pc="268442060" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="39" pc="268442064" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="40" pc="268442067" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="41" pc="268442088" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="42" pc="268442104" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="44" pc="268442110" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="45" pc="268442137" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="25" lineNum="48" pc="268442166" symbol="max"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="62" pc="268442170" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="63" pc="268442174" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="64" pc="268442177" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="65" pc="268442198" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="66" pc="268442214" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="68" pc="268442220" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="69" pc="268442247" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="26" lineNum="72" pc="268442276" symbol="min"/>
+<entry filename="source/dataQueue.mc" id="27" lineNum="75" pc="268442280" symbol="prev"/>
+<entry filename="source/dataQueue.mc" id="27" lineNum="76" pc="268442284" symbol="prev"/>
+<entry filename="source/dataQueue.mc" id="27" lineNum="77" pc="268442298" symbol="prev"/>
+<entry filename="source/dataQueue.mc" id="27" lineNum="79" pc="268442303" symbol="prev"/>
 </pcToLineNum>
 <symbolTable>
 <entry field="true" id="24" symbol="cad"/>
@@ -416,74 +416,74 @@
 <entry endPc="268436926" name="dc" stackId="1" startPc="268436561"/>
 <entry endPc="268437442" name="dc" stackId="1" startPc="268437437"/>
 <entry endPc="268437442" name="presentedDistance" stackId="2" startPc="268437437"/>
-<entry endPc="268438219" name="hours" stackId="7" startPc="268437446"/>
-<entry endPc="268438219" name="minutes" stackId="6" startPc="268437446"/>
-<entry endPc="268438219" name="seconds" stackId="5" startPc="268437446"/>
-<entry endPc="268438219" name="d" stackId="4" startPc="268437446"/>
-<entry endPc="268438219" name="displayHr" stackId="3" startPc="268437446"/>
-<entry endPc="268438220" name="dc" stackId="1" startPc="268437442"/>
-<entry endPc="268438220" name="presentedDistance" stackId="2" startPc="268437442"/>
-<entry endPc="268438719" name="step" stackId="6" startPc="268438316"/>
-<entry endPc="268438719" name="diff" stackId="7" startPc="268438316"/>
-<entry endPc="268438719" name="pitch" stackId="5" startPc="268438316"/>
-<entry endPc="268438720" name="height" stackId="4" startPc="268438220"/>
-<entry endPc="268438720" name="x" stackId="2" startPc="268438220"/>
-<entry endPc="268438720" name="dc" stackId="1" startPc="268438220"/>
-<entry endPc="268438720" name="y" stackId="3" startPc="268438220"/>
-<entry endPc="268439266" name="i" stackId="4" startPc="268438749"/>
-<entry endPc="268439266" name="step" stackId="5" startPc="268438749"/>
-<entry endPc="268439359" name="x" stackId="2" startPc="268438720"/>
-<entry endPc="268439359" name="dc" stackId="1" startPc="268438720"/>
-<entry endPc="268439359" name="y" stackId="3" startPc="268438720"/>
-<entry endPc="268440333" name="yL" stackId="11" startPc="268439363"/>
-<entry endPc="268440333" name="max" stackId="8" startPc="268439363"/>
-<entry endPc="268440333" name="min" stackId="9" startPc="268439363"/>
-<entry endPc="268440333" name="i" stackId="7" startPc="268439363"/>
-<entry endPc="268440333" name="h" stackId="6" startPc="268439363"/>
-<entry endPc="268440333" name="baseline" stackId="12" startPc="268439363"/>
-<entry endPc="268440333" name="scale" stackId="10" startPc="268439363"/>
-<entry endPc="268440333" name="pace" stackId="13" startPc="268439363"/>
-<entry endPc="268440334" name="height" stackId="4" startPc="268439359"/>
-<entry endPc="268440334" name="x" stackId="2" startPc="268439359"/>
-<entry endPc="268440334" name="dc" stackId="1" startPc="268439359"/>
-<entry endPc="268440334" name="barWidth" stackId="5" startPc="268439359"/>
-<entry endPc="268440334" name="y" stackId="3" startPc="268439359"/>
-<entry endPc="268440514" name="padding" stackId="9" startPc="268440483"/>
-<entry endPc="268441219" name="minHr" stackId="7" startPc="268440338"/>
-<entry endPc="268441219" name="maxHr" stackId="5" startPc="268440338"/>
-<entry endPc="268441219" name="zoneY" stackId="12" startPc="268440338"/>
-<entry endPc="268441219" name="i" stackId="11" startPc="268440338"/>
-<entry endPc="268441219" name="h" stackId="6" startPc="268440338"/>
-<entry endPc="268441219" name="range" stackId="8" startPc="268440338"/>
-<entry endPc="268441219" name="px" stackId="14" startPc="268440338"/>
-<entry endPc="268441219" name="v" stackId="10" startPc="268440338"/>
-<entry endPc="268441219" name="pv" stackId="15" startPc="268440338"/>
-<entry endPc="268441219" name="curRange" stackId="13" startPc="268440338"/>
-<entry endPc="268441220" name="height" stackId="4" startPc="268440334"/>
-<entry endPc="268441220" name="x" stackId="2" startPc="268440334"/>
-<entry endPc="268441220" name="dc" stackId="1" startPc="268440334"/>
-<entry endPc="268441220" name="y" stackId="3" startPc="268440334"/>
-<entry endPc="268441350" name="minutes" stackId="3" startPc="268441224"/>
-<entry endPc="268441350" name="seconds" stackId="2" startPc="268441224"/>
-<entry endPc="268441351" name="pace" stackId="1" startPc="268441220"/>
-<entry endPc="268441821" name="zonedegree" stackId="7" startPc="268441468"/>
-<entry endPc="268441821" name="os" stackId="8" startPc="268441468"/>
-<entry endPc="268441824" name="i" stackId="6" startPc="268441355"/>
-<entry endPc="268441825" name="radius" stackId="2" startPc="268441351"/>
-<entry endPc="268441825" name="dc" stackId="1" startPc="268441351"/>
-<entry endPc="268441825" name="hr" stackId="5" startPc="268441351"/>
-<entry endPc="268441825" name="centerY" stackId="4" startPc="268441351"/>
-<entry endPc="268441825" name="centerX" stackId="3" startPc="268441351"/>
-<entry endPc="268441851" name="arraySize" stackId="1" startPc="268441825"/>
-<entry endPc="268441915" name="element" stackId="1" startPc="268441851"/>
-<entry endPc="268442012" name="i" stackId="3" startPc="268441954"/>
-<entry endPc="268442043" name="size" stackId="2" startPc="268441919"/>
-<entry endPc="268442043" name="sum" stackId="1" startPc="268441919"/>
-<entry endPc="268442150" name="i" stackId="2" startPc="268442072"/>
-<entry endPc="268442153" name="max" stackId="1" startPc="268442048"/>
-<entry endPc="268442260" name="i" stackId="2" startPc="268442182"/>
-<entry endPc="268442263" name="min" stackId="1" startPc="268442158"/>
-<entry endPc="268442333" name="i" stackId="1" startPc="268442264"/>
+<entry endPc="268438213" name="hours" stackId="7" startPc="268437446"/>
+<entry endPc="268438213" name="minutes" stackId="6" startPc="268437446"/>
+<entry endPc="268438213" name="seconds" stackId="5" startPc="268437446"/>
+<entry endPc="268438213" name="d" stackId="4" startPc="268437446"/>
+<entry endPc="268438213" name="displayHr" stackId="3" startPc="268437446"/>
+<entry endPc="268438214" name="dc" stackId="1" startPc="268437442"/>
+<entry endPc="268438214" name="presentedDistance" stackId="2" startPc="268437442"/>
+<entry endPc="268438713" name="step" stackId="6" startPc="268438310"/>
+<entry endPc="268438713" name="diff" stackId="7" startPc="268438310"/>
+<entry endPc="268438713" name="pitch" stackId="5" startPc="268438310"/>
+<entry endPc="268438714" name="height" stackId="4" startPc="268438214"/>
+<entry endPc="268438714" name="x" stackId="2" startPc="268438214"/>
+<entry endPc="268438714" name="dc" stackId="1" startPc="268438214"/>
+<entry endPc="268438714" name="y" stackId="3" startPc="268438214"/>
+<entry endPc="268439282" name="i" stackId="4" startPc="268438765"/>
+<entry endPc="268439282" name="step" stackId="5" startPc="268438765"/>
+<entry endPc="268439375" name="x" stackId="2" startPc="268438714"/>
+<entry endPc="268439375" name="dc" stackId="1" startPc="268438714"/>
+<entry endPc="268439375" name="y" stackId="3" startPc="268438714"/>
+<entry endPc="268440349" name="yL" stackId="11" startPc="268439379"/>
+<entry endPc="268440349" name="max" stackId="8" startPc="268439379"/>
+<entry endPc="268440349" name="min" stackId="9" startPc="268439379"/>
+<entry endPc="268440349" name="i" stackId="7" startPc="268439379"/>
+<entry endPc="268440349" name="h" stackId="6" startPc="268439379"/>
+<entry endPc="268440349" name="baseline" stackId="12" startPc="268439379"/>
+<entry endPc="268440349" name="scale" stackId="10" startPc="268439379"/>
+<entry endPc="268440349" name="pace" stackId="13" startPc="268439379"/>
+<entry endPc="268440350" name="height" stackId="4" startPc="268439375"/>
+<entry endPc="268440350" name="x" stackId="2" startPc="268439375"/>
+<entry endPc="268440350" name="dc" stackId="1" startPc="268439375"/>
+<entry endPc="268440350" name="barWidth" stackId="5" startPc="268439375"/>
+<entry endPc="268440350" name="y" stackId="3" startPc="268439375"/>
+<entry endPc="268440530" name="padding" stackId="9" startPc="268440499"/>
+<entry endPc="268441235" name="minHr" stackId="7" startPc="268440354"/>
+<entry endPc="268441235" name="maxHr" stackId="5" startPc="268440354"/>
+<entry endPc="268441235" name="zoneY" stackId="12" startPc="268440354"/>
+<entry endPc="268441235" name="i" stackId="11" startPc="268440354"/>
+<entry endPc="268441235" name="h" stackId="6" startPc="268440354"/>
+<entry endPc="268441235" name="range" stackId="8" startPc="268440354"/>
+<entry endPc="268441235" name="px" stackId="14" startPc="268440354"/>
+<entry endPc="268441235" name="v" stackId="10" startPc="268440354"/>
+<entry endPc="268441235" name="pv" stackId="15" startPc="268440354"/>
+<entry endPc="268441235" name="curRange" stackId="13" startPc="268440354"/>
+<entry endPc="268441236" name="height" stackId="4" startPc="268440350"/>
+<entry endPc="268441236" name="x" stackId="2" startPc="268440350"/>
+<entry endPc="268441236" name="dc" stackId="1" startPc="268440350"/>
+<entry endPc="268441236" name="y" stackId="3" startPc="268440350"/>
+<entry endPc="268441366" name="minutes" stackId="3" startPc="268441240"/>
+<entry endPc="268441366" name="seconds" stackId="2" startPc="268441240"/>
+<entry endPc="268441367" name="pace" stackId="1" startPc="268441236"/>
+<entry endPc="268441837" name="zonedegree" stackId="7" startPc="268441484"/>
+<entry endPc="268441837" name="os" stackId="8" startPc="268441484"/>
+<entry endPc="268441840" name="i" stackId="6" startPc="268441371"/>
+<entry endPc="268441841" name="radius" stackId="2" startPc="268441367"/>
+<entry endPc="268441841" name="dc" stackId="1" startPc="268441367"/>
+<entry endPc="268441841" name="hr" stackId="5" startPc="268441367"/>
+<entry endPc="268441841" name="centerY" stackId="4" startPc="268441367"/>
+<entry endPc="268441841" name="centerX" stackId="3" startPc="268441367"/>
+<entry endPc="268441867" name="arraySize" stackId="1" startPc="268441841"/>
+<entry endPc="268441931" name="element" stackId="1" startPc="268441867"/>
+<entry endPc="268442028" name="i" stackId="3" startPc="268441970"/>
+<entry endPc="268442059" name="size" stackId="2" startPc="268441935"/>
+<entry endPc="268442059" name="sum" stackId="1" startPc="268441935"/>
+<entry endPc="268442166" name="i" stackId="2" startPc="268442088"/>
+<entry endPc="268442169" name="max" stackId="1" startPc="268442064"/>
+<entry endPc="268442276" name="i" stackId="2" startPc="268442198"/>
+<entry endPc="268442279" name="min" stackId="1" startPc="268442174"/>
+<entry endPc="268442349" name="i" stackId="1" startPc="268442280"/>
 </localVars>
 <annotations/>
 <dataEntryOffsetMappings>

@@ -162,12 +162,10 @@ class RunningTrendsView extends Ui.DataField {
 
         dc.setColor(backgroundColor, backgroundColor);
         dc.clear();
-
         drawHrChart(dc, chartsX+10, topChartY - 1, centerY-topChartY);
         drawPaceChart(dc, chartsX-5, bottomChartY, 50, 13);
         drawZoneBarsArcs(dc, centerY, centerX, centerY, hr);
         drawGuide(dc, mainMetricsX, centerY);
-
         //distance
         var d = showLapMetrics ? distance - lastLapStartDistance : distance;
         if (d < 0) {
@@ -175,7 +173,6 @@ class RunningTrendsView extends Ui.DataField {
         }
         var presentedDistanceValue = d / referenceDistance;
         d = (presentedDistanceValue < 100) ? presentedDistanceValue.format("%.2f") : presentedDistanceValue.format("%.1f");
-
         drawValues(dc, d);
     }
 
@@ -194,7 +191,7 @@ class RunningTrendsView extends Ui.DataField {
             referenceDistance = 1000;
             distanceString = "km";
         }
-        midStr = Ui.loadResource(showLapMetrics ? Rez.Strings.cad : Rez.Strings.lapPace);
+        midStr = Ui.loadResource( showCadence ? Rez.Strings.cad : Rez.Strings.lapPace);
         
         if (UserProfile has :getHeartRateZones) {
             zoneMaxLimits = UserProfile.getHeartRateZones(UserProfile.HR_ZONE_SPORT_RUNNING);
@@ -231,7 +228,8 @@ class RunningTrendsView extends Ui.DataField {
 
         // distance unit
         dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
-        dc.drawText(width / 2 + dc.getTextWidthInPixels(presentedDistance, value_font) >> 1 + 5, 40, label_font, distanceString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+        dc.drawText(centerX + dc.getTextWidthInPixels(presentedDistance, value_font)>>1 + 5, 40, label_font, distanceString, Graphics.TEXT_JUSTIFY_LEFT | Graphics.TEXT_JUSTIFY_VCENTER);
+
         // distance
         dc.drawText(centerX, fourthY, value_font, presentedDistance, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
 
@@ -250,7 +248,6 @@ class RunningTrendsView extends Ui.DataField {
             d = Lang.format("$1$:$2$", [minutes, seconds.format("%02i")]);
         }
         dc.drawText(centerX, height-fourthY, value_font, d, Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER);
-
     }
 
     function drawPaceDiff(dc, x, y, height) {
@@ -292,7 +289,7 @@ class RunningTrendsView extends Ui.DataField {
     }
 
     function drawGuide(dc, x, y) {
-        if ( showCadence && cad) {
+        if ( showCadence && cad != null && cad > 0) {
             var i = 0;
             var step = 0;
 
@@ -303,14 +300,14 @@ class RunningTrendsView extends Ui.DataField {
             if (cad > cadMaxLimits[i]) {
                 cad = cadMaxLimits[i];
             }
-
             // hint
             dc.setColor(cadColor[i], Graphics.COLOR_TRANSPARENT);
             dc.drawText(x, y, label_font, midStr, Graphics.TEXT_JUSTIFY_RIGHT | Graphics.TEXT_JUSTIFY_VCENTER);
-            
+           
             // indicator
             x -= dc.getTextWidthInPixels(midStr, label_font) +12;
             y-=1;
+
             if (cad >= cadMaxLimits[3]) { 
                 step = -1;
                 y+=6;
@@ -320,12 +317,12 @@ class RunningTrendsView extends Ui.DataField {
                 dc.fillRectangle(x, y, 8, 8);
                 return;
             }
-    
             dc.fillPolygon([
                 [x, y],
                 [x + 8, y],
                 [x + 4, y + 8 * step]
             ]);
+
             
         } else {
             dc.setColor(darkColor, Graphics.COLOR_TRANSPARENT);
